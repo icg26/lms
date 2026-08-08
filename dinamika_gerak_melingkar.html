@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dinamika Gerak Melingkar (Gaya Sentripetal)</title>
+    <!-- Konfigurasi MathJax -->
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #34495e;
+            --accent: #3498db;
+            --bg: #f8f9fa;
+            --card-bg: #ffffff;
+            --text: #333333;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--bg);
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            color: var(--primary);
+            border-bottom: 3px solid var(--accent);
+            padding-bottom: 10px;
+            margin-bottom: 40px;
+        }
+        h2 {
+            color: var(--primary);
+            border-left: 5px solid var(--accent);
+            padding-left: 15px;
+            margin-top: 0;
+        }
+        .section-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            align-items: start;
+        }
+        @media (max-width: 768px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .svg-container {
+            background-color: #f1f4f8;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            border: 1px solid #e1e4e8;
+        }
+        .derivation {
+            background-color: #fcfcfc;
+            border-left: 3px solid #2ecc71;
+            padding: 15px;
+            border-radius: 0 8px 8px 0;
+        }
+        .note {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 10px 15px;
+            margin-bottom: 20px;
+            font-size: 0.95em;
+        }
+        .formula-box {
+            background-color: #e8f4fd;
+            padding: 15px;
+            border-radius: 6px;
+            text-align: center;
+            font-weight: bold;
+            margin-top: 15px;
+            border: 1px solid #b6d4fe;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Dinamika Gerak Melingkar (Gaya Sentripetal)</h1>
+    <div class="note">
+        <strong>Prinsip Dasar:</strong> Gaya sentripetal ($F_s$) <em>bukan</em> gaya jenis baru, melainkan resultan gaya-gaya nyata (normal, berat, gesek, tegangan) yang mengarah ke pusat lingkaran lintasan benda. <br>
+        Persamaan dasarnya: $$ \Sigma F_r = m a_s = m \frac{v^2}{R} $$
+    </div>
+
+    <!-- 1. Tikungan Datar -->
+    <div class="section-card">
+        <h2>1. Tikungan Datar (Flat Curve)</h2>
+        <p>Pada jalan datar, gaya yang bertindak sebagai gaya sentripetal sepenuhnya adalah gaya gesek statis ($f_s$) antara ban dan aspal.</p>
+        <div class="content-grid">
+            <div class="svg-container">
+                <svg width="100%" viewBox="0 0 300 200">
+                    <defs>
+                        <marker id="arrow-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#3498db" /></marker>
+                        <marker id="arrow-red" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#e74c3c" /></marker>
+                        <marker id="arrow-green" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#2ecc71" /></marker>
+                    </defs>
+                    <!-- ground -->
+                    <line x1="20" y1="160" x2="280" y2="160" stroke="#7f8c8d" stroke-width="3"/>
+                    <text x="20" y="180" fill="#7f8c8d" font-size="12">Pusat Lintasan (Kiri)</text>
+                    <!-- car -->
+                    <rect x="120" y="120" width="60" height="40" fill="#95a5a6" rx="4"/>
+                    <circle cx="135" cy="160" r="8" fill="#333"/>
+                    <circle cx="165" cy="160" r="8" fill="#333"/>
+                    <!-- vectors -->
+                    <line x1="150" y1="140" x2="150" y2="195" stroke="#e74c3c" stroke-width="2" marker-end="url(#arrow-red)"/>
+                    <text x="160" y="190" fill="#e74c3c">mg</text>
+                    
+                    <line x1="150" y1="120" x2="150" y2="60" stroke="#3498db" stroke-width="2" marker-end="url(#arrow-blue)"/>
+                    <text x="160" y="70" fill="#3498db">N</text>
+                    
+                    <line x1="120" y1="150" x2="60" y2="150" stroke="#2ecc71" stroke-width="2" marker-end="url(#arrow-green)"/>
+                    <text x="75" y="140" fill="#2ecc71">f_s</text>
+                </svg>
+            </div>
+            <div class="derivation">
+                <strong>Penurunan Rumus:</strong>
+                <p>1. Sumbu Vertikal (Y): Benda tidak bergerak naik/turun.</p>
+                $$ \Sigma F_y = 0 \implies N - mg = 0 \implies N = mg $$
+                <p>2. Sumbu Radial (X): Gaya menuju pusat lingkaran.</p>
+                $$ \Sigma F_x = m \frac{v^2}{R} \implies f_s = m \frac{v^2}{R} $$
+                <p>Agar tidak selip, $f_s \le \mu_s N$. Kecepatan maksimum dicapai saat $f_s = \mu_s N$:</p>
+                $$ \mu_s (mg) = m \frac{v_{\max}^2}{R} $$
+                <div class="formula-box">
+                    $$ v_{\max} = \sqrt{\mu_s g R} $$
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. Tikungan Miring Licin -->
+    <div class="section-card">
+        <h2>2. Tikungan Miring Licin (Frictionless Banked Curve)</h2>
+        <p>Jalan dimiringkan agar komponen gaya normal ($N \sin\theta$) dapat bertindak sebagai gaya sentripetal, meskipun tanpa gesekan ($\mu_s = 0$).</p>
+        <div class="content-grid">
+            <div class="svg-container">
+                <svg width="100%" viewBox="0 0 300 250">
+                    <!-- incline (approx 20 deg) -->
+                    <polygon points="20,200 280,200 280,105" fill="#ecf0f1" stroke="#7f8c8d" stroke-width="2"/>
+                    <text x="240" y="190" font-size="14">θ</text>
+                    <text x="20" y="220" fill="#7f8c8d" font-size="12">Pusat Lintasan (Kiri)</text>
+                    
+                    <!-- Box as car -->
+                    <g transform="translate(150, 153) rotate(-20)">
+                        <rect x="-25" y="-20" width="50" height="30" fill="#95a5a6" rx="4"/>
+                        <circle cx="-15" cy="10" r="6" fill="#333"/>
+                        <circle cx="15" cy="10" r="6" fill="#333"/>
+                    </g>
+                    
+                    <!-- mg -->
+                    <line x1="150" y1="153" x2="150" y2="230" stroke="#e74c3c" stroke-width="2" marker-end="url(#arrow-red)"/>
+                    <text x="160" y="220" fill="#e74c3c">mg</text>
+                    
+                    <!-- N (perpendicular to surface, approx -70 deg from vertical) -->
+                    <line x1="150" y1="153" x2="110" y2="43" stroke="#3498db" stroke-width="2" marker-end="url(#arrow-blue)"/>
+                    <text x="95" y="55" fill="#3498db">N</text>
+                    
+                    <!-- N components -->
+                    <line x1="150" y1="153" x2="110" y2="153" stroke="#3498db" stroke-dasharray="4,4" marker-end="url(#arrow-blue)"/>
+                    <text x="70" y="168" fill="#3498db" font-size="12">N sin θ</text>
+                    
+                    <line x1="110" y1="153" x2="110" y2="43" stroke="#3498db" stroke-dasharray="4,4"/>
+                    <text x="115" y="100" fill="#3498db" font-size="12">N cos θ</text>
+                </svg>
+            </div>
+            <div class="derivation">
+                <strong>Penurunan Rumus:</strong>
+                <p>1. Sumbu Vertikal (Y):</p>
+                $$ \Sigma F_y = 0 \implies N \cos\theta - mg = 0 $$
+                $$ N = \frac{mg}{\cos\theta} $$
+                <p>2. Sumbu Radial (X): Komponen horisontal N menuju pusat.</p>
+                $$ \Sigma F_x = m \frac{v^2}{R} \implies N \sin\theta = m \frac{v^2}{R} $$
+                <p>Substitusi nilai N ke persamaan X:</p>
+                $$ \left(\frac{mg}{\cos\theta}\right) \sin\theta = m \frac{v^2}{R} $$
+                $$ g \tan\theta = \frac{v^2}{R} $$
+                <div class="formula-box">
+                    $$ v_{\text{ideal}} = \sqrt{g R \tan\theta} $$
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. Tikungan Miring Kasar -->
+    <div class="section-card">
+        <h2>3. Tikungan Miring Kasar (Rough Banked Curve)</h2>
+        <p>Dengan gesekan, kendaraan memiliki rentang kecepatan aman ($v_{\min} \le v \le v_{\max}$). Analisis di bawah adalah untuk <strong>Kecepatan Maksimum</strong> ($v_{\max}$), di mana kendaraan cenderung meluncur ke luar (atas), sehingga gaya gesek $f_s$ arahnya <strong>ke bawah menyusuri kemiringan</strong>.</p>
+        <div class="content-grid">
+            <div class="svg-container">
+                <svg width="100%" viewBox="0 0 300 250">
+                    <!-- incline -->
+                    <polygon points="20,200 280,200 280,105" fill="#ecf0f1" stroke="#7f8c8d" stroke-width="2"/>
+                    <text x="240" y="190" font-size="14">θ</text>
+                    
+                    <!-- Box as car -->
+                    <g transform="translate(150, 153) rotate(-20)">
+                        <rect x="-25" y="-20" width="50" height="30" fill="#95a5a6" rx="4"/>
+                    </g>
+                    
+                    <!-- mg -->
+                    <line x1="150" y1="153" x2="150" y2="230" stroke="#e74c3c" stroke-width="2" marker-end="url(#arrow-red)"/>
+                    <text x="160" y="230" fill="#e74c3c" font-size="12">mg</text>
+                    
+                    <!-- N -->
+                    <line x1="150" y1="153" x2="110" y2="43" stroke="#3498db" stroke-width="2" marker-end="url(#arrow-blue)"/>
+                    <text x="95" y="55" fill="#3498db" font-size="12">N</text>
+                    
+                    <!-- fs (down the incline) -->
+                    <line x1="150" y1="153" x2="210" y2="175" stroke="#2ecc71" stroke-width="2" marker-end="url(#arrow-green)"/>
+                    <text x="200" y="165" fill="#2ecc71" font-size="12">f_s</text>
+                    
+                    <!-- X-Y dashed axes -->
+                    <line x1="50" y1="153" x2="250" y2="153" stroke="#ccc" stroke-dasharray="2,2"/>
+                    <line x1="150" y1="50" x2="150" y2="250" stroke="#ccc" stroke-dasharray="2,2"/>
+                </svg>
+            </div>
+            <div class="derivation">
+                <strong>Penurunan $v_{\max}$:</strong>
+                <p>1. Uraikan gaya pada Sumbu Vertikal (Y):</p>
+                $$ N \cos\theta - f_s \sin\theta - mg = 0 $$
+                $$ N \cos\theta - (\mu_s N) \sin\theta = mg $$
+                $$ N = \frac{mg}{\cos\theta - \mu_s \sin\theta} $$
+                <p>2. Sumbu Radial (X):</p>
+                $$ N \sin\theta + f_s \cos\theta = m \frac{v_{\max}^2}{R} $$
+                $$ N (\sin\theta + \mu_s \cos\theta) = m \frac{v_{\max}^2}{R} $$
+                <p>3. Substitusi $N$ ke pers. X dan bagi pembilang & penyebut dengan $\cos\theta$:</p>
+                $$ \frac{mg (\sin\theta + \mu_s \cos\theta)}{\cos\theta - \mu_s \sin\theta} = m \frac{v_{\max}^2}{R} $$
+                $$ g \left( \frac{\tan\theta + \mu_s}{1 - \mu_s \tan\theta} \right) = \frac{v_{\max}^2}{R} $$
+                <div class="formula-box">
+                    $$ v_{\max} = \sqrt{g R \left( \frac{\tan\theta + \mu_s}{1 - \mu_s \tan\theta} \right)} $$
+                </div>
+                <em>Untuk $v_{\min}$, arah $f_s$ terbalik (ke atas), menghasilkan tanda $\mu_s$ yang berlawanan.</em>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4. Pendulum Konik -->
+    <div class="section-card">
+        <h2>4. Pendulum Konik (Conical Pendulum)</h2>
+        <p>Benda bermassa $m$ digantung dengan tali panjang $L$, berputar membentuk kerucut horisontal.</p>
+        <div class="content-grid">
+            <div class="svg-container">
+                <svg width="100%" viewBox="0 0 300 250">
+                    <!-- ceiling -->
+                    <line x1="100" y1="30" x2="200" y2="30" stroke="#7f8c8d" stroke-width="3"/>
+                    <line x1="150" y1="30" x2="150" y2="180" stroke="#ccc" stroke-dasharray="4,4"/> <!-- vertical center -->
+                    
+                    <!-- string -->
+                    <line x1="150" y1="30" x2="90" y2="180" stroke="#555" stroke-width="2"/>
+                    
+                    <!-- angle -->
+                    <path d="M 140 55 A 25 25 0 0 0 150 55" fill="none" stroke="#333"/>
+                    <text x="135" y="70" font-size="12">θ</text>
+                    
+                    <!-- mass -->
+                    <circle cx="90" cy="180" r="10" fill="#9b59b6"/>
+                    
+                    <!-- circle path -->
+                    <ellipse cx="150" cy="180" rx="60" ry="15" fill="none" stroke="#ccc" stroke-width="1.5" stroke-dasharray="4,4"/>
+                    
+                    <!-- mg -->
+                    <line x1="90" y1="180" x2="90" y2="230" stroke="#e74c3c" stroke-width="2" marker-end="url(#arrow-red)"/>
+                    <text x="70" y="220" fill="#e74c3c" font-size="12">mg</text>
+                    
+                    <!-- T -->
+                    <line x1="90" y1="180" x2="120" y2="105" stroke="#f39c12" stroke-width="2" marker-end="url(#arrow-blue)"/>
+                    <text x="110" y="95" fill="#f39c12" font-size="12">T</text>
+                    
+                    <!-- T components -->
+                    <line x1="90" y1="180" x2="150" y2="180" stroke="#f39c12" stroke-dasharray="3,3" marker-end="url(#arrow-blue)"/>
+                    <text x="105" y="170" fill="#f39c12" font-size="10">T sin θ</text>
+                    <line x1="90" y1="180" x2="90" y2="105" stroke="#f39c12" stroke-dasharray="3,3" marker-end="url(#arrow-blue)"/>
+                    <text x="50" y="145" fill="#f39c12" font-size="10">T cos θ</text>
+                    
+                    <!-- Radius -->
+                    <text x="120" y="195" font-size="12">R = L sin θ</text>
+                </svg>
+            </div>
+            <div class="derivation">
+                <strong>Penurunan Rumus:</strong>
+                <p>1. Sumbu Vertikal (Y):</p>
+                $$ T \cos\theta - mg = 0 \implies T = \frac{mg}{\cos\theta} $$
+                <p>2. Sumbu Radial (X): Komponen horisontal T menuju pusat lintasan ($R$).</p>
+                $$ T \sin\theta = m \frac{v^2}{R} $$
+                <p>Bagi persamaan X dengan Y:</p>
+                $$ \frac{T \sin\theta}{T \cos\theta} = \frac{m \frac{v^2}{R}}{mg} $$
+                $$ \tan\theta = \frac{v^2}{gR} \implies v = \sqrt{g R \tan\theta} $$
+                <p>Dari $v = \frac{2\pi R}{T_p}$ dan $R = L \sin\theta$, didapat Periode Putaran:</p>
+                <div class="formula-box">
+                    $$ T_p = 2\pi \sqrt{\frac{L \cos\theta}{g}} $$
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 5 & 6. Loop Vertikal -->
+    <div class="section-card">
+        <h2>5 & 6. Gerak di Sisi Dalam & Luar Lingkaran Vertikal</h2>
+        <div class="content-grid">
+            <div class="svg-container" style="flex-direction: column;">
+                <svg width="100%" viewBox="0 0 300 180">
+                    <text x="10" y="20" font-weight="bold" font-size="12">Sisi Dalam Lingkaran (Roller Coaster)</text>
+                    <circle cx="150" cy="100" r="70" fill="none" stroke="#7f8c8d" stroke-width="2"/>
+                    <circle cx="150" cy="100" r="2" fill="#333"/>
+                    
+                    <!-- Top position -->
+                    <circle cx="150" cy="30" r="8" fill="#e67e22"/>
+                    <line x1="150" y1="30" x2="150" y2="70" stroke="#e74c3c" stroke-width="2" marker-end="url(#arrow-red)"/>
+                    <text x="160" y="55" fill="#e74c3c" font-size="10">mg + N</text>
+                    
+                    <!-- Bottom position -->
+                    <circle cx="150" cy="170" r="8" fill="#e67e22"/>
+                    <line x1="150" y1="170" x2="150" y2="120" stroke="#3498db" stroke-width="2" marker-end="url(#arrow-blue)"/>
+                    <text x="135" y="145" fill="#3498db" font-size="10">N</text>
+                    <line x1="150" y1="170" x2="150" y2="200" stroke="#e74c3c" stroke-width="2" marker-end="url(#arrow-red)"/>
+                    <text x="160" y="195" fill="#e74c3c" font-size="10">mg</text>
+                </svg>
+                <hr style="width: 80%; border: 0; border-top: 1px solid #ccc; margin: 15px 0;">
+                <svg width="100%" viewBox="0 0 300 120">
+                    <text x="10" y="20" font-weight="bold" font-size="12">Sisi Luar (Puncak Bukit Cembung)</text>
+                    <!-- Hill arc -->
+                    <path d="M 50 120 Q 150 -20 250 120" fill="none" stroke="#7f8c8d" stroke-width="2"/>
+                    <circle cx="150" cy="50" r="8" fill="#e67e22"/>
+                    
+                    <!-- N up -->
+                    <line x1="150" y1="50" x2="150" y2="10" stroke="#3498db" stroke-width="2" marker-end="url(#arrow-blue)"/>
+                    <text x="160" y="25" fill="#3498db" font-size="10">N</text>
+                    
+                    <!-- mg down -->
+                    <line x1="150" y1="50" x2="150" y2="90" stroke="#e74c3c" stroke-width="2" marker-end="url(#arrow-red)"/>
+                    <text x="160" y="85" fill="#e74c3c" font-size="10">mg</text>
+                </svg>
+            </div>
+            <div class="derivation">
+                <strong>Analisis Sisi Dalam (Roller Coaster):</strong>
+                <p>$\bullet$ <strong>Titik Dasar (Bawah):</strong> Pusat lingkaran berada di atas benda. Arah positif ke atas.</p>
+                $$ \Sigma F_r = m \frac{v^2}{R} \implies N - mg = m \frac{v^2}{R} $$
+                <div class="formula-box" style="padding: 10px; margin-top:5px; font-size: 0.9em;">$$ N = m \left( g + \frac{v^2}{R} \right) $$</div>
+                
+                <p>$\bullet$ <strong>Titik Puncak (Atas):</strong> Pusat lingkaran berada di bawah benda. Arah positif ke bawah.</p>
+                $$ \Sigma F_r = m \frac{v^2}{R} \implies N + mg = m \frac{v^2}{R} $$
+                <div class="formula-box" style="padding: 10px; margin-top:5px; font-size: 0.9em;">$$ N = m \left( \frac{v^2}{R} - g \right) $$</div>
+                
+                <hr style="border: 0; border-top: 1px dashed #ccc; margin: 15px 0;">
+                
+                <strong>Analisis Sisi Luar (Bukit Cembung):</strong>
+                <p>Di puncak bukit, pusat lingkaran berada di bawah benda.</p>
+                $$ \Sigma F_r = m \frac{v^2}{R} \implies mg - N = m \frac{v^2}{R} $$
+                <div class="formula-box" style="padding: 10px; margin-top:5px; font-size: 0.9em;">$$ N = m \left( g - \frac{v^2}{R} \right) $$</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 7. Gerak Tanpa Bobot -->
+    <div class="section-card" style="border-left: 5px solid #f1c40f;">
+        <h2 style="border-left: none; padding-left: 0;">7. Gerak Tanpa Bobot (Apparent Weightlessness)</h2>
+        <p>Sensasi "tanpa bobot" terasa ketika gaya kontak antara tubuh dengan lingkungan (seperti Gaya Normal $N$ pada kursi) bernilai <strong>Nol</strong>. Tubuh Anda dan kendaraan jatuh bebas pada percepatan yang sama akibat gravitasi.</p>
+        <p><strong>Contoh Kritis:</strong></p>
+        <ul>
+            <li><strong>Di puncak bukit cembung:</strong> Agar mobil hampir melayang (tidak terlempar, tapi $N=0$):<br>
+                $$ mg - 0 = m \frac{v^2}{R} \implies v = \sqrt{gR} $$
+            </li>
+            <li><strong>Di puncak loop roller coaster:</strong> Kecepatan minimum agar kereta tidak jatuh ($N=0$):<br>
+                $$ 0 + mg = m \frac{v^2}{R} \implies v_{\min} = \sqrt{gR} $$
+            </li>
+        </ul>
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,477 @@
+m<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pembahasan Fisika Dinamika Partikel (6-10) - Kahfi</title>
+    
+    <!-- Konfigurasi MathJax 3 Diperbarui untuk $ dan $$ -->
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$']],
+                displayMath: [['$$', '$$']],
+                processEscapes: true
+            },
+            options: {
+                ignoreHtmlClass: 'tex2jax_ignore',
+                processHtmlClass: 'tex2jax_process'
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script" async></script>
+    
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --primary-hover: #4338ca;
+            --primary-light: #e0e7ff;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #334155;
+            --text-dark: #0f172a;
+            --border-color: #e2e8f0;
+            --misconception-bg: #fffbeb;
+            --misconception-border: #f59e0b;
+            --realworld-bg: #f0fdf4;
+            --realworld-border: #22c55e;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 35px;
+            padding: 35px 20px;
+            background: linear-gradient(135deg, var(--primary), #312e81);
+            color: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px -5px rgba(79, 70, 229, 0.3);
+        }
+
+        .header h1 {
+            margin: 0 0 10px 0;
+            font-size: 2.2em;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border-color);
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        h2 {
+            color: var(--text-dark);
+            font-size: 1.4em;
+            margin-top: 0;
+            border-bottom: 2px solid var(--primary-light);
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color: var(--primary);
+            font-size: 1.1em;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .problem-statement {
+            font-size: 1.05em;
+            color: var(--text-dark);
+            font-weight: 500;
+            background: #f1f5f9;
+            padding: 18px;
+            border-radius: 8px;
+            border-left: 5px solid var(--primary);
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: white;
+        }
+
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 12px 16px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--primary-light);
+            color: var(--primary);
+            width: 30%;
+        }
+
+        .callout {
+            padding: 16px 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 5px solid;
+        }
+
+        .callout.misconception {
+            background-color: var(--misconception-bg);
+            border-color: var(--misconception-border);
+        }
+
+        .callout.misconception h4 { color: #b45309; margin: 0 0 8px 0; }
+
+        .callout.realworld {
+            background-color: var(--realworld-bg);
+            border-color: var(--realworld-border);
+        }
+
+        .callout.realworld h4 { color: #15803d; margin: 0 0 8px 0; }
+
+        .step {
+            margin-bottom: 12px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .step::before {
+            content: "•";
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 1.5em;
+            position: absolute;
+            left: 0;
+            top: -4px;
+        }
+
+        .math-block {
+            overflow-x: auto;
+            padding: 10px 0;
+        }
+
+        .answer-box {
+            background-color: var(--primary-light);
+            color: var(--primary-hover);
+            padding: 12px 18px;
+            border-radius: 8px;
+            font-weight: 700;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        
+        @media (max-width: 600px) {
+            .card { padding: 20px; }
+            th { width: 40%; }
+        }
+    </style>
+</head>
+<body class="tex2jax_process">
+
+<div class="container">
+    <div class="header">
+        <h1>Pembahasan PH Dinamika Partikel</h1>
+    </div>
+
+    <!--  6 -->
+    <div class="card">
+        <span class="badge">Gaya Normal & Berat Semu</span>
+        <h2> Nomor 6</h2>
+        
+        <h3></h3>
+        <div class="problem-statement">
+            Seorang siswa bermassa 50 kg berada di dalam lift Gedung Laboratorium Olimpiade Terpadu MAN IC Gorontalo. Jika lift bergerak naik dengan percepatan 3 m/s² ($g = 10\text{ m/s}^2$), berapakah gaya normal (berat semu) yang dirasakan siswa dari lantai lift?<br><br>
+            A. 350 N<br>
+            B. 500 N<br>
+            C. 600 N<br>
+            D. 650 N<br>
+            E. 750 N
+        </div>
+
+        <h3>1. Identifikasi Masalah</h3>
+        <table>
+            <tr><th>Topik</th><td>Hukum II Newton pada Kerangka Acuan Dipercepat (Lift)</td></tr>
+            <tr><th>Diketahui</th><td>$m$ = 50 kg, $a$ = 3 m/s² (arah atas), $g$ = 10 m/s²</td></tr>
+            <tr><th>Ditanyakan</th><td>Gaya Normal / Berat Semu ($N$) = ?</td></tr>
+        </table>
+
+        <h3>2. Konsep Fisika & Landasan Teori</h3>
+        <p>Berdasarkan <strong>Hukum II Newton</strong>, resultan gaya pada benda berbanding lurus dengan percepatannya ($\sum F = m \cdot a$). Berat semu adalah besar Gaya Normal ($N$) yang diberikan lantai ke kaki siswa. Saat lift dipercepat ke atas, lantai harus mendorong tubuh siswa dengan gaya yang <em>lebih besar</em> dari sekadar menahan berat aslinya ($W$).</p>
+
+        <h3>3. Diagram Fisis Sistem</h3>
+        <p>Pada tubuh siswa bekerja dua gaya vertikal: Gaya Normal ($N$) berarah ke <strong>atas</strong>, dan Gaya Berat ($W = mg$) berarah ke <strong>bawah</strong>. Resultan gerak (percepatan $a$) berarah ke <strong>atas</strong>, sehingga gaya ke atas bernilai positif.</p>
+
+        <h3>4. Langkah Penyelesaian Detail</h3>
+        <div class="step">Terapkan Hukum II Newton pada sumbu-Y:
+            <div class="math-block">$$\sum F_y = m \cdot a$$</div>
+        </div>
+        <div class="step">Uraikan resultan gaya (Atas positif, Bawah negatif):
+            <div class="math-block">$$N - W = m \cdot a$$</div>
+        </div>
+        <div class="step">Isolasi variabel $N$ dan jabarkan $W = m \cdot g$:
+            <div class="math-block">$$N = W + (m \cdot a) = m(g + a)$$</div>
+        </div>
+        <div class="step">Substitusi nilai numerik:
+            <div class="math-block">$$N = 50 \cdot (10 + 3)$$</div>
+            <div class="math-block">$$N = 50 \cdot 13 = 650\text{ N}$$</div>
+        </div>
+        <div class="answer-box">Jawaban: D. 650 N</div>
+
+        <h3>5. Verifikasi & Analisis Logika</h3>
+        <p>Karena lift dipercepat searah dengan arah gaya normal (ke atas), logis jika $N > W$. Berat asli siswa adalah 500 N. Hasil perhitungan 650 N membuktikan beban yang dirasakan lebih berat akibat penambahan inersia ($m \cdot a = 150\text{ N}$).</p>
+
+        <h3>6. Bedah Mendalam</h3>
+        <div class="callout realworld">
+            <h4>🌍 Aplikasi Nyata (Sensasi Tubuh)</h4>
+            <p>Fenomena berat semu $N = 650\text{ N}$ ini adalah sensasi yang Anda rasakan di perut dan lutut saat lift baru mulai bergerak naik. Anda akan merasa tertekan lebih kuat ke lantai sebesar 150 N ekstra dibandingkan saat lift diam.</p>
+        </div>
+    </div>
+
+    <!--  7 -->
+    <div class="card">
+        <span class="badge">Sistem Benda Terhubung Tali</span>
+        <h2> Nomor 7</h2>
+        
+        <h3></h3>
+        <div class="problem-statement">
+            Dua kotak logistik, Kotak X (3 kg) dan Kotak Y (2 kg), dihubungkan oleh tali horizontal di atas lantai selasar yang licin. Kotak Y ditarik dengan gaya horizontal 35 N. Berapakah besar gaya tegangan tali antara kedua kotak tersebut?<br><br>
+            A. 14 N<br>
+            B. 21 N<br>
+            C. 25 N<br>
+            D. 28 N<br>
+            E. 35 N
+        </div>
+
+        <h3>1. Identifikasi Masalah</h3>
+        <table>
+            <tr><th>Topik</th><td>Hukum II Newton pada Sistem Multi-Massa</td></tr>
+            <tr><th>Diketahui</th><td>$m_X$ = 3 kg, $m_Y$ = 2 kg, $F$ = 35 N pada Y, Lantai Licin ($\mu = 0$).</td></tr>
+            <tr><th>Ditanyakan</th><td>Tegangan Tali internal ($T$) = ?</td></tr>
+        </table>
+
+        <h3>2. Konsep Fisika & Landasan Teori</h3>
+        <p>Kotak yang dihubungkan tali tegang akan bergerak dengan percepatan ($a$) yang sama. Untuk mencari gaya internal (Tegangan Tali), kita harus mencari percepatan sistem secara keseluruhan terlebih dahulu, kemudian meninjau salah satu balok (kerangka parsial) menggunakan Hukum II Newton ($\sum F = m \cdot a$).</p>
+
+        <h3>3. Diagram Fisis Sistem</h3>
+        <p>Sistem bergerak ke arah tarikan $F$ (misal ke kanan). Tali berada di antara X dan Y. Tali menarik kotak X ke kanan (sebagai penggerak X), dan secara bersamaan tali menarik kotak Y ke kiri (sebagai penghambat Y).</p>
+
+        <h3>4. Langkah Penyelesaian Detail</h3>
+        <div class="step">Cari percepatan sistem ($a$) dengan meninjau <strong>Total Massa</strong>:
+            <div class="math-block">$$a = \frac{\sum F_{\text{eksternal}}}{m_{\text{total}}} = \frac{F}{m_X + m_Y}$$</div>
+            <div class="math-block">$$a = \frac{35}{3 + 2} = \frac{35}{5} = 7\text{ m/s}^2$$</div>
+        </div>
+        <div class="step">Tinjau parsial pada <strong>Kotak X</strong> (Benda paling belakang):
+            <p>Satu-satunya gaya mendatar yang menarik kotak X adalah Tegangan Tali ($T$).</p>
+            <div class="math-block">$$\sum F_X = m_X \cdot a$$</div>
+            <div class="math-block">$$T = 3 \cdot 7 = 21\text{ N}$$</div>
+        </div>
+        <div class="answer-box">Jawaban: B. 21 N</div>
+
+        <h3>5. Verifikasi & Analisis Logika</h3>
+        <p>Mari kita verifikasi menggunakan Kotak Y. Gaya ke kanan $F$ = 35 N, gaya ke kiri $T$ = 21 N.<br>
+        $\sum F_Y = F - T = 35 - 21 = 14\text{ N}$.<br>
+        Dari sisi massa, $m_Y \cdot a = 2 \cdot 7 = 14\text{ N}$. Hasilnya konsisten dan terbukti benar!</p>
+
+        <h3>6. Bedah Mendalam</h3>
+        <div class="callout misconception">
+            <h4>💡 Cara Cepat (Shortcut Proporsi Massa)</h4>
+            <p>Tegangan tali hanya bertugas menarik beban yang ada <em>di belakangnya</em>. Anda bisa menggunakan perbandingan langsung:<br>
+            <div class="math-block">$$T = \left( \frac{m_{\text{yang ditarik}}}{m_{\text{total}}} \right) \cdot F_{\text{tarik}}$$</div>
+            <div class="math-block">$$T = \left( \frac{3}{3 + 2} \right) \cdot 35 = \frac{3}{5} \cdot 35 = 21\text{ N}$$</div>
+            </p>
+        </div>
+    </div>
+
+    <!--  8 -->
+    <div class="card">
+        <span class="badge">Dinamika Bidang Miring</span>
+        <h2> Nomor 8</h2>
+        
+        <h3></h3>
+        <div class="problem-statement">
+            Kotak bahan praktikum bermassa 5 kg meluncur menuruni bidang miring kasar bersudut 53°. Jika koefisien gesek kinetis bidang adalah 0,5 ($g = 10\text{ m/s}^2$), berapakah percepatan meluncur kotak tersebut?<br><br>
+            A. 2 m/s²<br>
+            B. 3 m/s²<br>
+            C. 5 m/s²<br>
+            D. 6 m/s²<br>
+            E. 8 m/s²
+        </div>
+
+        <h3>1. Identifikasi Masalah</h3>
+        <table>
+            <tr><th>Topik</th><td>Hukum II Newton pada Bidang Miring Kasar</td></tr>
+            <tr><th>Diketahui</th><td>$m$ = 5 kg, $\theta$ = 53°, $\mu_k$ = 0,5, $g$ = 10 m/s².<br>$\sin 53^\circ = 0,8$ ; $\cos 53^\circ = 0,6$</td></tr>
+            <tr><th>Ditanyakan</th><td>Percepatan benda ($a$) = ?</td></tr>
+        </table>
+
+        <h3>2. Konsep Fisika & Landasan Teori</h3>
+        <p>Pada bidang miring, sumbu gerak (X) diputar sejajar dengan bidang. Gaya gravitasi ($W$) terurai menjadi komponen sejajar bidang ($W \sin \theta$) yang menarik benda turun, dan komponen tegak lurus ($W \cos \theta$) yang dinetralkan oleh Gaya Normal ($N$).</p>
+
+        <h3>3. Diagram Fisis Sistem</h3>
+        <p>Komponen Penggerak (Sumbu X menurun): $W_x = W \sin \theta$.<br>
+        Komponen Penghambat (Sumbu X mendaki): Gaya Gesek Kinetis ($f_k = \mu_k \cdot N$).<br>
+        Sumbu Y (Tegak lurus bidang): $N = W_y = W \cos \theta$.</p>
+
+        <h3>4. Langkah Penyelesaian Detail</h3>
+        <div class="step">Uraikan Gaya Berat ($W = m \cdot g = 50\text{ N}$):
+            <div class="math-block">$$W_x = 50 \cdot \sin 53^\circ = 50 \cdot 0,8 = 40\text{ N}$$</div>
+            <div class="math-block">$$W_y = 50 \cdot \cos 53^\circ = 50 \cdot 0,6 = 30\text{ N}$$</div>
+        </div>
+        <div class="step">Tentukan Gaya Normal ($N$) dan Gaya Gesek ($f_k$):
+            <div class="math-block">$$N = W_y = 30\text{ N}$$</div>
+            <div class="math-block">$$f_k = \mu_k \cdot N = 0,5 \cdot 30 = 15\text{ N}$$</div>
+        </div>
+        <div class="step">Terapkan Hukum II Newton di Sumbu X (Bidang miring):
+            <div class="math-block">$$\sum F_x = m \cdot a$$</div>
+            <div class="math-block">$$W_x - f_k = m \cdot a$$</div>
+            <div class="math-block">$$40 - 15 = 5 \cdot a$$</div>
+            <div class="math-block">$$25 = 5a \implies a = 5\text{ m/s}^2$$</div>
+        </div>
+        <div class="answer-box">Jawaban: C. 5 m/s²</div>
+
+        <h3>5. Verifikasi & Analisis Logika</h3>
+        <p>Dimensi gaya (N) dibagi massa (kg) menghasilkan percepatan (m/s²). Benda meluncur karena gaya penggerak (40 N) secara nyata lebih besar dari hambatan gesekan (15 N). Hasil $a$ = 5 m/s² logis karena kurang dari gravitasi jatuh bebas.</p>
+
+        <h3>6. Bedah Mendalam</h3>
+        <div class="callout misconception">
+            <h4>⚠️ Miskonsepsi Trigonometri</h4>
+            <p>Seringkali siswa terbalik menggunakan Sin dan Cos. Ingat: pada bidang miring, yang <strong>me-lun-cur</strong> (SLIDE) menggunakan <strong>Sin</strong> ($mg \sin \theta$), dan yang menekan (CLOSE to surface) menggunakan <strong>Cos</strong> ($mg \cos \theta$).</p>
+        </div>
+    </div>
+
+    <!--  9 -->
+    <div class="card">
+        <span class="badge">Gaya Gesek & Dinding Vertikal</span>
+        <h2> Nomor 9</h2>
+        
+        <h3></h3>
+        <div class="problem-statement">
+            Siswa menahan papan mading bermassa 3 kg dengan menekannya secara tegak lurus ke dinding vertikal menggunakan gaya mendatar 100 N. Jika koefisien gesek statis dinding 0,4 ($g = 10\text{ m/s}^2$), berapakah gaya gesek statis yang bekerja menahan mading agar tidak jatuh?<br><br>
+            A. 30 N<br>
+            B. 40 N<br>
+            C. 70 N<br>
+            D. 100 N<br>
+            E. 120 N
+        </div>
+
+        <h3>1. Identifikasi Masalah</h3>
+        <table>
+            <tr><th>Topik</th><td>Keseimbangan Statis pada Dinding Vertikal</td></tr>
+            <tr><th>Diketahui</th><td>$m$ = 3 kg $\implies W$ = 30 N, $F_{\text{tekan}}$ = 100 N, $\mu_s$ = 0,4</td></tr>
+            <tr><th>Ditanyakan</th><td>Gaya Gesek Statis Aktual ($f_s$) = ?</td></tr>
+        </table>
+
+        <h3>2. Konsep Fisika & Landasan Teori</h3>
+        <p>Pada bidang vertikal, <strong>Gaya Normal ($N$)</strong> ditimbulkan oleh gaya tekan mendatar kita, bukan oleh berat benda. Hukum I Newton ($\sum F = 0$) berlaku karena benda ditahan agar diam.</p>
+
+        <h3>3. Diagram Fisis Sistem</h3>
+        <p>Sumbu Horizontal: $F_{\text{tekan}}$ menekan ke dinding (kanan), Dinding membalas dengan $N$ (kiri).<br>
+        Sumbu Vertikal: Gaya berat $W$ menarik mading ke bawah, Gaya Gesek Statis $f_s$ menahan mading ke atas.</p>
+
+        <h3>4. Langkah Penyelesaian Detail</h3>
+        <div class="step">Tentukan Gaya Normal ($N$):
+            <div class="math-block">$$N = F_{\text{tekan}} = 100\text{ N}$$</div>
+        </div>
+        <div class="step">Hitung Batas Maksimal Gesekan ($f_{s,\text{maks}}$):
+            <div class="math-block">$$f_{s,\text{maks}} = \mu_s \cdot N = 0,4 \cdot 100 = 40\text{ N}$$</div>
+        </div>
+        <div class="step">Bandingkan dengan Gaya Berat ($W = m \cdot g = 30\text{ N}$):
+            <p>Karena beban $W$ (30 N) masih lebih kecil dari kapasitas $f_{s,\text{maks}}$ (40 N), mading tidak akan jatuh (diam).</p>
+        </div>
+        <div class="step">Hitung $f_s$ aktual (Hukum I Newton sumbu Y):
+            <div class="math-block">$$\sum F_y = 0 \implies f_s - W = 0$$</div>
+            <div class="math-block">$$f_s = W = 30\text{ N}$$</div>
+        </div>
+        <div class="answer-box">Jawaban: A. 30 N</div>
+
+        <h3>5. Verifikasi & Analisis Logika</h3>
+        <p>Gaya gesek statis bersifat responsif. Ia hanya mengeluarkan gaya sebesar yang dibutuhkan untuk mengimbangi gaya tarik/berat. Karena beratnya 30 N, gesekan merespons tepat 30 N. Logika ini sangat solid.</p>
+
+        <h3>6. Bedah Mendalam</h3>
+        <div class="callout misconception">
+            <h4>⚠️ Jebakan  (Banyak yang salah di sini)</h4>
+            <p>Banyak yang akan langsung menjawab <strong>40 N (Opsi B)</strong>. Padahal 40 N adalah batas kemampuannya, bukan gaya yang sedang bekerja. Jika gaya geseknya 40 N ke atas menahan benda seberat 30 N, benda tersebut akan melayang naik! (Ini menyalahi hukum fisika dasar).</p>
+        </div>
+    </div>
+
+    <!--  10 -->
+    <div class="card">
+        <span class="badge">Sistem Katrol Meja Licin</span>
+        <h2> Nomor 10</h2>
+        
+        <h3></h3>
+        <div class="problem-statement">
+            Balok A (6 kg) diletakkan di atas meja licin dan dihubungkan tali ke beban B (4 kg) yang tergantung bebas di tepi meja melintasi katrol licin ($g = 10\text{ m/s}^2$). Berapakah tegangan tali pada sistem tersebut saat bergerak?<br><br>
+            A. 12 N<br>
+            B. 16 N<br>
+            C. 24 N<br>
+            D. 36 N<br>
+            E. 40 N
+        </div>
+
+        <h3>1. Identifikasi Masalah</h3>
+        <table>
+            <tr><th>Topik</th><td>Sistem Katrol (Meja Horizontal Licin)</td></tr>
+            <tr><th>Diketahui</th><td>$m_A$ = 6 kg (atas meja), $m_B$ = 4 kg (tergantung).<br>Lantai licin ($f_k = 0$).</td></tr>
+            <tr><th>Ditanyakan</th><td>Tegangan tali ($T$) = ?</td></tr>
+        </table>
+
+        <h3>2. Konsep Fisika & Landasan Teori</h3>
+        <p>Sistem ini merupakan modifikasi Mesin Atwood. Gaya penggerak tunggal sistem ini <em>hanyalah</em> berat balok yang menggantung ($W_B$). Balok di atas meja ($m_A$) tidak menyumbang gaya penggerak ke bawah, ia hanya menyumbang inersia (beban massa).</p>
+
+        <h3>3. Diagram Fisis Sistem</h3>
+        <p>Beban B ditarik gravitasi ke bawah dengan gaya $W_B = m_B \cdot g$. Tali menarik beban B ke atas dengan gaya $T$. Di atas meja, tali menarik balok A ke kanan dengan gaya $T$. Tidak ada gesekan yang menahan A.</p>
+
+        <h3>4. Langkah Penyelesaian Detail</h3>
+        <div class="step">Hitung percepatan seluruh sistem:
+            <div class="math-block">$$a = \frac{\sum F_{\text{penggerak}}}{m_{\text{total}}} = \frac{W_B}{m_A + m_B}$$</div>
+            <div class="math-block">$$a = \frac{4 \cdot 10}{6 + 4} = \frac{40}{10} = 4\text{ m/s}^2$$</div>
+        </div>
+        <div class="step">Tinjau Balok A (di atas meja) untuk mencari $T$:
+            <p>Balok A hanya ditarik oleh Tegangan Tali ($T$).</p>
+            <div class="math-block">$$\sum F_A = m_A \cdot a$$</div>
+            <div class="math-block">$$T = 6 \cdot 4 = 24\text{ N}$$</div>
+        </div>
+        <div class="answer-box">Jawaban: C. 24 N</div>
+
+        <h3>5. Verifikasi & Analisis Logika</h3>
+        <p>Kita bisa menguji nilai $T$ = 24 N menggunakan Balok B (Benda bergerak ke bawah, jadi $W_B$ menang lawan $T$).<br>
+        <div class="math-block">$$W_B - T = m_B \cdot a \implies 40 - 24 = 16\text{ N}$$</div><br>
+        Sisi kanan: $m_B \cdot a = 4 \cdot 4 = 16\text{ N}$. Karena $16 = 16$, perhitungan valid.</p>
+
+        <h3>6. Bedah Mendalam</h3>
+        <div class="callout realworld">
+            <h4>🔍 Intuisi Fisis</h4>
+            <p>Banyak siswa keliru menjumlahkan $W_A$ dan $W_B$ di pembilang percepatan. Ingat, meja menahan arah gravitasi Balok A, sehingga $W_A$ dinetralkan oleh Gaya Normal meja. Gravitasi HANYA bisa menggerakkan benda yang punya kebebasan bergerak searah dengannya (Benda B).</p>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

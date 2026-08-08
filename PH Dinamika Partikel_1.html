@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pembahasan Fisika - Dinamika Partikel oleh Kahfi</title>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --primary-light: #e0e7ff;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #334155;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --misconception-bg: #fffbeb;
+            --misconception-border: #f59e0b;
+            --realworld-bg: #f0fdf4;
+            --realworld-border: #22c55e;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: linear-gradient(135deg, var(--primary), #3730a3);
+            color: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            margin: 0 0 10px 0;
+            font-size: 2.2em;
+        }
+
+        .header p {
+            margin: 0;
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            border: 1px solid var(--border-color);
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin-bottom: 15px;
+            letter-spacing: 0.5px;
+        }
+
+        h2 {
+            color: #1e293b;
+            font-size: 1.4em;
+            margin-top: 0;
+            border-bottom: 2px solid var(--primary-light);
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color: var(--primary);
+            font-size: 1.1em;
+            margin-top: 25px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .problem-statement {
+            font-size: 1.1em;
+            color: #0f172a;
+            font-weight: 500;
+            background: var(--bg-color);
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: white;
+        }
+
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 12px 15px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--primary-light);
+            color: var(--primary);
+            font-weight: 600;
+            width: 30%;
+        }
+
+        .callout {
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 5px solid;
+        }
+
+        .callout.misconception {
+            background-color: var(--misconception-bg);
+            border-color: var(--misconception-border);
+        }
+
+        .callout.misconception h4 {
+            color: #b45309;
+            margin: 0 0 8px 0;
+        }
+
+        .callout.realworld {
+            background-color: var(--realworld-bg);
+            border-color: var(--realworld-border);
+        }
+
+        .callout.realworld h4 {
+            color: #15803d;
+            margin: 0 0 8px 0;
+        }
+
+        .step {
+            margin-bottom: 15px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .step::before {
+            content: "•";
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 1.5em;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+
+        .math-block {
+            overflow-x: auto;
+            padding: 10px 0;
+        }
+        
+        @media (max-width: 600px) {
+            .card {
+                padding: 20px;
+            }
+            .header h1 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>Pembahasan PH Dinamika Partikel</h1>
+    </div>
+
+    <!-- SOAL 1 -->
+    <div class="card">
+        <span class="badge">Hukum I Newton</span>
+        <h2>Soal Nomor 1</h2>
+        <div class="problem-statement">
+            Bus rombongan siswa MAN IC Gorontalo melaju kencang menuju lokasi studi lapangan. Tiba-tiba, sopir mengerem mendadak sehingga tubuh para siswa terdorong ke depan. Prinsip dinamika Newton yang mendasari peristiwa tersebut adalah kecenderungan benda untuk...[cite: 1]<br><br>
+            A. Mempertahankan keadaannya (Inersia/Kelembaman).<br>
+            B. Mengalami percepatan yang sebanding dengan gaya gesek.<br>
+            C. Menghasilkan gaya reaksi yang searah dengan arah rem.<br>
+            D. Mengubah gaya berat menjadi gaya dorong mesin.<br>
+            E. Menghilangkan gaya normal antara tubuh dan kursi.
+        </div>
+
+        <h3>1. Identifikasi Masalah</h3>
+        <table>
+            <tr>
+                <th>Topik</th>
+                <td>Hukum I Newton (Inersia/Kelembaman)</td>
+            </tr>
+            <tr>
+                <th>Kondisi Sistem</th>
+                <td>Bus bergerak dengan kecepatan awal tertentu (melaju kencang), kemudian mengalami perlambatan mendadak (mengerem).</td>
+            </tr>
+            <tr>
+                <th>Ditanyakan</th>
+                <td>Prinsip fisika yang menjelaskan mengapa tubuh siswa terdorong ke depan.</td>
+            </tr>
+        </table>
+
+        <h3>2. Konsep Fisika & Landasan Teori</h3>
+        <p>Hukum I Newton berbunyi: <i>"Jika resultan gaya yang bekerja pada benda sama dengan nol (\( \Sigma F = 0 \)), maka benda yang mula-mula diam akan tetap diam, dan benda yang mula-mula bergerak lurus beraturan akan tetap bergerak lurus beraturan."</i> Sifat benda yang cenderung mempertahankan keadaan geraknya ini disebut sebagai <strong>Inersia</strong> atau <strong>Kelembaman</strong>.</p>
+
+        <h3>3. Diagram Fisis Sistem</h3>
+        <p>Bayangkan sebuah sistem kerangka acuan: Tubuh siswa awalnya bergerak bersama bus dengan kecepatan \( v \). Saat bus direm, gaya gesek dari rem bekerja pada bus, memperlambat bus. Namun, <i>tidak ada gaya eksternal horizontal yang cukup kuat</i> yang langsung bekerja pada tubuh bagian atas siswa untuk ikut memperlambatnya secara instan. Akibatnya, tubuh bagian atas siswa cenderung mempertahankan kecepatan awalnya \( v \) ke arah depan, yang dari sudut pandang di dalam bus terlihat seperti "terdorong ke depan".</p>
+
+        <h3>4. Langkah Penyelesaian Detail</h3>
+        <div class="step">Analisis Opsi A: "Mempertahankan keadaannya (Inersia/Kelembaman)" - Ini sangat sesuai dengan definisi Hukum I Newton. Tubuh siswa mempertahankan keadaan bergeraknya.</div>
+        <div class="step">Analisis Opsi B: Membahas percepatan, ini merujuk pada Hukum II Newton (\( \Sigma F = ma \)), bukan alasan fundamental mengapa tubuh terlempar ke depan saat acuan (bus) melambat.</div>
+        <div class="step">Analisis Opsi C, D, E: Opsi ini tidak relevan secara fisis dengan fenomena kelembaman dan mengandung kesalahan konsep (misal: aksi-reaksi pada Hukum III Newton berlawanan arah, bukan searah).</div>
+        <p><strong>Jawaban: A. Mempertahankan keadaannya (Inersia/Kelembaman).</strong></p>
+
+        <h3>5. Verifikasi & Analisis Logika</h3>
+        <p>Fenomena terdorong ke depan saat pengereman adalah contoh klasik dari kerangka acuan non-inersia. Pengamat di dalam bus merasakan adanya "gaya fiktif" yang mendorongnya ke depan. Gaya fiktif ini muncul semata-mata karena massa tubuhnya memiliki inersia yang berusaha menolak perubahan kecepatan.</p>
+
+        <div class="callout misconception">
+            <h4>⚠️ Miskonsepsi Umum</h4>
+            <p>Banyak siswa mengira ada <i>gaya nyata</i> yang mendorong mereka ke depan dari arah belakang kursi. Kenyataannya, tidak ada yang mendorong Anda dari belakang. Anda bergerak ke depan karena Anda <i>sudah</i> bergerak ke depan sejak awal, dan bus di bawah Anda yang tiba-tiba melambat/berhenti.</p>
+        </div>
+        
+        <div class="callout realworld">
+            <h4>🌍 Aplikasi Nyata</h4>
+            <p>Prinsip inersia ini adalah alasan utama mengapa mobil dilengkapi dengan <strong>sabuk pengaman (seatbelt)</strong> dan <strong>airbag</strong>. Seatbelt memberikan gaya eksternal untuk melawan inersia tubuh Anda agar ikut berhenti bersama mobil saat kecelakaan terjadi.</p>
+        </div>
+    </div>
+
+    <!-- SOAL 2 -->
+    <div class="card">
+        <span class="badge">Hukum II Newton</span>
+        <h2>Soal Nomor 2</h2>
+        <div class="problem-statement">
+            Di laboratorium fisika, sebuah robot pemindah alat bermassa 15 kg didorong di atas lantai licin (tanpa gesekan) dengan gaya mendatar konstan sebesar 45 N. Berapakah percepatan linear yang dialami robot tersebut?[cite: 1]<br><br>
+            A. 1 m/s²<br>
+            B. 2 m/s²<br>
+            C. 3 m/s²<br>
+            D. 4 m/s²<br>
+            E. 5 m/s²
+        </div>
+
+        <h3>1. Identifikasi Masalah</h3>
+        <table>
+            <tr>
+                <th>Diketahui</th>
+                <td>Massa (\(m\)) = 15 kg<br>Gaya mendatar (\(F\)) = 45 N<br>Koefisien gesek (\(\mu\)) = 0 (lantai licin)</td>
+            </tr>
+            <tr>
+                <th>Ditanyakan</th>
+                <td>Percepatan linear (\(a\)) = ?</td>
+            </tr>
+            <tr>
+                <th>Asumsi</th>
+                <td>Robot dianggap sebagai partikel (titik massa), tidak ada gaya hambat udara.</td>
+            </tr>
+        </table>
+
+        <h3>2. Konsep Fisika & Landasan Teori</h3>
+        <p>Sesuai <strong>Hukum II Newton</strong>, percepatan yang ditimbulkan oleh gaya yang bekerja pada suatu benda berbanding lurus dengan besar gayanya dan berbanding terbalik dengan massa benda tersebut. Persamaan matematisnya adalah:<br>
+        <div class="math-block">$$ \Sigma F = m \cdot a $$</div></p>
+
+        <h3>3. Diagram Fisis Sistem</h3>
+        <p>Pada robot bekerja gaya berat (\(w = mg\)) ke bawah dan gaya normal (\(N\)) ke atas yang saling meniadakan karena tidak ada pergerakan di sumbu-y. Pada sumbu-x (mendatar), hanya ada satu gaya yang bekerja yaitu gaya dorong \(F = 45\) N ke arah kanan. Karena lantai licin (\(f_k = 0\)), tidak ada gaya hambat.</p>
+
+        <h3>4. Langkah Penyelesaian Detail</h3>
+        <div class="step">Tinjau resultan gaya pada sumbu mendatar (sumbu-x):
+            <div class="math-block">$$ \Sigma F_x = F $$</div>
+        </div>
+        <div class="step">Terapkan Hukum II Newton:
+            <div class="math-block">$$ F = m \cdot a $$</div>
+        </div>
+        <div class="step">Substitusikan nilai yang diketahui ke dalam persamaan:
+            <div class="math-block">$$ 45\text{ N} = 15\text{ kg} \cdot a $$</div>
+        </div>
+        <div class="step">Isolasi variabel \(a\) untuk mendapatkan hasil:
+            <div class="math-block">$$ a = \frac{45}{15} = 3\text{ m/s}^2 $$</div>
+        </div>
+        <p><strong>Jawaban: C. 3 m/s²</strong></p>
+
+        <h3>5. Verifikasi & Analisis Logika</h3>
+        <p>Analisis dimensi: Satuan gaya adalah Newton (N) yang setara dengan \(\text{kg}\cdot\text{m/s}^2\). Membagi N dengan kg menyisakan \(\text{m/s}^2\), yang merupakan dimensi percepatan yang benar. Secara logika, gaya dorong sedang bekerja pada massa yang moderat, sehingga menghasilkan percepatan yang terukur dan masuk akal.</p>
+    </div>
+
+    <!-- SOAL 3 -->
+    <div class="card">
+        <span class="badge">Gaya Gesek Statis & Kinetis</span>
+        <h2>Soal Nomor 3</h2>
+        <div class="problem-statement">
+            Siswa mencoba menggeser peti peralatan olahraga bermassa 40 kg di lantai hall. Koefisien gesek statis lantai 0,5 dan kinetis 0,3. Jika siswa mendorong peti dengan gaya mendatar 120 N dan percepatan gravitasi \(g = 10\text{ m/s}^2\), berapakah gaya gesek yang sebenarnya bekerja menahan peti tersebut?[cite: 1]<br><br>
+            A. 120 N<br>
+            B. 150 N<br>
+            C. 200 N<br>
+            D. 240 N<br>
+            E. 400 N
+        </div>
+
+        <h3>1. Identifikasi Masalah</h3>
+        <table>
+            <tr>
+                <th>Diketahui</th>
+                <td>Massa (\(m\)) = 40 kg<br>Koefisien gesek statis (\(\mu_s\)) = 0,5<br>Koefisien gesek kinetis (\(\mu_k\)) = 0,3<br>Gaya dorong (\(F\)) = 120 N<br>Percepatan gravitasi (\(g\)) = 10 m/s²</td>
+            </tr>
+            <tr>
+                <th>Ditanyakan</th>
+                <td>Gaya gesek yang sebenarnya bekerja (\(f\)) = ?</td>
+            </tr>
+        </table>
+
+        <h3>2. Konsep Fisika & Landasan Teori</h3>
+        <p>Gaya gesek memiliki dua fase:</p>
+        <ul>
+            <li><strong>Gesekan Statis (\(f_s\)):</strong> Bekerja saat benda belum bergerak. Nilainya bervariasi menyesuaikan gaya tarik/dorong yang diberikan, mulai dari 0 hingga nilai maksimumnya. \( f_s = F_{\text{dorong}} \) (selama benda diam).</li>
+            <li><strong>Gesekan Statis Maksimum (\(f_{s,\text{max}}\)):</strong> Batas gaya yang harus dilampaui agar benda mulai bergerak. Rumusnya: \( f_{s,\text{max}} = \mu_s \cdot N \)</li>
+            <li><strong>Gesekan Kinetis (\(f_k\)):</strong> Bekerja konstan setelah benda bergerak. Rumusnya: \( f_k = \mu_k \cdot N \)</li>
+        </ul>
+
+        <h3>3. Langkah Penyelesaian Detail</h3>
+        <div class="step">Tentukan besar Gaya Normal (\(N\)). Karena lantai datar dan tidak ada gaya vertikal lain:
+            <div class="math-block">$$ N = m \cdot g = 40\text{ kg} \cdot 10\text{ m/s}^2 = 400\text{ N} $$</div>
+        </div>
+        <div class="step">Hitung Gaya Gesek Statis Maksimum (\(f_{s,\text{max}}\)) untuk mengecek apakah benda bergerak:
+            <div class="math-block">$$ f_{s,\text{max}} = \mu_s \cdot N = 0,5 \cdot 400\text{ N} = 200\text{ N} $$</div>
+        </div>
+        <div class="step">Bandingkan Gaya Dorong (\(F\)) dengan \(f_{s,\text{max}}\):
+            <p>Gaya dorong \(F = 120\text{ N}\). Ternyata \(F < f_{s,\text{max}}\) (120 N < 200 N).</p>
+            <p>Kesimpulan: Benda <strong>belum bergerak (masih diam)</strong>.</p>
+        </div>
+        <div class="step">Tentukan gaya gesek yang sebenarnya. Karena benda diam, berlaku Hukum I Newton (\( \Sigma F_x = 0 \)):
+            <div class="math-block">$$ F - f_s = 0 \implies f_s = F $$</div>
+            <div class="math-block">$$ f_s = 120\text{ N} $$</div>
+        </div>
+        <p><strong>Jawaban: A. 120 N</strong></p>
+
+        <div class="callout misconception">
+            <h4>⚠️ Miskonsepsi Umum (Jebakan Batman)</h4>
+            <p>Banyak siswa yang otomatis menghitung \( f_{s,\text{max}} = 200\text{ N} \) dan memilih jawaban 200 N. Kesalahannya adalah 200 N adalah <i>kapasitas maksimal</i> gaya gesek lantai, bukan gaya gesek aktual. Jika gaya dorong hanya 120 N, lantai cukup merespons dengan gaya 120 N ke arah berlawanan agar benda tetap diam. Jika lantai merespons dengan 200 N, maka peti akan bergerak mundur melawan gaya dorong Anda (ini mustahil secara fisika!).</p>
+        </div>
+    </div>
+
+    <!-- SOAL 4 -->
+    <div class="card">
+        <span class="badge">Sistem Benda Bertumpuk</span>
+        <h2>Soal Nomor 4</h2>
+        <div class="problem-statement">
+            Balok A bermassa 2 kg diletakkan di atas balok B yang bermassa 3 kg. Balok A ditahan oleh seutas tali mendatar yang ujung lainnya diikatkan ke dinding vertikal, sedangkan balok B berada di atas lantai horizontal yang kasar. Diketahui koefisien gesek kinetik antara balok A dan B adalah 0,3 serta koefisien gesek kinetik antara balok B dan lantai adalah 0,2. Sebuah gaya mendatar \(F\) ditarik pada balok B sehingga balok B bergerak menjauhi dinding dengan percepatan 2 m/s². Besar gaya \(F\) yang diberikan pada balok B adalah... (\(g = 10\text{ m/s}^2\))[cite: 1]<br><br>
+            A. 12 N<br>
+            B. 16 N<br>
+            C. 20 N<br>
+            D. 22 N<br>
+            E. 26 N
+        </div>
+
+        <h3>1. Identifikasi Masalah</h3>
+        <table>
+            <tr>
+                <th>Diketahui</th>
+                <td>\(m_A = 2\text{ kg}\)<br>\(m_B = 3\text{ kg}\)<br>\(\mu_{k1}\) (antara A & B) = 0,3<br>\(\mu_{k2}\) (antara B & Lantai) = 0,2<br>\(a_B = 2\text{ m/s}^2\) (percepatan B)<br>\(g = 10\text{ m/s}^2\)</td>
+            </tr>
+            <tr>
+                <th>Kondisi Benda</th>
+                <td>Balok A diam terhadap tanah (diikat tali). Balok B ditarik gaya \(F\).</td>
+            </tr>
+            <tr>
+                <th>Ditanyakan</th>
+                <td>Besar gaya tarik \(F\)?</td>
+            </tr>
+        </table>
+
+        <h3>2. Diagram Fisis Sistem & Analisis Gaya</h3>
+        <p>Mari kita bedah Diagram Benda Bebas (Free Body Diagram) secara terpisah:</p>
+        <ul>
+            <li><strong>Balok A:</strong> Karena diikat ke dinding, balok A <strong>diam</strong> (\(a_A = 0\)). Saat balok B bergerak ke kanan, permukaan B menggesek permukaan A ke arah kanan. Sebagai reaksi, permukaan A akan memberikan gaya gesek pada balok B ke arah <strong>kiri</strong> (\(f_{k1}\)).</li>
+            <li><strong>Balok B:</strong> Ditarik gaya \(F\) ke kanan. Gaya-gaya yang menahan (menghambat) gerakan balok B ada DUA:
+                <ol>
+                    <li>Gaya gesek kinetis dari permukaan bawah balok A (\(f_{k1}\)) arah ke kiri.</li>
+                    <li>Gaya gesek kinetis dari lantai (\(f_{k2}\)) arah ke kiri.</li>
+                </ol>
+            </li>
+        </ul>
+
+        <h3>3. Langkah Penyelesaian Detail</h3>
+        <div class="step">Hitung Gaya Normal pada masing-masing permukaan:
+            <p>Gaya Normal balok A (menekan B):<br>
+            <span class="math-block">$$ N_A = m_A \cdot g = 2 \cdot 10 = 20\text{ N} $$</span></p>
+            <p>Gaya Normal keseluruhan (B menekan lantai, menanggung beban A juga):<br>
+            <span class="math-block">$$ N_{\text{total}} = (m_A + m_B) \cdot g = (2 + 3) \cdot 10 = 50\text{ N} $$</span></p>
+        </div>
+        <div class="step">Hitung besar gaya gesek yang bekerja pada Balok B:
+            <p>Gesekan antara A dan B (\(f_{k1}\)):<br>
+            <span class="math-block">$$ f_{k1} = \mu_{k1} \cdot N_A = 0,3 \cdot 20 = 6\text{ N} $$</span></p>
+            <p>Gesekan antara B dan Lantai (\(f_{k2}\)):<br>
+            <span class="math-block">$$ f_{k2} = \mu_{k2} \cdot N_{\text{total}} = 0,2 \cdot 50 = 10\text{ N} $$</span></p>
+        </div>
+        <div class="step">Terapkan Hukum II Newton pada Balok B:
+            <div class="math-block">$$ \Sigma F_x = m_B \cdot a_B $$</div>
+            <div class="math-block">$$ F - f_{k1} - f_{k2} = m_B \cdot a_B $$</div>
+        </div>
+        <div class="step">Substitusikan nilai-nilai ke dalam persamaan:
+            <div class="math-block">$$ F - 6 - 10 = 3 \cdot 2 $$</div>
+            <div class="math-block">$$ F - 16 = 6 $$</div>
+            <div class="math-block">$$ F = 6 + 16 = 22\text{ N} $$</div>
+        </div>
+        <p><strong>Jawaban: D. 22 N</strong></p>
+
+        <div class="callout misconception">
+            <h4>💡 Insight Analitis</h4>
+            <p>Kesalahan fatal yang sering dilakukan siswa di soal ini adalah menggunakan massa B saja (\(m_B = 3\text{ kg}\)) saat menghitung gaya gesek dengan lantai. Ingat bahwa lantai menahan berat <strong>keseluruhan sistem</strong> (Balok B + Balok A di atasnya). Oleh karena itu, gaya normal untuk gesekan lantai adalah \( (m_A + m_B)g \).</p>
+        </div>
+    </div>
+
+    <!-- SOAL 5 -->
+    <div class="card">
+        <span class="badge">Mesin Atwood</span>
+        <h2>Soal Nomor 5</h2>
+        <div class="problem-statement">
+            Eksperimen pesawat Atwood menggunakan Balok A (4 kg) dan Balok B (1 kg) yang dihubungkan tali melintasi katrol licin tanpa massa (\(g = 10\text{ m/s}^2\)). Berapakah percepatan gerak kedua balok setelah dilepaskan?[cite: 1]<br><br>
+            A. 2 m/s²<br>
+            B. 4 m/s²<br>
+            C. 6 m/s²<br>
+            D. 8 m/s²<br>
+            E. 10 m/s²
+        </div>
+
+        <h3>1. Identifikasi Masalah</h3>
+        <table>
+            <tr>
+                <th>Diketahui</th>
+                <td>\(m_A = 4\text{ kg}\)<br>\(m_B = 1\text{ kg}\)<br>\(g = 10\text{ m/s}^2\)<br>Katrol licin tanpa massa (Momen inersia diabaikan).</td>
+            </tr>
+            <tr>
+                <th>Ditanyakan</th>
+                <td>Percepatan sistem (\(a\)) = ?</td>
+            </tr>
+        </table>
+
+        <h3>2. Konsep Fisika & Landasan Teori</h3>
+        <p>Pesawat Atwood klasik terdiri dari dua massa yang tergantung pada katrol ideal (licin dan tak bermassa). Karena \(m_A > m_B\), balok A akan bergerak turun dan balok B akan bergerak naik dengan percepatan linear yang sama (\(a\)). Gaya penggerak utama sistem ini adalah selisih berat kedua balok, sedangkan massa total yang harus digerakkan adalah jumlah massa keduanya.</p>
+
+        <h3>3. Langkah Penyelesaian Detail</h3>
+        <div class="step">Tentukan berat masing-masing balok:
+            <div class="math-block">$$ w_A = m_A \cdot g = 4 \cdot 10 = 40\text{ N} $$</div>
+            <div class="math-block">$$ w_B = m_B \cdot g = 1 \cdot 10 = 10\text{ N} $$</div>
+        </div>
+        <div class="step">Terapkan Hukum II Newton untuk seluruh sistem secara bersamaan. Arah gerak (turun untuk A, naik untuk B) ditetapkan sebagai arah positif.
+            <div class="math-block">$$ \Sigma F_{\text{sistem}} = m_{\text{total}} \cdot a $$</div>
+            <p>Gaya yang mendorong sistem searah gerak adalah \(w_A\). Gaya yang menghambat adalah \(w_B\).</p>
+            <div class="math-block">$$ w_A - w_B = (m_A + m_B) \cdot a $$</div>
+        </div>
+        <div class="step">Substitusi nilai:
+            <div class="math-block">$$ 40 - 10 = (4 + 1) \cdot a $$</div>
+            <div class="math-block">$$ 30 = 5 \cdot a $$</div>
+            <div class="math-block">$$ a = \frac{30}{5} = 6\text{ m/s}^2 $$</div>
+        </div>
+        <p><strong>Jawaban: C. 6 m/s²</strong></p>
+
+        <div class="callout realworld">
+            <h4>🚀 Cara Cepat (Fast-Track Method)</h4>
+            <p>Untuk soal Mesin Atwood standar (2 benda tergantung vertikal tanpa katrol bermassa), percepatan selalu dapat dihitung langsung dengan perbandingan selisih massa terhadap jumlah massa dikalikan gravitasi:<br>
+            <span class="math-block">$$ a = \left( \frac{m_{\text{berat}} - m_{\text{ringan}}}{m_{\text{berat}} + m_{\text{ringan}}} \right) g $$</span><br>
+            Substitusi: \( a = \left( \frac{4 - 1}{4 + 1} \right) \cdot 10 = \frac{3}{5} \cdot 10 = 6\text{ m/s}^2 \). Cepat dan akurat!</p>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pembahasan Fisika - Dinamika Gerak Melingkar oleh Kahfi</title>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$']],
+                displayMath: [['$$', '$$']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --primary-light: #e0e7ff;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #334155;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --misconception-bg: #fffbeb;
+            --misconception-border: #f59e0b;
+            --realworld-bg: #f0fdf4;
+            --realworld-border: #22c55e;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: linear-gradient(135deg, var(--primary), #3730a3);
+            color: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            margin: 0 0 10px 0;
+            font-size: 2.2em;
+        }
+
+        .header p {
+            margin: 0;
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            border: 1px solid var(--border-color);
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin-bottom: 15px;
+            letter-spacing: 0.5px;
+        }
+
+        h2 {
+            color: #1e293b;
+            font-size: 1.4em;
+            margin-top: 0;
+            border-bottom: 2px solid var(--primary-light);
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color: var(--primary);
+            font-size: 1.1em;
+            margin-top: 25px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .problem-statement {
+            font-size: 1.1em;
+            color: #0f172a;
+            font-weight: 500;
+            background: var(--bg-color);
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: white;
+        }
+
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 12px 15px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--primary-light);
+            color: var(--primary);
+            font-weight: 600;
+            width: 30%;
+        }
+
+        .callout {
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 5px solid;
+        }
+
+        .callout.misconception {
+            background-color: var(--misconception-bg);
+            border-color: var(--misconception-border);
+        }
+
+        .callout.misconception h4 {
+            color: #b45309;
+            margin: 0 0 8px 0;
+        }
+
+        .callout.realworld {
+            background-color: var(--realworld-bg);
+            border-color: var(--realworld-border);
+        }
+
+        .callout.realworld h4 {
+            color: #15803d;
+            margin: 0 0 8px 0;
+        }
+
+        .step {
+            margin-bottom: 15px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .step::before {
+            content: "•";
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 1.5em;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+
+        .math-block {
+            overflow-x: auto;
+            padding: 10px 0;
+        }
+        
+        @media (max-width: 600px) {
+            .card {
+                padding: 20px;
+            }
+            .header h1 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>Pembahasan Fisika: Dinamika Partikel</h1>
+        <p>Soal Lanjutan 21 - 25 | Tutor: Kahfi</p>
+    </div>
+
+    <!-- SOAL 21 -->
+    <div class="card">
+        <span class="badge">Dinamika Gerak Melingkar: Tikungan Datar</span>
+        <h2>Soal Nomor 21</h2>
+        <div class="problem-statement">
+            Mobil sekolah melintasi jalan tikungan datar ber-jari-jari 36 m. Jika koefisien gesek statis antara ban dan aspal 0,4 ($g=10~m/s^{2}$) berapakah kelajuan maksimum mobil agar dapat menikung tanpa tergelincir?<br><br>
+            A. 8 m/s<br>
+            B. 10 m/s<br>
+            C. 12 m/s<br>
+            D. 14 m/s<br>
+            E. 16 m/s
+        </div>
+
+        <h3>1. Identifikasi Masalah</h3>
+        <table>
+            <tr>
+                <th>Diketahui</th>
+                <td>Jari-jari tikungan ($R$) = 36 m<br>Koefisien gesek statis ($\mu_{s}$) = 0,4<br>Percepatan gravitasi ($g$) = 10 m/s²</td>
+            </tr>
+            <tr>
+                <th>Ditanyakan</th>
+                <td>Kelajuan maksimum ($v_{max}$) = ?</td>
+            </tr>
+            <tr>
+                <th>Asumsi</th>
+                <td>Jalan datar (tidak miring/<em>banked</em>).</td>
+            </tr>
+        </table>
+
+        <h3>2. Konsep Fisika & Landasan Teori</h3>
+        <p>Ketika mobil menikung di jalan yang datar, gaya yang mencegah mobil tergelincir keluar lintasan adalah <strong>gaya gesek statis</strong> antara ban dan jalan. Agar mobil bisa menikung sempurna, gaya gesek statis maksimum harus berperan sebagai <strong>gaya sentripetal</strong>. Persamaannya adalah:</p>
+        <div class="math-block">$$f_{s(max)} = F_{s}$$</div>
+        <div class="math-block">$$\mu_{s} \cdot N = m \cdot \frac{v^{2}}{R}$$</div>
+
+        <h3>3. Diagram Fisis Sistem</h3>
+        <p>Pada sumbu vertikal, mobil seimbang: $N = w = mg$.<br>
+        Pada sumbu radial (mendatar menuju pusat tikungan), terdapat gaya gesek statis $f_{s}$.</p>
+
+        <h3>4. Langkah Penyelesaian Detail</h3>
+        <div class="step">Substitusikan gaya normal ke dalam persamaan sentripetal:
+            <div class="math-block">$$\mu_{s} \cdot m \cdot g = m \cdot \frac{v_{max}^{2}}{R}$$</div>
+        </div>
+        <div class="step">Coret massa mobil ($m$) dari kedua sisi, lalu susun ulang untuk mencari $v_{max}$:
+            <div class="math-block">$$v_{max} = \sqrt{\mu_{s} \cdot g \cdot R}$$</div>
+        </div>
+        <div class="step">Masukkan angka-angka yang diketahui:
+            <div class="math-block">$$v_{max} = \sqrt{0,4 \cdot 10 \cdot 36}$$</div>
+            <div class="math-block">$$v_{max} = \sqrt{4 \cdot 36}$$</div>
+            <div class="math-block">$$v_{max} = \sqrt{144} = 12~m/s$$</div>
+        </div>
+        <p><strong>Jawaban: C. 12 m/s</strong></p>
+
+        <div class="callout realworld">
+            <h4>🌍 Aplikasi Nyata</h4>
+            <p>Perhatikan bahwa massa mobil ($m$) saling menghilangkan dalam persamaan. Ini berarti batas kelajuan maksimum di tikungan datar bergantung murni pada <strong>kondisi jalan/ban (koefisien gesek)</strong> dan <strong>tajamnya tikungan (jari-jari)</strong>, bukan pada apakah kendaraan itu mobil kecil atau truk berat!</p>
+        </div>
+    </div>
+
+    <!-- SOAL 22 -->
+    <div class="card">
+        <span class="badge">Gerak Melingkar Vertikal</span>
+        <h2>Soal Nomor 22</h2>
+        <div class="problem-statement">
+            Dalam peragaan fisika, siswa memutar ember berisi air secara vertikal dengan panjang tali 1,6 m ($g=10~m/s^{2}$). Berapakah kelajuan minimum ember di titik tertinggi agar air di dalamnya tidak tumpah?<br><br>
+            A. 2 m/s<br>
+            B. 3 m/s<br>
+            C. 4 m/s<br>
+            D. 5 m/s<br>
+            E. 6 m/s
+        </div>
+
+        <h3>1. Identifikasi Masalah</h3>
+        <table>
+            <tr>
+                <th>Diketahui</th>
+                <td>Jari-jari lintasan/panjang tali ($R$) = 1,6 m<br>Percepatan gravitasi ($g$) = 10 m/s²</td>
+            </tr>
+            <tr>
+                <th>Ditanyakan</th>
+                <td>Kelajuan minimum di titik tertinggi ($v_{min}$) = ?</td>
+            </tr>
+        </table>
+
+        <h3>2. Konsep Fisika & Landasan Teori</h3>
+        <p>Di titik tertinggi lintasan vertikal, dua gaya bekerja dengan arah ke bawah menuju pusat: <strong>Gaya berat ($mg$)</strong> dan <strong>Gaya tekan/tegangan ($N$ atau $T$)</strong>. Resultan kedua gaya inilah yang menjadi gaya sentripetal:
+        <div class="math-block">$$ \Sigma F = F_{s} \implies N + mg = m \cdot \frac{v^{2}}{R} $$</div>
+        Kondisi <em>batas air tidak tumpah</em> (atau ember tidak jatuh kendur) adalah saat gaya normal (tekanan air ke dasar ember) hampir bernilai nol ($N = 0$).</p>
+
+        <h3>3. Langkah Penyelesaian Detail</h3>
+        <div class="step">Terapkan kondisi batas $N = 0$ di titik tertinggi:
+            <div class="math-block">$$ 0 + mg = m \cdot \frac{v_{min}^{2}}{R} $$</div>
+        </div>
+        <div class="step">Sederhanakan persamaan (massa saling mencoret):
+            <div class="math-block">$$ g = \frac{v_{min}^{2}}{R} \implies v_{min} = \sqrt{g \cdot R} $$</div>
+        </div>
+        <div class="step">Substitusi nilai yang diketahui:
+            <div class="math-block">$$ v_{min} = \sqrt{10 \cdot 1,6} $$</div>
+            <div class="math-block">$$ v_{min} = \sqrt{16} = 4~m/s $$</div>
+        </div>
+        <p><strong>Jawaban: C. 4 m/s</strong></p>
+
+        <div class="callout misconception">
+            <h4>⚠️ Miskonsepsi Umum</h4>
+            <p>Banyak yang mengira ada "gaya sentrifugal" yang mendorong air ke atas melawan gravitasi. Secara mekanika Newton yang murni (kerangka acuan inersia), air tidak tumpah karena dasar ember mendorong air ke bawah secara terus-menerus, mengubah arah kecepatannya cukup cepat sebelum gravitasi punya waktu untuk "menarik air meninggalkan ember".</p>
+        </div>
+    </div>
+
+    <!-- SOAL 23 -->
+    <div class="card">
+        <span class="badge">Tikungan Miring Tanpa Gesekan</span>
+        <h2>Soal Nomor 23</h2>
+        <div class="problem-statement">
+            Tikungan jalan dibuat miring tanpa gesekan dengan sudut $53^{\circ}$ dan jari-jari 30 m ($g=10~m/s^{2}$). Berapakah kelajuan ideal kendaraan agar dapat melintasi tikungan dengan aman tanpa tergelincir?<br><br>
+            A. 10 m/s<br>
+            B. 15 m/s<br>
+            C. 20 m/s<br>
+            D. 25 m/s<br>
+            E. 30 m/s
+        </div>
+
+        <h3>1. Identifikasi Masalah</h3>
+        <table>
+            <tr>
+                <th>Diketahui</th>
+                <td>Sudut kemiringan ($\theta$) = 53°<br>Jari-jari tikungan ($R$) = 30 m<br>$g$ = 10 m/s²<br>Jalan licin (gesekan = 0)</td>
+            </tr>
+            <tr>
+                <th>Ditanyakan</th>
+                <td>Kelajuan ideal ($v$) = ?</td>
+            </tr>
+        </table>
+
+        <h3>2. Konsep Fisika & Landasan Teori</h3>
+        <p>Untuk jalan tikungan yang dimiringkan (<em>banked curve</em>) tanpa gaya gesek, yang memberikan <strong>gaya sentripetal</strong> adalah <strong>komponen horizontal dari Gaya Normal ($N \sin \theta$)</strong>.</p>
+        <ul>
+            <li>Keseimbangan vertikal: $N \cos \theta = mg$</li>
+            <li>Gaya sentripetal horizontal: $N \sin \theta = m \frac{v^{2}}{R}$</li>
+        </ul>
+
+        <h3>3. Langkah Penyelesaian Detail</h3>
+        <div class="step">Bagi persamaan gaya horizontal dengan vertikal:
+            <div class="math-block">$$ \frac{N \sin \theta}{N \cos \theta} = \frac{m \frac{v^{2}}{R}}{mg} $$</div>
+            <div class="math-block">$$ \tan \theta = \frac{v^{2}}{g \cdot R} $$</div>
+        </div>
+        <div class="step">Susun ulang untuk mencari kelajuan $v$:
+            <div class="math-block">$$ v = \sqrt{g \cdot R \cdot \tan \theta} $$</div>
+        </div>
+        <div class="step">Substitusikan nilai yang ada (ingat $\tan 53^{\circ} \approx \frac{4}{3}$):
+            <div class="math-block">$$ v = \sqrt{10 \cdot 30 \cdot \frac{4}{3}} $$</div>
+            <div class="math-block">$$ v = \sqrt{300 \cdot \frac{4}{3}} = \sqrt{400} $$</div>
+            <div class="math-block">$$ v = 20~m/s $$</div>
+        </div>
+        <p><strong>Jawaban: C. 20 m/s</strong></p>
+    </div>
+
+    <!-- SOAL 24 -->
+    <div class="card">
+        <span class="badge">Ayunan Konis</span>
+        <h2>Soal Nomor 24</h2>
+        <div class="problem-statement">
+            Sebuah hiasan gantung bermassa 3 kg diputar mendatar membentuk ayunan konis. Tali penyangga membentuk sudut $53^{\circ}$ terhadap garis vertikal ($g=10~m/s^{2}$). Berapakah gaya tegangan tali penyangga tersebut?<br><br>
+            A. 30 N<br>
+            B. 40 N<br>
+            C. 50 N<br>
+            D. 60 N<br>
+            E. 80 N
+        </div>
+
+        <h3>1. Identifikasi Masalah</h3>
+        <table>
+            <tr>
+                <th>Diketahui</th>
+                <td>Massa ($m$) = 3 kg<br>Sudut simpangan ($\theta$) = 53° (terhadap vertikal)<br>Percepatan gravitasi ($g$) = 10 m/s²</td>
+            </tr>
+            <tr>
+                <th>Ditanyakan</th>
+                <td>Tegangan tali ($T$) = ?</td>
+            </tr>
+        </table>
+
+        <h3>2. Konsep Fisika & Landasan Teori</h3>
+        <p>Pada ayunan konis, benda berputar membentuk lingkaran horizontal. Gaya yang bekerja padanya adalah gaya berat ($mg$) ke bawah dan gaya tegangan tali ($T$) miring ke atas sepanjang tali.<br>
+        Tegangan tali diproyeksikan menjadi dua komponen:</p>
+        <ul>
+            <li>Vertikal ($T_{y}$): Mengimbangi berat benda. $\rightarrow T \cos \theta = mg$</li>
+            <li>Horizontal ($T_{x}$): Bertindak sebagai gaya sentripetal. $\rightarrow T \sin \theta = F_{s}$</li>
+        </ul>
+
+        <h3>3. Langkah Penyelesaian Detail</h3>
+        <div class="step">Karena kita hanya mencari tegangan tali ($T$), kita cukup menggunakan persamaan keseimbangan pada sumbu vertikal, sebab benda tidak bergerak ke atas maupun ke bawah.
+            <div class="math-block">$$ \Sigma F_{y} = 0 \implies T \cos \theta - mg = 0 $$</div>
+            <div class="math-block">$$ T = \frac{mg}{\cos \theta} $$</div>
+        </div>
+        <div class="step">Substitusi nilai: (diketahui $\cos 53^{\circ} \approx 0,6$)
+            <div class="math-block">$$ T = \frac{3 \cdot 10}{\cos 53^{\circ}} $$</div>
+            <div class="math-block">$$ T = \frac{30}{0,6} = \frac{300}{6} = 50~N $$</div>
+        </div>
+        <p><strong>Jawaban: C. 50 N</strong></p>
+    </div>
+
+    <!-- SOAL 25 -->
+    <div class="card">
+        <span class="badge">Gerak Melingkar Vertikal: Titik Terendah</span>
+        <h2>Soal Nomor 25</h2>
+        <div class="problem-statement">
+            Beban uji bermassa 2 kg diikat pada tali sepanjang 1 m lalu diputar secara vertikal. Ketika beban melintasi titik terendah dengan kelajuan $6~m/s$ ($g=10~m/s^{2}$), berapakah gaya tegangan tali yang dialami?<br><br>
+            A. 52 N<br>
+            B. 72 N<br>
+            C. 80 N<br>
+            D. 92 N<br>
+            E. 100 N
+        </div>
+
+        <h3>1. Identifikasi Masalah</h3>
+        <table>
+            <tr>
+                <th>Diketahui</th>
+                <td>Massa ($m$) = 2 kg<br>Jari-jari/Panjang tali ($R$) = 1 m<br>Kelajuan linear ($v$) = 6 m/s<br>$g$ = 10 m/s²</td>
+            </tr>
+            <tr>
+                <th>Ditanyakan</th>
+                <td>Tegangan tali di titik terendah ($T$) = ?</td>
+            </tr>
+        </table>
+
+        <h3>2. Konsep Fisika & Landasan Teori</h3>
+        <p>Berbeda dengan titik tertinggi, saat benda berada di <strong>titik terendah</strong>, gaya tegangan tali ($T$) berarah <em>ke atas</em> (menuju pusat lingkaran), sementara gaya berat ($mg$) berarah <em>ke bawah</em> menjauhi pusat.<br>
+        Berdasarkan Hukum II Newton untuk gerak melingkar, resultan gaya menuju pusat adalah gaya sentripetal:
+        <div class="math-block">$$ \Sigma F_{sentripetal} = T - mg = m \cdot \frac{v^{2}}{R} $$</div></p>
+
+        <h3>3. Langkah Penyelesaian Detail</h3>
+        <div class="step">Isolasi variabel $T$ (tegangan tali):
+            <div class="math-block">$$ T = mg + m \cdot \frac{v^{2}}{R} $$</div>
+        </div>
+        <div class="step">Substitusikan semua nilai ke dalam persamaan:
+            <div class="math-block">$$ T = (2 \cdot 10) + \left( 2 \cdot \frac{6^{2}}{1} \right) $$</div>
+            <div class="math-block">$$ T = 20 + \left( 2 \cdot 36 \right) $$</div>
+            <div class="math-block">$$ T = 20 + 72 = 92~N $$</div>
+        </div>
+        <p><strong>Jawaban: D. 92 N</strong></p>
+
+        <div class="callout realworld">
+            <h4>💡 Analisis Kelogisan Hasil</h4>
+            <p>Perhatikan persamaan akhirnya: $T = \text{Berat} + \text{Gaya Sentripetal}$. Inilah mengapa tali paling sering <strong>putus</strong> saat benda berada di ayunan titik paling bawah; karena tegangan tali harus menanggung total berat benda <em>ditambah</em> gaya besar untuk mengubah arah kelajuannya ke atas.</p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

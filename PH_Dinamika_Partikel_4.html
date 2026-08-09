@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pembahasan Fisika - Dinamika Partikel oleh Kahfi</title>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --primary-light: #e0e7ff;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #334155;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --misconception-bg: #fffbeb;
+            --misconception-border: #f59e0b;
+            --realworld-bg: #f0fdf4;
+            --realworld-border: #22c55e;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: linear-gradient(135deg, var(--primary), #3730a3);
+            color: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            margin: 0 0 10px 0;
+            font-size: 2.2em;
+        }
+
+        .header p {
+            margin: 0;
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            border: 1px solid var(--border-color);
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin-bottom: 15px;
+            letter-spacing: 0.5px;
+        }
+
+        h2 {
+            color: #1e293b;
+            font-size: 1.4em;
+            margin-top: 0;
+            border-bottom: 2px solid var(--primary-light);
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color: var(--primary);
+            font-size: 1.1em;
+            margin-top: 25px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .problem-statement {
+            font-size: 1.1em;
+            color: #0f172a;
+            font-weight: 500;
+            background: var(--bg-color);
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: white;
+        }
+
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 12px 15px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--primary-light);
+            color: var(--primary);
+            font-weight: 600;
+            width: 30%;
+        }
+
+        .callout {
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 5px solid;
+        }
+
+        .callout.misconception {
+            background-color: var(--misconception-bg);
+            border-color: var(--misconception-border);
+        }
+
+        .callout.misconception h4 {
+            color: #b45309;
+            margin: 0 0 8px 0;
+        }
+
+        .callout.realworld {
+            background-color: var(--realworld-bg);
+            border-color: var(--realworld-border);
+        }
+
+        .callout.realworld h4 {
+            color: #15803d;
+            margin: 0 0 8px 0;
+        }
+
+        .step {
+            margin-bottom: 15px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .step::before {
+            content: "•";
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 1.5em;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+
+        .math-block {
+            overflow-x: auto;
+            padding: 10px 0;
+        }
+
+        @media (max-width: 600px) {
+            .card {
+                padding: 20px;
+            }
+            .header h1 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>Pembahasan PH Dinamika Partikel</h1>
+        <p>Lanjutan: Soal Nomor 16 - 20 | Disusun oleh Kahfi</p>
+    </div>
+
+    <!-- SOAL 16 -->
+    <div class="card">
+        <span class="badge">Teori Gaya Gesek</span>
+        <h2>Soal Nomor 16</h2>
+        <div class="problem-statement">
+            Analisis mengenai sifat gaya gesek pada permukaan benda. Tentukan kebenaran fisis (Benar/Salah) dari ketiga pernyataan berikut!<br><br>
+            1. Gaya gesek statis bekerja pada dua permukaan benda yang mengalami pergeseran relatif satu sama lain.<br>
+            2. Besarnya gaya gesek kinetis bernilai tetap/konstan selama benda bergerak dan kondisi permukaannya tidak berubah.<br>
+            3. Memperluas bidang permukaan benda yang bersentuhan akan membuat nilai koefisien gesek kinetisnya meningkat pesat.
+        </div>
+
+        <h3>1. Identifikasi Masalah</h3>
+        <table>
+            <tr>
+                <th>Topik</th>
+                <td>Konsep teoritis gaya gesek statis dan kinetis.</td>
+            </tr>
+            <tr>
+                <th>Ditanyakan</th>
+                <td>Verifikasi Benar/Salah setiap pernyataan beserta alasan fisisnya.</td>
+            </tr>
+        </table>
+
+        <h3>2. Konsep Fisika & Landasan Teori</h3>
+        <p>Gaya gesek statis (\(f_s\)) menjaga agar benda tetap diam atau menahan kecenderungan gerak, sehingga <b>tidak ada pergeseran relatif</b> antar permukaan. Ketika benda mulai bergeser, gesekan berubah menjadi kinetis (\(f_k\)) yang nilainya relatif konstan bergantung pada koefisien gesek dan gaya normal, <b>bukan luas permukaan kontak</b> (hukum gesekan Coulomb Amontons).</p>
+
+        <h3>3. Langkah Penyelesaian Detail</h3>
+        <div class="step">
+            <b>Pernyataan 1:</b> "Gaya gesek statis bekerja... yang mengalami pergeseran relatif".<br>
+            <i>Analisis:</i> Salah. Kalau sudah bergeser relatif satu sama lain, gaya gesek yang bekerja adalah <b>gaya gesek kinetis</b>. Gesekan statis bekerja justru sebelum terjadi pergeseran relatif.<br>
+            <b>Status: SALAH</b>
+        </div>
+        <div class="step">
+            <b>Pernyataan 2:</b> "Besarnya gaya gesek kinetis bernilai tetap/konstan...".<br>
+            <i>Analisis:</i> Benar. Rumus \(f_k = \mu_k \cdot N\) menunjukkan selama massa (yang menentukan gaya normal di bidang datar) dan jenis permukaan (\(\mu_k\)) tidak berubah, nilainya konstan berapapun kecepatannya.<br>
+            <b>Status: BENAR</b>
+        </div>
+        <div class="step">
+            <b>Pernyataan 3:</b> "Memperluas bidang permukaan... koefisien gesek kinetisnya meningkat".<br>
+            <i>Analisis:</i> Salah. Berdasarkan eksperimen makroskopis, gaya gesek padat (dry friction) bersifat independen (tidak bergantung) pada luas permukaan penampang yang bersentuhan.<br>
+            <b>Status: SALAH</b>
+        </div>
+
+        <div class="callout misconception">
+            <h4>⚠️ Miskonsepsi Umum</h4>
+            <p>Banyak siswa mengira ban mobil yang lebih lebar (luas permukaan besar) menghasilkan gaya gesek yang jauh lebih besar berdasarkan rumus gesekan dasar. Pada kenyataannya di fisika SMA dasar, gaya gesek tidak terpengaruh luas. Ban lebar digunakan untuk mencegah ban cepat aus (mengurangi tekanan) dan pada material karet ada efek mekanika adhesi kompleks di luar model gesekan biasa.</p>
+        </div>
+    </div>
+
+    <!-- SOAL 17 -->
+    <div class="card">
+        <span class="badge">Kinematika & Hukum II Newton</span>
+        <h2>Soal Nomor 17</h2>
+        <div class="problem-statement">
+            Sebuah troli logistik bermassa 20 kg melaju dengan kecepatan awal \(8\text{ m/s}\). Siswa memberi gaya pengereman konstan hingga troli berhenti sempurna dalam waktu 2 sekon. Tuliskan besar gaya hambat yang diberikan pada troli tersebut (dalam Newton)!
+        </div>
+
+        <h3>1. Identifikasi Masalah</h3>
+        <table>
+            <tr>
+                <th>Diketahui</th>
+                <td>\(m = 20\text{ kg}\)<br>\(v_0 = 8\text{ m/s}\)<br>\(v_t = 0\text{ m/s}\) (berhenti sempurna)<br>\(t = 2\text{ s}\)</td>
+            </tr>
+            <tr>
+                <th>Ditanyakan</th>
+                <td>Gaya hambat (\(F\)) = ?</td>
+            </tr>
+        </table>
+
+        <h3>2. Konsep Fisika & Landasan Teori</h3>
+        <p>Soal ini menggabungkan <b>Kinematika Gerak Lurus Berubah Beraturan (GLBB)</b> untuk mencari percepatan/perlambatan, dengan <b>Dinamika (Hukum II Newton)</b> untuk mencari gayanya.
+        <br>\( v_t = v_0 + at \)
+        <br>\( \Sigma F = m \cdot a \)</p>
+
+        <h3>3. Langkah Penyelesaian Detail</h3>
+        <div class="step">Cari nilai percepatan (a) melalui rumus GLBB:
+            <div class="math-block">$$ a = \frac{v_t - v_0}{t} = \frac{0 - 8}{2} = -4\text{ m/s}^2 $$</div>
+            Tanda minus menunjukkan perlambatan (berlawanan dengan arah kecepatan awal).
+        </div>
+        <div class="step">Terapkan Hukum II Newton:
+            <div class="math-block">$$ F = m \cdot a = 20\text{ kg} \cdot (-4\text{ m/s}^2) = -80\text{ N} $$</div>
+        </div>
+        <p><strong>Jawaban: Besar gaya hambat adalah 80 N (tanda negatif menunjukkan arah hambatan).</strong></p>
+    </div>
+
+    <!-- SOAL 18 -->
+    <div class="card">
+        <span class="badge">Sistem Benda Bersentuhan</span>
+        <h2>Soal Nomor 18</h2>
+        <div class="problem-statement">
+            Kotak A (3 kg), Kotak B (2 kg), dan Kotak C (5 kg) bersusun rapat deret di lantai. Didorong dari Kotak A dengan gaya \(F = 60\text{ N}\). Koefisien gesek kinetis merata \(\mu_k = 0,2\) (\(g = 10\text{ m/s}^2\)). Berapakah besar mutlak gaya kontak antara Kotak A dan Kotak B?<br><br>
+            A. 24 N<br>B. 30 N<br>C. 42 N<br>D. 48 N<br>E. 60 N
+        </div>
+
+        <h3>1. Identifikasi Masalah</h3>
+        <table>
+            <tr>
+                <th>Diketahui</th>
+                <td>\(m_A = 3\text{ kg}, m_B = 2\text{ kg}, m_C = 5\text{ kg}\)<br>\(F = 60\text{ N}, \mu_k = 0,2, g=10\text{ m/s}^2\)</td>
+            </tr>
+            <tr>
+                <th>Ditanyakan</th>
+                <td>Gaya kontak antara A dan B (\(F_{AB}\))?</td>
+            </tr>
+        </table>
+
+        <h3>2. Langkah Penyelesaian Detail</h3>
+        <div class="step">Tinjau percepatan (\(a\)) <b>sistem keseluruhan</b> (A+B+C):
+            <div class="math-block">$$ m_{\text{total}} = 3 + 2 + 5 = 10\text{ kg} $$</div>
+            <div class="math-block">$$ f_{k,\text{total}} = \mu_k \cdot (m_{\text{total}} \cdot g) = 0,2 \cdot (10 \cdot 10) = 20\text{ N} $$</div>
+            <div class="math-block">$$ a = \frac{F - f_{k,\text{total}}}{m_{\text{total}}} = \frac{60 - 20}{10} = \frac{40}{10} = 4\text{ m/s}^2 $$</div>
+        </div>
+        <div class="step">Tinjau benda yang <b>berada di depan</b> batas kontak. Untuk mencari kontak A dan B, kita tinjau <b>Sistem B + C</b> karena didorong sepenuhnya oleh gaya kontak dari A (\(F_{AB}\)):
+            <div class="math-block">$$ m_{BC} = m_B + m_C = 2 + 5 = 7\text{ kg} $$</div>
+            <div class="math-block">$$ f_{k,BC} = \mu_k \cdot (m_{BC} \cdot g) = 0,2 \cdot (7 \cdot 10) = 14\text{ N} $$</div>
+        </div>
+        <div class="step">Terapkan Hukum II Newton pada Sistem B+C:
+            <div class="math-block">$$ \Sigma F_{BC} = m_{BC} \cdot a $$</div>
+            <div class="math-block">$$ F_{AB} - f_{k,BC} = m_{BC} \cdot a $$</div>
+            <div class="math-block">$$ F_{AB} - 14 = 7 \cdot 4 $$</div>
+            <div class="math-block">$$ F_{AB} = 28 + 14 = 42\text{ N} $$</div>
+        </div>
+        <p><strong>Jawaban: C. 42 N</strong></p>
+
+        <div class="callout realworld">
+            <h4>💡 Cara Cepat Analisis Logika</h4>
+            <p>Gaya dorong Awal (60N) "dihabiskan" perlahan untuk mempercepat tiap massa secara proporsional. Karena massa total 10 kg, dan massa yang ada di depan kontak A (yakni B+C) adalah 7 kg, maka gaya kontak murni (jika licin) adalah \( \frac{7}{10} \times 60 = 42\text{ N} \). Trik ini bahkan seringkali tetap berlaku meski ada gesekan, asalkan koefisien gesekan semua balok SAMA merata!</p>
+        </div>
+    </div>
+
+    <!-- SOAL 19 -->
+    <div class="card">
+        <span class="badge">Bidang Miring Licin</span>
+        <h2>Soal Nomor 19</h2>
+        <div class="problem-statement">
+            Sebuah benda bermassa 10 kg diletakkan pada bidang miring licin bersudut \(37^{\circ}\). Hitunglah besar gaya horizontal sejajar bidang miring yang dibutuhkan untuk menarik benda ke atas dengan percepatan \(2\text{ m/s}^2\) (\(g=10\text{ m/s}^2\)).
+        </div>
+
+        <h3>1. Identifikasi Masalah</h3>
+        <table>
+            <tr>
+                <th>Diketahui</th>
+                <td>\(m = 10\text{ kg}, \theta = 37^{\circ} (\sin 37^{\circ} = 0,6)\)<br>Bidang licin (\(\mu = 0\))<br>\(a = 2\text{ m/s}^2\) (Arah ke atas)</td>
+            </tr>
+            <tr>
+                <th>Ditanyakan</th>
+                <td>Gaya tarik sejajar bidang miring (\(F\)) = ?</td>
+            </tr>
+        </table>
+
+        <h3>2. Diagram Fisis Sistem & Langkah Penyelesaian</h3>
+        <p>Pada sumbu sejajar bidang miring, ada dua gaya utama:
+        1. Gaya tarik \(F\) ke arah atas bidang miring.
+        2. Proyeksi gaya berat \(w \sin \theta\) yang menahan ke arah bawah bidang miring.</p>
+
+        <div class="step">Hitung komponen berat yang sejajar bidang miring:
+            <div class="math-block">$$ w_x = m \cdot g \cdot \sin \theta = 10 \cdot 10 \cdot \sin 37^{\circ} = 100 \cdot 0,6 = 60\text{ N} $$</div>
+        </div>
+        <div class="step">Gunakan persamaan Hukum II Newton searah bidang gerak:
+            <div class="math-block">$$ \Sigma F = m \cdot a $$</div>
+            <div class="math-block">$$ F - w_x = m \cdot a $$</div>
+            <div class="math-block">$$ F - 60 = 10 \cdot 2 $$</div>
+            <div class="math-block">$$ F = 20 + 60 = 80\text{ N} $$</div>
+        </div>
+        <p><strong>Jawaban: Gaya tarik yang dibutuhkan adalah 80 N.</strong></p>
+    </div>
+
+    <!-- SOAL 20 -->
+    <div class="card">
+        <span class="badge">Sistem Katrol Majemuk / Bebas</span>
+        <h2>Soal Nomor 20</h2>
+        <div class="problem-statement">
+            Di bengkel robotik, siswa merancang katrol majemuk. Kotak 6kg di meja licin terhubung tali melintasi katrol tetap. Tali kemudian turun melingkari katrol bebas (penggantung beban 16kg) dan diikat mati di bawah meja. Berapakah percepatan mendatar kotak 6kg dalam m/s²? (\(g=10\text{ m/s}^2\))
+        </div>
+
+        <h3>1. Identifikasi Masalah</h3>
+        <table>
+            <tr>
+                <th>Diketahui</th>
+                <td>\(m_1 = 6\text{ kg}\) (mendatar di meja licin)<br>\(m_2 = 16\text{ kg}\) (tergantung di katrol bebas)</td>
+            </tr>
+            <tr>
+                <th>Ditanyakan</th>
+                <td>Percepatan mendatar balok 6 kg (\(a_1\))?</td>
+            </tr>
+        </table>
+
+        <h3>2. Konsep Fisika (Constraint Kinematics)</h3>
+        <p>Sistem ini menggunakan <b>katrol bergerak (bebas)</b>. Saat massa \(m_1\) bergerak sejauh \(x\), karena tali terlipat dua pada katrol bebas, maka massa \(m_2\) hanya akan turun sejauh \(\frac{1}{2}x\). Konsekuensinya: 
+        <br><b>Percepatan balok 1 (\(a_1\)) adalah DUA KALI percepatan balok 2 (\(a_2\)). -> \(a_1 = 2a_2\)</b> atau \(a_2 = 0,5 a_1\).</p>
+        <p>Gaya tegangan tali (\(T\)) seragam di sepanjang tali yang sama. Balok mendatar ditarik gaya \(T\). Katrol bebas tempat \(m_2\) bergantung ditarik ke atas oleh DUA segmen tali, jadi gaya ke atasnya adalah \(2T\).</p>
+
+        <h3>3. Langkah Penyelesaian Detail</h3>
+        <div class="step">Tinjau balok \(m_1\) (6 kg) di meja:
+            <div class="math-block">$$ T = m_1 \cdot a_1 \implies T = 6 \cdot a_1 $$</div>
+        </div>
+        <div class="step">Tinjau beban \(m_2\) (16 kg) bergerak vertikal ke bawah:
+            <div class="math-block">$$ w_2 - 2T = m_2 \cdot a_2 $$</div>
+            <div class="math-block">$$ (16 \cdot 10) - 2T = 16 \cdot a_2 $$</div>
+            <div class="math-block">$$ 160 - 2T = 16 \cdot a_2 $$</div>
+        </div>
+        <div class="step">Substitusi \(T\) dan relasi percepatan \(a_2 = 0,5 \cdot a_1\):
+            <div class="math-block">$$ 160 - 2(6 \cdot a_1) = 16 \cdot (0,5 \cdot a_1) $$</div>
+            <div class="math-block">$$ 160 - 12a_1 = 8a_1 $$</div>
+            <div class="math-block">$$ 160 = 20a_1 $$</div>
+            <div class="math-block">$$ a_1 = \frac{160}{20} = 8\text{ m/s}^2 $$</div>
+        </div>
+        <p><strong>Jawaban: Percepatan mendatar kotak 6 kg adalah 8 m/s².</strong></p>
+
+        <div class="callout misconception">
+            <h4>⚠️ Miskonsepsi Katrol Majemuk</h4>
+            <p>Kesalahan fatal yang sering dilakukan siswa adalah menganggap percepatan seluruh sistem sama (\(a_1 = a_2\)) dan gaya tegangan ke atas pada \(m_2\) hanya \(1T\). Pada sistem katrol bebas, Anda harus waspada karena rasio jarak pergerakan, rasio kecepatan, dan percepatan akan berubah!</p>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

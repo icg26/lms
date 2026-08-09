@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modul Fisika Kelas 11 - Usaha, Energi, dan Momentum oleh Kahfi</title>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$']],
+                displayMath: [['$$', '$$']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --primary-light: #e0e7ff;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #334155;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --misconception-bg: #fffbeb;
+            --misconception-border: #f59e0b;
+            --realworld-bg: #f0fdf4;
+            --realworld-border: #22c55e;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: linear-gradient(135deg, var(--primary), #3730a3);
+            color: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            margin: 0 0 10px 0;
+            font-size: 2.2em;
+        }
+
+        .header p {
+            margin: 0;
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            border: 1px solid var(--border-color);
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin-bottom: 15px;
+            letter-spacing: 0.5px;
+        }
+
+        h2 {
+            color: #1e293b;
+            font-size: 1.4em;
+            margin-top: 0;
+            border-bottom: 2px solid var(--primary-light);
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color: var(--primary);
+            font-size: 1.1em;
+            margin-top: 25px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .problem-statement {
+            font-size: 1.1em;
+            color: #0f172a;
+            font-weight: 500;
+            background: var(--bg-color);
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary);
+            font-style: italic;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: white;
+        }
+
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 12px 15px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--primary-light);
+            color: var(--primary);
+            font-weight: 600;
+            width: 30%;
+        }
+
+        .callout {
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 5px solid;
+        }
+
+        .callout.misconception {
+            background-color: var(--misconception-bg);
+            border-color: var(--misconception-border);
+        }
+
+        .callout.misconception h4 {
+            color: #b45309;
+            margin: 0 0 8px 0;
+        }
+
+        .callout.realworld {
+            background-color: var(--realworld-bg);
+            border-color: var(--realworld-border);
+        }
+
+        .callout.realworld h4 {
+            color: #15803d;
+            margin: 0 0 8px 0;
+        }
+
+        .step {
+            margin-bottom: 15px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .step::before {
+            content: "•";
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 1.5em;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+
+        .math-block {
+            overflow-x: auto;
+            padding: 10px 0;
+        }
+        
+        @media (max-width: 600px) {
+            .card {
+                padding: 20px;
+            }
+            .header h1 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>Modul Fisika</h1>
+        <p>Usaha, Energi, dan Momentum </p>
+    </div>
+
+    <!-- TOPIK 1: USAHA -->
+    <div class="card">
+        <span class="badge">1. Usaha (Work)</span>
+        <h2>Konsep Usaha dalam Fisika</h2>
+        <div class="problem-statement">
+            "Seseorang menarik koper di lantai bandara dengan gaya tarik yang membentuk sudut tertentu terhadap arah gerak. Apakah semua gaya yang ia keluarkan menghasilkan 'usaha' secara fisis?"
+        </div>
+
+        <h3>1. Identifikasi & Definisi</h3>
+        <p>Dalam fisika, <strong>Usaha ($W$)</strong> bukan sekadar rasa lelah. Usaha terjadi ketika sebuah gaya ($F$) bekerja pada suatu benda sehingga benda tersebut mengalami perpindahan ($s$), dan gaya tersebut memiliki komponen yang sejajar dengan arah perpindahan.</p>
+
+        <h3>2. Konsep Fisika & Landasan Teori</h3>
+        <p>Usaha adalah perkalian titik (dot product) antara vektor gaya dan vektor perpindahan. Secara matematis:</p>
+        <div class="math-block">$$ W = \vec{F} \cdot \vec{s} = F \cdot s \cdot \cos \theta $$</div>
+        <p>Di mana $\theta$ adalah sudut antara arah gaya dan arah perpindahan.</p>
+
+        <h3>3. Diagram Fisis & Analisis Logika</h3>
+        <div class="step">Jika $\theta = 0^{\circ}$ (Gaya searah gerak): $\cos 0^{\circ} = 1$, usaha bernilai positif maksimum ($W = Fs$).</div>
+        <div class="step">Jika $\theta = 90^{\circ}$ (Gaya tegak lurus gerak): $\cos 90^{\circ} = 0$, gaya tersebut <strong>tidak melakukan usaha</strong> ($W = 0$). Contoh: Gaya normal atau gaya berat saat koper bergerak mendatar.</div>
+        <div class="step">Jika $\theta = 180^{\circ}$ (Gaya berlawanan arah gerak): $\cos 180^{\circ} = -1$, usaha bernilai negatif. Contoh: Gaya gesek lantai pada koper.</div>
+
+        <div class="callout misconception">
+            <h4>⚠️ Miskonsepsi Umum</h4>
+            <p>Seorang atlet angkat besi yang menahan barbel seberat 200 kg di atas kepalanya selama 10 detik mungkin berkeringat dan kelelahan (menguras energi biologis), tetapi secara mekanika fisika, <strong>ia melakukan Usaha sebesar NOL</strong>. Kenapa? Karena tidak ada perpindahan ($s = 0$) selama ia diam menahan beban tersebut.</p>
+        </div>
+    </div>
+
+    <!-- TOPIK 2: TEOREMA USAHA-ENERGI -->
+    <div class="card">
+        <span class="badge">2. Teorema Usaha-Energi</span>
+        <h2>Koneksi Dinamika dan Kinematika</h2>
+        
+        <h3>1. Konsep Fisika & Landasan Teori</h3>
+        <p>Teorema ini adalah jembatan emas dalam fisika. Teorema Usaha-Energi menyatakan bahwa <strong>Usaha total (resultan usaha) yang dilakukan pada sebuah benda sama dengan perubahan energi kinetiknya</strong>.</p>
+        <div class="math-block">$$ W_{total} = \Delta E_k = E_{k2} - E_{k1} $$</div>
+        <div class="math-block">$$ W_{total} = \frac{1}{2}m v_2^2 - \frac{1}{2}m v_1^2 $$</div>
+
+        <h3>2. Langkah Pembuktian (Penurunan Rumus)</h3>
+        <div class="step">Mulai dari Hukum II Newton: $F = m \cdot a$</div>
+        <div class="step">Gunakan persamaan kinematika gerak lurus berubah beraturan (GLBB): $v_2^2 = v_1^2 + 2as \implies a = \frac{v_2^2 - v_1^2}{2s}$</div>
+        <div class="step">Substitusikan $a$ ke dalam rumus Usaha ($W = F \cdot s$):
+            <div class="math-block">$$ W = \left(m \cdot \frac{v_2^2 - v_1^2}{2s}\right) \cdot s $$</div>
+            <div class="math-block">$$ W = \frac{1}{2}m(v_2^2 - v_1^2) = \Delta E_k $$</div>
+        </div>
+
+        <div class="callout realworld">
+            <h4>🌍 Aplikasi Nyata: Sistem Pengereman Mobil</h4>
+            <p>Saat mobil melaju dan direm hingga berhenti ($v_2 = 0$), perubahan energi kinetiknya negatif. Usaha total dilakukan oleh <strong>gaya gesek rem</strong> (yang juga bernilai negatif karena berlawanan arah gerak). Energi kinetik yang "hilang" ini tidak musnah, melainkan diubah menjadi energi panas pada kanvas rem!</p>
+        </div>
+    </div>
+
+    <!-- TOPIK 3: HUKUM KEKEKALAN ENERGI MEKANIK -->
+    <div class="card">
+        <span class="badge">3. Kekekalan Energi Mekanik</span>
+        <h2>Energi Tidak Pernah Hilang</h2>
+
+        <h3>1. Identifikasi Masalah & Syarat Batas</h3>
+        <p>Energi mekanik ($E_m$) adalah total dari Energi Kinetik ($E_k$) dan Energi Potensial ($E_p$). Hukum ini berlaku mutlak dengan <strong>syarat asumsional</strong>: Hanya gaya-gaya konservatif (seperti gravitasi dan gaya pegas) yang bekerja, tanpa ada gaya disipatif (seperti gesekan udara atau lantai).</p>
+
+        <h3>2. Persamaan Matematis</h3>
+        <div class="math-block">$$ E_{m1} = E_{m2} $$</div>
+        <div class="math-block">$$ E_{p1} + E_{k1} = E_{p2} + E_{k2} $$</div>
+        <div class="math-block">$$ mgh_1 + \frac{1}{2}mv_1^2 = mgh_2 + \frac{1}{2}mv_2^2 $$</div>
+
+        <h3>3. Bedah Mendalam: Analisis Wahana Roller Coaster</h3>
+        <p>Pada wahana <i>roller coaster</i> yang licin, saat kereta berada di puncak tertinggi, kecepatan mendekati nol ($E_k \approx 0$), namun posisi sangat tinggi ($E_p$ maksimum). Saat meluncur ke bawah, ketinggian berkurang, energi potensial diubah secara instan menjadi energi kinetik (kecepatan bertambah pesat). Di titik terendah, $E_k$ mencapai puncaknya.</p>
+
+        <div class="callout misconception">
+            <h4>💡 Cara Cepat (Fast-Track)</h4>
+            <p>Jika sebuah benda jatuh bebas dari keadaan diam ($v_1 = 0$) dari ketinggian $h$, kelajuannya sesaat sebelum menyentuh tanah dapat diturunkan langsung dari $mgh = \frac{1}{2}mv^2$, sehingga: <strong>$v = \sqrt{2gh}$</strong>. Massa ($m$) saling menghilangkan, membuktikan (seperti percobaan Galileo) bahwa tanpa hambatan udara, benda berat maupun ringan akan jatuh dengan kelajuan yang sama.</p>
+        </div>
+    </div>
+
+    <!-- TOPIK 4: MOMENTUM -->
+    <div class="card">
+        <span class="badge">4. Momentum Linear</span>
+        <h2>Ukuran Kesukaran Menghentikan Benda</h2>
+
+        <h3>1. Konsep Fisika</h3>
+        <p>Momentum (dilambangkan dengan $p$) adalah besaran <strong>vektor</strong> yang menunjukkan ukuran kesukaran untuk menghentikan gerak suatu benda. Semakin masif benda tersebut dan semakin cepat ia bergerak, semakin besar momentumnya.</p>
+        
+        <h3>2. Persamaan Matematis</h3>
+        <div class="math-block">$$ \vec{p} = m \cdot \vec{v} $$</div>
+        <p>Di mana $m$ adalah massa (kg) dan $\vec{v}$ adalah kecepatan (m/s). Satuan momentum adalah <strong>kg·m/s</strong>.</p>
+
+        <h3>3. Verifikasi Logika</h3>
+        <p>Bayangkan sebuah peluru kecil (massa sangat kecil) namun ditembakkan dengan kecepatan ekstrem. Ia akan memiliki momentum yang setara dengan benda berat yang menggelinding pelan. Itulah mengapa peluru sangat merusak; ia memiliki "kuantitas gerak" yang sangat besar dan terpusat.</p>
+    </div>
+
+    <!-- TOPIK 5: IMPULS -->
+    <div class="card">
+        <span class="badge">5. Impuls & Teorema Impuls-Momentum</span>
+        <h2>Gaya Sesaat yang Berdampak Besar</h2>
+
+        <h3>1. Konsep Fisika</h3>
+        <p>Impuls ($I$) adalah hasil kali antara gaya rata-rata dengan selang waktu gaya tersebut bekerja. Ini mengukur seberapa besar "dorongan/pukulan" yang diterima benda.</p>
+        <div class="math-block">$$ \vec{I} = \vec{F} \cdot \Delta t $$</div>
+
+        <h3>2. Hubungan dengan Momentum (Teorema Impuls-Momentum)</h3>
+        <p>Hukum II Newton versi momentum mendefinisikan gaya sebagai laju perubahan momentum ($F = \frac{\Delta p}{\Delta t}$). Dari sini kita peroleh Teorema Impuls-Momentum:</p>
+        <div class="math-block">$$ \vec{I} = \Delta \vec{p} = \vec{p}_2 - \vec{p}_1 $$</div>
+        <div class="math-block">$$ \vec{F} \cdot \Delta t = m(\vec{v}_2 - \vec{v}_1) $$</div>
+
+        <div class="callout realworld">
+            <h4>🌍 Aplikasi Nyata: Desain Sarung Tinju & Airbag</h4>
+            <p>Mengapa petinju memakai sarung empuk dan mobil punya airbag? Tujuannya adalah <strong>memperbesar selang waktu kontak ($\Delta t$)</strong> saat tabrakan/pukulan terjadi. Jika momentum yang harus dihentikan ($\Delta p$) adalah konstan, maka memperbesar $\Delta t$ akan secara drastis <strong>mengecilkan gaya ($F$)</strong> yang mengenai wajah atau tubuh penumpang. Ini adalah rekayasa keselamatan berbasis fisika murni!</p>
+        </div>
+    </div>
+
+    <!-- TOPIK 6: HUKUM KEKEKALAN MOMENTUM -->
+    <div class="card">
+        <span class="badge">6. Hukum Kekekalan Momentum</span>
+        <h2>Interaksi Tabrakan dan Ledakan</h2>
+
+        <h3>1. Identifikasi Kondisi Sistem</h3>
+        <p>Hukum ini menyatakan: <strong>Jika tidak ada gaya luar (eksternal) yang bekerja pada suatu sistem yang terisolasi, maka total momentum sistem tersebut adalah konstan.</strong> Ini sangat krusial dalam menganalisis kasus tumbukan (tabrakan), ledakan, atau gaya dorong roket.</p>
+
+        <h3>2. Penjabaran Matematis</h3>
+        <p>Untuk dua benda (massa 1 dan 2) yang saling berinteraksi (misal bertumbukan):</p>
+        <div class="math-block">$$ \Sigma \vec{p}_{awal} = \Sigma \vec{p}_{akhir} $$</div>
+        <div class="math-block">$$ m_1 \vec{v}_1 + m_2 \vec{v}_2 = m_1 \vec{v}_1' + m_2 \vec{v}_2' $$</div>
+        <p><em>Catatan Vektor:</em> Karena momentum adalah vektor, tanda positif dan negatif (arah ke kanan atau kiri) <strong>sangat wajib</strong> diperhatikan saat memasukkan nilai kecepatan ke dalam persamaan.</p>
+
+        <h3>3. Bedah Mendalam: Jenis-Jenis Tumbukan</h3>
+        <div class="step"><strong>Lenting Sempurna:</strong> Berlaku Hukum Kekekalan Momentum DAN Hukum Kekekalan Energi Kinetik. Koefisien restitusi $e = 1$. (Contoh ideal: Tumbukan partikel gas).</div>
+        <div class="step"><strong>Lenting Sebagian:</strong> Momentum kekal, tetapi energi kinetik berkurang (berubah jadi bunyi, panas, deformasi). $0 < e < 1$. (Contoh: Bola basket memantul di lantai).</div>
+        <div class="step"><strong>Tidak Lenting Sama Sekali:</strong> Kedua benda menempel dan bergerak bersama setelah tumbukan ($v_1' = v_2' = v'$). Energi kinetik paling banyak hilang. $e = 0$. (Contoh: Peluru tertanam pada balok kayu).</div>
+        
+        <div class="callout misconception">
+            <h4>⚠️ Miskonsepsi Umum</h4>
+            <p>Siswa sering bingung saat dua mobil bertabrakan dan rusak parah, mengira momentum tidak kekal karena mobilnya "rusak". Ingat, yang hilang (berubah bentuk) dalam tabrakan tidak lenting adalah <strong>Energi Kinetik</strong>, sedangkan total <strong>Momentum</strong> sistem (mobil A + mobil B) selalu tetap sama persis sesaat sebelum dan sesaat setelah tabrakan.</p>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

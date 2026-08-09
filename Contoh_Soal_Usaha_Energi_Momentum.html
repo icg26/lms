@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latihan Soal HOTS: Usaha, Energi & Momentum - Kahfi</title>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$']],
+                displayMath: [['$$', '$$']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --primary-light: #e0e7ff;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #334155;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --misconception-bg: #fffbeb;
+            --misconception-border: #f59e0b;
+            --realworld-bg: #f0fdf4;
+            --realworld-border: #22c55e;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: linear-gradient(135deg, var(--primary), #3730a3);
+            color: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            margin: 0 0 10px 0;
+            font-size: 2.2em;
+        }
+
+        .header p {
+            margin: 0;
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            border: 1px solid var(--border-color);
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin-bottom: 15px;
+            letter-spacing: 0.5px;
+        }
+
+        h2 {
+            color: #1e293b;
+            font-size: 1.4em;
+            margin-top: 0;
+            border-bottom: 2px solid var(--primary-light);
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color: var(--primary);
+            font-size: 1.1em;
+            margin-top: 25px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .problem-statement {
+            font-size: 1.1em;
+            color: #0f172a;
+            font-weight: 500;
+            background: var(--bg-color);
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary);
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: white;
+        }
+
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 12px 15px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--primary-light);
+            color: var(--primary);
+            font-weight: 600;
+            width: 30%;
+        }
+
+        .callout {
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 5px solid;
+        }
+
+        .callout.misconception {
+            background-color: var(--misconception-bg);
+            border-color: var(--misconception-border);
+        }
+
+        .callout.misconception h4 {
+            color: #b45309;
+            margin: 0 0 8px 0;
+        }
+
+        .callout.realworld {
+            background-color: var(--realworld-bg);
+            border-color: var(--realworld-border);
+        }
+
+        .callout.realworld h4 {
+            color: #15803d;
+            margin: 0 0 8px 0;
+        }
+
+        .step {
+            margin-bottom: 15px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .step::before {
+            content: "•";
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 1.5em;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+
+        .math-block {
+            overflow-x: auto;
+            padding: 10px 0;
+        }
+        
+        @media (max-width: 600px) {
+            .card {
+                padding: 20px;
+            }
+            .header h1 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>Latihan Soal</h1>
+        <p>Aplikasi Usaha, Energi, dan Momentum</p>
+    </div>
+
+    <!-- SOAL 1: USAHA (Drone Logistik) -->
+    <div class="card">
+        <span class="badge">1. Usaha & Dinamika Partikel</span>
+        <h2>Soal 1: Drone Kurir Logistik</h2>
+        <div class="problem-statement">
+            Sebuah drone logistik canggih sedang mengangkat kotak medis bermassa 2 kg secara vertikal ke atas. Untuk menghindari rintangan pepohonan, drone mempercepat naik dengan percepatan konstan 2 m/s² setinggi 5 meter dari posisi awalnya. Jika percepatan gravitasi adalah 10 m/s², berapakah total usaha yang dilakukan oleh gaya angkat baling-baling drone terhadap kotak tersebut?
+        </div>
+
+        <h3>1. Identifikasi Masalah</h3>
+        <table>
+            <tr>
+                <th>Diketahui</th>
+                <td>Massa kotak ($m$) = 2 kg<br>Percepatan naik ($a$) = 2 m/s²<br>Perpindahan vertikal ($s$) = 5 m<br>$g$ = 10 m/s²</td>
+            </tr>
+            <tr>
+                <th>Ditanyakan</th>
+                <td>Usaha gaya angkat ($W_F$) = ?</td>
+            </tr>
+        </table>
+
+        <h3>2. Konsep Fisika & Diagram Fisis</h3>
+        <p>Kotak mengalami dua gaya pada sumbu vertikal: Gaya Angkat ($F$) ke atas oleh drone dan Gaya Berat ($w = mg$) ke bawah. Karena kotak bergerak dengan percepatan $a$ ke atas, kita harus menggunakan <strong>Hukum II Newton</strong> untuk mencari $F$ terlebih dahulu, baru kemudian menghitung usaha ($W = F \cdot s$).</p>
+
+        <h3>3. Langkah Penyelesaian</h3>
+        <div class="step">Terapkan Hukum II Newton pada kotak medis:
+            <div class="math-block">$$ \Sigma F_y = m \cdot a $$</div>
+            <div class="math-block">$$ F - mg = m \cdot a $$</div>
+        </div>
+        <div class="step">Hitung gaya angkat baling-baling ($F$):
+            <div class="math-block">$$ F = m(g + a) $$</div>
+            <div class="math-block">$$ F = 2(10 + 2) = 2 \cdot 12 = 24\text{ N} $$</div>
+        </div>
+        <div class="step">Hitung usaha gaya angkat:
+            <div class="math-block">$$ W_F = F \cdot s = 24 \cdot 5 = 120\text{ Joule} $$</div>
+        </div>
+        <p><strong>Jawaban Akhir: 120 Joule</strong></p>
+
+        <div class="callout misconception">
+            <h4>⚠️ Miskonsepsi Umum</h4>
+            <p>Siswa sering langsung mengalikan $W = m \cdot g \cdot s = 2 \cdot 10 \cdot 5 = 100$ Joule. Ini salah karena 100 Joule adalah usaha minimum jika kotak diangkat dengan kelajuan *konstan*. Karena drone *mempercepat* kotak, baling-baling harus melakukan kerja ekstra untuk memberikan energi kinetik tambahan, sehingga usahanya lebih besar dari sekadar melawan gravitasi (120 Joule vs 100 Joule).</p>
+        </div>
+    </div>
+
+    <!-- SOAL 2: TEOREMA USAHA-ENERGI (Regenerative Braking) -->
+    <div class="card">
+        <span class="badge">2. Teorema Usaha-Energi</span>
+        <h2>Soal 2: Sistem Pengereman Mobil Listrik (EV)</h2>
+        <div class="problem-statement">
+            Mobil listrik (EV) bermassa 1000 kg melaju dengan kecepatan 20 m/s di jalan tol. Saat mendekati gerbang tol, pengemudi melepas pedal gas sehingga fitur <em>Regenerative Braking</em> aktif hingga mobil berhenti sempurna. Jika sistem ini memiliki efisiensi 60% dalam menyerap energi kinetik yang hilang, berapakah tambahan energi listrik yang tersimpan kembali ke dalam baterai?
+        </div>
+
+        <h3>1. Identifikasi Masalah</h3>
+        <table>
+            <tr>
+                <th>Diketahui</th>
+                <td>Massa ($m$) = 1000 kg<br>Kecepatan awal ($v_1$) = 20 m/s<br>Kecepatan akhir ($v_2$) = 0 m/s<br>Efisiensi penyerapan ($\eta$) = 60%</td>
+            </tr>
+            <tr>
+                <th>Ditanyakan</th>
+                <td>Energi tersimpan di baterai ($E_{simpan}$) = ?</td>
+            </tr>
+        </table>
+
+        <h3>2. Konsep Fisika</h3>
+        <p>Ini adalah aplikasi langsung dari <strong>Teorema Usaha-Energi</strong>. Pengereman menghilangkan energi kinetik mobil (Usaha negatif oleh rem). Pada mobil listrik, alih-alih membuang semua energi ini menjadi panas di cakram rem, motor listrik bertindak sebagai generator dan mengubah sebagian energi kinetik tersebut kembali menjadi energi listrik.</p>
+
+        <h3>3. Langkah Penyelesaian</h3>
+        <div class="step">Hitung perubahan Energi Kinetik (Energi yang dihilangkan):
+            <div class="math-block">$$ |\Delta E_k| = \left| \frac{1}{2}m v_2^2 - \frac{1}{2}m v_1^2 \right| $$</div>
+            <div class="math-block">$$ |\Delta E_k| = \left| 0 - \frac{1}{2}(1000)(20^2) \right| $$</div>
+            <div class="math-block">$$ |\Delta E_k| = \frac{1}{2}(1000)(400) = 200.000\text{ Joule} $$</div>
+        </div>
+        <div class="step">Hitung energi yang berhasil disimpan baterai:
+            <div class="math-block">$$ E_{simpan} = \eta \times |\Delta E_k| $$</div>
+            <div class="math-block">$$ E_{simpan} = \frac{60}{100} \times 200.000 = 120.000\text{ Joule (120 kJ)} $$</div>
+        </div>
+        <p><strong>Jawaban Akhir: 120 kJ</strong></p>
+    </div>
+
+    <!-- SOAL 3: HUKUM KEKEKALAN ENERGI (Wahana Air) -->
+    <div class="card">
+        <span class="badge">3. Kekekalan Energi Mekanik Terdisipasi</span>
+        <h2>Soal 3: Gesekan pada Waterboom</h2>
+        <div class="problem-statement">
+            Seorang pengunjung bermassa 50 kg meluncur dari keadaan diam di puncak perosotan air setinggi 5 meter. Karena luncuran tidak sepenuhnya licin (ada turbulensi air dan gesekan baju renang), ia tiba di kolam bawah dengan kelajuan 8 m/s. Berapakah energi mekanik yang "hilang" atau terdisipasi menjadi panas dan bunyi selama ia meluncur? ($g$ = 10 m/s²)
+        </div>
+
+        <h3>1. Identifikasi Masalah</h3>
+        <table>
+            <tr>
+                <th>Diketahui</th>
+                <td>Massa ($m$) = 50 kg, $h_1 = 5$ m, $h_2 = 0$ m<br>$v_1 = 0$ m/s, $v_2 = 8$ m/s, $g$ = 10 m/s²</td>
+            </tr>
+            <tr>
+                <th>Ditanyakan</th>
+                <td>Energi yang hilang ($W_{gesek}$) = ?</td>
+            </tr>
+        </table>
+
+        <h3>2. Konsep Fisika</h3>
+        <p>Karena sistem ini melibatkan gaya non-konservatif (gesekan), Energi Mekanik awal <strong>tidak sama</strong> dengan Energi Mekanik akhir. Selisih dari kedua energi tersebut merupakan usaha yang dilakukan oleh gaya gesek (energi yang terdisipasi ke lingkungan).</p>
+
+        <h3>3. Langkah Penyelesaian</h3>
+        <div class="step">Hitung Energi Mekanik Awal (di puncak):
+            <div class="math-block">$$ E_{m1} = mgh_1 + \frac{1}{2}mv_1^2 $$</div>
+            <div class="math-block">$$ E_{m1} = (50 \cdot 10 \cdot 5) + 0 = 2500\text{ Joule} $$</div>
+        </div>
+        <div class="step">Hitung Energi Mekanik Akhir (di dasar):
+            <div class="math-block">$$ E_{m2} = mgh_2 + \frac{1}{2}mv_2^2 $$</div>
+            <div class="math-block">$$ E_{m2} = 0 + \frac{1}{2}(50)(8^2) = 25 \cdot 64 = 1600\text{ Joule} $$</div>
+        </div>
+        <div class="step">Hitung energi yang terdisipasi:
+            <div class="math-block">$$ W_{gesek} = E_{m2} - E_{m1} = 1600 - 2500 = -900\text{ Joule} $$</div>
+            Tanda negatif mengindikasikan bahwa energi tersebut keluar dari sistem (hilang).
+        </div>
+        <p><strong>Jawaban Akhir: 900 Joule</strong></p>
+    </div>
+
+    <!-- SOAL 4: IMPULS & MOMENTUM (Casing HP) -->
+    <div class="card">
+        <span class="badge">4. Teorema Impuls-Momentum</span>
+        <h2>Soal 4: Rekayasa Material Casing Smartphone</h2>
+        <div class="problem-statement">
+            Sebuah smartphone bermassa 200 gram jatuh bebas dari atas meja setinggi 1,25 meter dan menghantam lantai keras. Jika tanpa casing, benturan terjadi dalam waktu sangat singkat (0,005 sekon) lalu HP berhenti. Jika menggunakan <em>silicone case</em> pelindung benturan, waktu kontak dengan lantai memanjang menjadi 0,04 sekon. Berapakah perbandingan rata-rata gaya hantam lantai yang diterima HP tanpa casing dibandingkan dengan casing? ($g$ = 10 m/s²)
+        </div>
+
+        <h3>1. Identifikasi Masalah</h3>
+        <table>
+            <tr>
+                <th>Diketahui</th>
+                <td>$m$ = 0,2 kg; $h$ = 1,25 m; $v_{akhir}$ = 0 (berhenti di lantai)<br>$\Delta t_{tanpa}$ = 0,005 s; $\Delta t_{dengan}$ = 0,04 s</td>
+            </tr>
+            <tr>
+                <th>Ditanyakan</th>
+                <td>Perbandingan $F_{tanpa} : F_{dengan}$ = ?</td>
+            </tr>
+        </table>
+
+        <h3>2. Langkah Penyelesaian</h3>
+        <div class="step">Cari kecepatan jatuh HP sesaat sebelum menyentuh lantai (kinematika jatuh bebas):
+            <div class="math-block">$$ v = \sqrt{2gh} = \sqrt{2 \cdot 10 \cdot 1,25} = \sqrt{25} = 5\text{ m/s (arah ke bawah)} $$</div>
+        </div>
+        <div class="step">Hitung Impuls yang dialami HP (sama untuk kedua kasus, karena massa dan perubahan kecepatan sama):
+            <div class="math-block">$$ I = \Delta p = m \cdot (v_{akhir} - v_{awal}) $$</div>
+            <div class="math-block">$$ I = 0,2 \cdot (0 - (-5)) = 0,2 \cdot 5 = 1\text{ Ns} $$</div>
+        </div>
+        <div class="step">Bandingkan gaya ($F = \frac{I}{\Delta t}$):
+            <div class="math-block">$$ F_{tanpa} : F_{dengan} = \left(\frac{I}{\Delta t_{tanpa}}\right) : \left(\frac{I}{\Delta t_{dengan}}\right) $$</div>
+            Karena $I$ konstan, gaya berbanding terbalik dengan waktu sentuh:
+            <div class="math-block">$$ \frac{F_{tanpa}}{F_{dengan}} = \frac{\Delta t_{dengan}}{\Delta t_{tanpa}} = \frac{0,04}{0,005} = \frac{40}{5} = 8 $$</div>
+        </div>
+        <p><strong>Jawaban Akhir: 8 : 1</strong></p>
+
+        <div class="callout realworld">
+            <h4>🌍 Aplikasi Teknologi Keselamatan</h4>
+            <p>Terbukti secara fisika! Memperpanjang waktu tumbukan dari 5 milidetik menjadi 40 milidetik dapat <strong>mengurangi gaya penghancur hingga 8 kali lipat</strong> (dari 200 N menjadi 25 N). Ini adalah prinsip fundamental yang diaplikasikan pada helm pelindung, bumper mobil, dan kemasan paket <em>bubble wrap</em>.</p>
+        </div>
+    </div>
+
+    <!-- SOAL 5: KEKEKALAN MOMENTUM (Astronot) -->
+    <div class="card">
+        <span class="badge">5. Hukum Kekekalan Momentum</span>
+        <h2>Soal 5: Manuver Darurat di Luar Angkasa (Zero Gravity)</h2>
+        <div class="problem-statement">
+            Seorang astronot bermassa 80 kg melayang diam di ruang angkasa akibat <em>jetpack</em>-nya rusak. Untuk dapat bergerak kembali ke stasiun luar angkasa, ia melempar tangki oksigen cadangan yang rusak bermassa 5 kg dengan kecepatan 8 m/s menjauhi arah stasiun. Berapakah kelajuan "tolakan" (recoil) astronot tersebut menuju stasiun?
+        </div>
+
+        <h3>1. Identifikasi Masalah</h3>
+        <table>
+            <tr>
+                <th>Diketahui</th>
+                <td>Massa astronot ($m_a$) = 80 kg; Kecepatan awal ($v_a$) = 0 m/s<br>Massa tangki ($m_t$) = 5 kg; Kecepatan awal ($v_t$) = 0 m/s<br>Kecepatan akhir tangki ($v_t'$) = 8 m/s (ke belakang/menjauhi stasiun)</td>
+            </tr>
+            <tr>
+                <th>Ditanyakan</th>
+                <td>Kelajuan recoil astronot ($v_a'$) = ?</td>
+            </tr>
+        </table>
+
+        <h3>2. Konsep Fisika</h3>
+        <p>Sistem ini terisolasi dari gaya eksternal di ruang hampa (tidak ada gesekan, tidak ada pilar bertumpu). Maka berlaku murni <strong>Hukum Kekekalan Momentum</strong>, di mana total momentum sistem sebelum dan sesudah interaksi harus nol.</p>
+
+        <h3>3. Langkah Penyelesaian</h3>
+        <div class="step">Terapkan kekekalan momentum:
+            <div class="math-block">$$ \Sigma p_{awal} = \Sigma p_{akhir} $$</div>
+            <div class="math-block">$$ 0 = m_a \cdot v_a' + m_t \cdot v_t' $$</div>
+        </div>
+        <div class="step">Substitusi nilai ke dalam persamaan:
+            <p>Asumsikan arah lemparan tangki positif (+8 m/s):</p>
+            <div class="math-block">$$ 0 = (80 \cdot v_a') + (5 \cdot 8) $$</div>
+            <div class="math-block">$$ 0 = 80v_a' + 40 $$</div>
+            <div class="math-block">$$ 80v_a' = -40 $$</div>
+            <div class="math-block">$$ v_a' = \frac{-40}{80} = -0,5\text{ m/s} $$</div>
+        </div>
+        <p><strong>Jawaban Akhir: Kelajuan astronot adalah 0,5 m/s.</strong> Tanda negatif menunjukkan bahwa ia bergerak ke arah berlawanan dari tangki (menuju stasiun luar angkasa), sesuai harapan dari hukum aksi-reaksi roket!</p>
+    </div>
+
+</div>
+
+</body>
+</html>

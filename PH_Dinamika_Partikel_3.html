@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pembahasan Dinamika Partikel - Kahfi (Pakar Fisika)</title>
+    <!-- MathJax for rendering LaTeX -->
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --primary-light: #e0e7ff;
+            --bg-color: #f8fafc;
+            --text-main: #334155;
+            --card-bg: #ffffff;
+            --warning-bg: #fffbeb;
+            --warning-border: #f59e0b;
+            --success-bg: #ecfdf5;
+            --success-border: #10b981;
+            --table-border: #e2e8f0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .header-title {
+            text-align: center;
+            color: var(--primary);
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        h2 {
+            color: #1e293b;
+            font-size: 1.25rem;
+            margin-top: 0;
+            border-bottom: 2px solid var(--primary-light);
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color: var(--primary);
+            font-size: 1.1rem;
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid var(--table-border);
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--primary-light);
+            font-weight: 600;
+            color: var(--primary);
+            width: 30%;
+        }
+
+        .callout {
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .misconception {
+            background-color: var(--warning-bg);
+            border-left: 5px solid var(--warning-border);
+        }
+
+        .application {
+            background-color: var(--success-bg);
+            border-left: 5px solid var(--success-border);
+        }
+
+        .callout-title {
+            font-weight: 700;
+            margin-bottom: 5px;
+            display: block;
+        }
+        
+        .misconception .callout-title { color: #b45309; }
+        .application .callout-title { color: #047857; }
+
+        .step {
+            background-color: #f1f5f9;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .options-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .options-list li {
+            margin-bottom: 8px;
+            padding: 8px;
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+        }
+        
+        .options-list li.correct {
+            background-color: #ecfdf5;
+            border-color: #10b981;
+            font-weight: 600;
+        }
+
+        @media (max-width: 600px) {
+            body { padding: 10px; }
+            .card { padding: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1 class="header-title">Pembahasan Eksklusif Dinamika Partikel bersama Kahfi</h1>
+    <p style="text-align: center; margin-bottom: 40px; color: #64748b;">Analisis mendalam, langkah sistematis, dan verifikasi konsep fisika untuk soal nomor 11 hingga 15.</p>
+
+    <!-- SOAL 11 -->
+    <div class="card">
+        <span class="badge">Soal 11: Hukum II Newton (Gaya Membentuk Sudut)</span>
+        <h2></h2>
+        <p>Siswa menarik troli kebersihan bermassa 4 kg menggunakan tali yang membentuk sudut \(37^\circ\) terhadap lantai horizontal. Jika gaya tarik tali sebesar 25 N di atas lantai licin, berapakah percepatan mendatar troli tersebut?</p>
+        
+        <h3>1. Identifikasi Masalah</h3>
+        <table>
+            <tr><th>Diketahui</th><td>Massa (\(m\)) = 4 kg <br> Gaya (\(F\)) = 25 N <br> Sudut (\(\theta\)) = \(37^\circ\) <br> Kondisi lantai = Licin (\(\mu = 0\))</td></tr>
+            <tr><th>Ditanyakan</th><td>Percepatan mendatar troli (\(a\))?</td></tr>
+            <tr><th>Asumsi Dasar</th><td>\(\cos(37^\circ) \approx 0,8\) dan \(\sin(37^\circ) \approx 0,6\). Gerakan hanya terjadi pada sumbu horizontal (sumbu-x).</td></tr>
+        </table>
+
+        <h3>2. Konsep Fisika & Diagram Fisis</h3>
+        <p>Berdasarkan Hukum II Newton, resultan gaya yang bekerja pada suatu benda sebanding dengan percepatannya (\(\Sigma F = m \cdot a\)). Karena gaya tarik \(F\) membentuk sudut terhadap bidang datar, gaya tersebut harus diproyeksikan ke sumbu-x (searah gerak mendatar) dan sumbu-y (vertikal).</p>
+        <ul>
+            <li>Komponen horizontal: \(F_x = F \cos(\theta)\) -> Komponen inilah yang menyebabkan benda mengalami percepatan.</li>
+            <li>Komponen vertikal: \(F_y = F \sin(\theta)\) -> Komponen ini mengurangi gaya normal, namun tidak memengaruhi gesekan karena lantai licin.</li>
+        </ul>
+
+        <h3>3. Langkah Penyelesaian</h3>
+        <div class="step">
+            <strong>Langkah 1: Menghitung gaya komponen horizontal</strong><br>
+            \(F_x = F \cos(37^\circ)\)<br>
+            \(F_x = 25 \text{ N} \times 0,8 = 20 \text{ N}\)
+        </div>
+        <div class="step">
+            <strong>Langkah 2: Mengaplikasikan Hukum II Newton</strong><br>
+            \(\Sigma F_x = m \cdot a\)<br>
+            \(20 = 4 \cdot a\)<br>
+            \(a = \frac{20}{4} = 5 \text{ m/s}^2\)
+        </div>
+        <p><strong>Jawaban: C. \(5 \text{ m/s}^2\)</strong></p>
+
+        <h3>4. Verifikasi & Analisis Logika</h3>
+        <p>Analisis dimensi: Gaya \((kg \cdot m/s^2)\) dibagi dengan massa \((kg)\) menghasilkan satuan \((m/s^2)\), yang valid untuk percepatan. Logika matematis menunjukkan bahwa gaya horizontal efektif lebih kecil dari gaya total (20N < 25N), sehingga percepatan (5 m/s²) juga logis.</p>
+
+        <div class="callout misconception">
+            <span class="callout-title">⚠️ Miskonsepsi Umum</span>
+            Siswa sering kali langsung menggunakan gaya total 25 N dalam rumus \(F = m \cdot a\), sehingga mendapat hasil \(25 / 4 = 6,25 \text{ m/s}^2\). Ingat, hanya gaya yang **sejajar dengan arah gerak** yang menyebabkan percepatan translasi pada bidang tersebut.
+        </div>
+        <div class="callout application">
+            <span class="callout-title">💡 Aplikasi Nyata</span>
+            Saat Anda menarik koper di bandara, pegangan koper selalu miring. Desain ini dibuat secara ergonomis; gaya tarik ke atas (vertikal) meringankan beban koper pada roda (mengurangi gesekan), sementara komponen gaya horizontal mendahului gerak maju Anda.
+        </div>
+    </div>
+
+    <!-- SOAL 12 -->
+    <div class="card">
+        <span class="badge">Soal 12: Dinamika Sistem Benda & Tegangan Tali</span>
+        <h2></h2>
+        <p>Mobil operasional sekolah (1200 kg) menderek kendaraan mogok (800 kg) di jalan datar tanpa gesekan. Kawat baja derek memiliki batas gaya tegangan maksimum 3200 N. Berapakah gaya tarik mesin maksimum yang boleh dihasilkan agar kawat tidak putus?</p>
+
+        <h3>1. Identifikasi Masalah</h3>
+        <table>
+            <tr><th>Diketahui</th><td>Massa penderek (\(m_1\)) = 1200 kg <br> Massa ditarik (\(m_2\)) = 800 kg <br> Tegangan Tali Maksimal (\(T_{max}\)) = 3200 N <br> Jalan datar tanpa gesekan (\(\mu = 0\))</td></tr>
+            <tr><th>Ditanyakan</th><td>Gaya tarik mesin maksimal (\(F_{max}\))?</td></tr>
+            <tr><th>Asumsi Dasar</th><td>Kedua mobil bergerak bersamaan dengan percepatan (\(a\)) yang sama. Kawat dianggap tak bermassa (ideal).</td></tr>
+        </table>
+
+        <h3>2. Konsep Fisika</h3>
+        <p>Ini adalah masalah sistem multiobyek (dua benda yang terhubung). Pendekatan terbaik adalah menganalisis sistem secara keseluruhan, dan kemudian meninjau salah satu benda secara terpisah (diagram benda bebas) untuk menemukan gaya internal (tegangan tali).</p>
+        <ul>
+            <li><strong>Tinjauan Benda 2 (Mobil mogok):</strong> Satu-satunya gaya horizontal yang bekerja padanya adalah tegangan tali (\(T\)).</li>
+            <li><strong>Tinjauan Sistem Keseluruhan:</strong> Gaya luar yang menarik seluruh massa sistem adalah Gaya mesin (\(F\)).</li>
+        </ul>
+
+        <h3>3. Langkah Penyelesaian</h3>
+        <div class="step">
+            <strong>Langkah 1: Tinjau mobil yang diderek untuk mencari percepatan maksimum sistem.</strong><br>
+            Hukum II Newton pada mobil 2: \(\Sigma F_2 = m_2 \cdot a_{max}\)<br>
+            Karena hanya gaya tegangan tali yang bekerja mendatar: \(T_{max} = m_2 \cdot a_{max}\)<br>
+            \(3200 = 800 \cdot a_{max}\)<br>
+            \(a_{max} = \frac{3200}{800} = 4 \text{ m/s}^2\)
+        </div>
+        <div class="step">
+            <strong>Langkah 2: Tinjau sistem keseluruhan untuk mencari Gaya Mesin.</strong><br>
+            \(\Sigma F_{sistem} = (m_1 + m_2) \cdot a_{max}\)<br>
+            \(F_{max} = (1200 + 800) \cdot 4\)<br>
+            \(F_{max} = 2000 \cdot 4 = 8000 \text{ N}\)
+        </div>
+        <p><strong>Jawaban: D. 8000 N</strong></p>
+
+        <h3>4. Verifikasi & Analisis Logika</h3>
+        <p>Jika mesin menarik dengan gaya 8000 N, total massa 2000 kg akan berakselerasi 4 m/s². Untuk membuat benda belakang (800 kg) berakselerasi 4 m/s², dibutuhkan gaya penarik murni (Tegangan) sebesar \(800 \times 4 = 3200 \text{ N}\). Perhitungan balik konsisten sempurna dengan kondisi batas yang diberikan.</p>
+
+        <div class="callout misconception">
+            <span class="callout-title">⚠️ Miskonsepsi Umum</span>
+            Sebagian siswa menyamakan Tegangan Tali dengan Gaya Tarik Mesin (\(F = T\)). Padahal, mesin tidak hanya menarik mobil yang mogok, tetapi juga harus menggerakkan (memberi percepatan pada) massanya sendiri (1200 kg).
+        </div>
+    </div>
+
+    <!-- SOAL 13 -->
+    <div class="card">
+        <span class="badge">Soal 13: Konseptual Hukum Newton (Analisis Logika)</span>
+        <h2></h2>
+        <p>Evaluasi terhadap modul Fisika Dasar MAN IC Gorontalo meminta siswa menelaah Hukum Newton. Analisislah dan tentukan pernyataan mana saja yang terbukti valid secara mekanika!</p>
+
+        <h3>1. Bedah Pernyataan</h3>
+        <ul class="options-list">
+            <li class="correct">✅ <strong>Pernyataan 1: Jika resultan gaya pada benda bernilai nol, benda pasti diam atau bergerak lurus beraturan.</strong> <br> <em>(VALID)</em> Ini adalah redaksional definitif dari Hukum I Newton (Kelembaman/Inersia). Jika \(\Sigma F = 0\), maka \(a = 0\).</li>
+            <li class="correct">✅ <strong>Pernyataan 2: Percepatan gerak benda berbanding lurus dengan resultan gaya dan berbanding terbalik dengan massanya.</strong> <br> <em>(VALID)</em> Ini adalah esensi matematis Hukum II Newton (\(a = \Sigma F / m\)).</li>
+            <li class="correct">✅ <strong>Pernyataan 3: Gaya normal selalu berarah tegak lurus terhadap permukaan bidang sentuh.</strong> <br> <em>(VALID)</em> Kata 'Normal' dalam matematika dan fisika secara harafiah berarti orthogonal atau tegak lurus terhadap bidang permukaan sentuh.</li>
+            <li>❌ <strong>Pernyataan 4: Koefisien gesek kinetis selalu bernilai lebih besar daripada koefisien gesek statis.</strong> <br> <em>(TIDAK VALID)</em> Secara fisis, mempertahankan benda agar tetap bergerak (kinetis) selalu lebih mudah daripada menggerakkan benda dari kondisi diam (statis). Oleh karenanya, \(\mu_k < \mu_s\) selalu berlaku.</li>
+            <li>❌ <strong>Pernyataan 5: Gaya berat benda nilainya selalu sama di mana pun benda berada di alam semesta.</strong> <br> <em>(TIDAK VALID)</em> Gaya berat (\(w = m \cdot g\)) sangat bergantung pada percepatan gravitasi lokal (\(g\)). Massa benda konstan, tetapi berat benda berbeda antara Bumi, Bulan, atau luar angkasa.</li>
+        </ul>
+        <div class="callout application">
+            <span class="callout-title">💡 Aplikasi Nyata</span>
+            Pemahaman tentang \(\mu_k < \mu_s\) (Pernyataan 4) melatarbelakangi penemuan sistem pengereman ABS (Anti-lock Braking System) pada mobil. ABS mencegah roda "mengunci" (bergeser kinetik) sehingga mobil tetap memanfaatkan gesekan statis yang lebih besar untuk berhenti dengan jarak yang lebih pendek dan aman.
+        </div>
+    </div>
+
+    <!-- SOAL 14 -->
+    <div class="card">
+        <span class="badge">Soal 14: Konseptual Hukum III Newton (Aksi-Reaksi)</span>
+        <h2></h2>
+        <p>Konsep pasangan gaya Aksi-Reaksi pada Hukum III Newton sering kali disalahpahami. Pilihlah kriteria fisis yang tepat mengenai sepasang gaya aksi-reaksi!</p>
+
+        <h3>1. Bedah Pernyataan</h3>
+        <p>Hukum III Newton menyatakan: "Untuk setiap gaya aksi yang diberikan, akan timbul gaya reaksi yang sama besar, berlawanan arah, dan bekerja pada benda yang berbeda".</p>
+        <ul class="options-list">
+            <li class="correct">✅ <strong>Pernyataan 1: Bekerja pada dua benda yang berbeda sebagai wujud interaksi timbal balik.</strong> <br> <em>(VALID)</em> Jika A menekan B (Aksi), maka B menekan A (Reaksi). Keduanya bekerja di benda berbeda.</li>
+            <li class="correct">✅ <strong>Pernyataan 2: Memiliki nilai (besaran) yang sama persis, tetapi arah geraknya berlawanan.</strong> <br> <em>(VALID)</em> Persamaan vektornya adalah \(\vec{F}_{aksi} = -\vec{F}_{reaksi}\). Tanda minus menunjukkan arah yang berlawanan.</li>
+            <li>❌ <strong>Pernyataan 3: Pasangan gaya aksi dan reaksi dapat saling meniadakan karena bekerja pada satu benda yang sama.</strong> <br> <em>(TIDAK VALID)</em> Gaya ini <strong>TIDAK BISA</strong> saling meniadakan justru karena mereka beroperasi pada objek yang berbeda. Sebuah gaya hanya bisa meniadakan gaya lain jika keduanya berada di sistem/benda yang sama.</li>
+            <li class="correct">✅ <strong>Pernyataan 4: Terjadi secara bersamaan (serentak) tanpa adanya jeda waktu.</strong> <br> <em>(VALID)</em> Interaksi gaya tidak memiliki kelambatan (delay); kemunculan gaya aksi dan reaksi terjadi secara simultan/bersamaan.</li>
+            <li>❌ <strong>Pernyataan 5: Gaya normal dan gaya berat benda yang diam di atas meja adalah pasangan aksi-reaksi.</strong> <br> <em>(TIDAK VALID)</em> Ini adalah miskonsepsi terpopuler. Gaya berat (Bumi menarik balok) dan Gaya normal (Meja mendorong balok) bekerja pada <strong>benda yang sama</strong> (balok), sehingga mereka BUKAN pasangan aksi-reaksi.</li>
+        </ul>
+        <div class="callout misconception">
+            <span class="callout-title">⚠️ Bedah Miskonsepsi Pernyataan 5</span>
+            Pasangan aksi-reaksi yang sejati dari Gaya Berat balok adalah "Balok menarik Bumi ke atas". Sedangkan pasangan aksi-reaksi dari Gaya Normal adalah "Balok menekan meja ke bawah".
+        </div>
+    </div>
+
+    <!-- SOAL 15 -->
+    <div class="card">
+        <span class="badge">Soal 15: Berat Semu dalam Elevator/Lift</span>
+        <h2></h2>
+        <p>Siswa meneliti variasi berat semu saat berada di dalam lift. Tentukan status Benar (B) atau Salah (S) untuk ketiga tinjauan berikut!</p>
+
+        <h3>1. Analisis Fisika (Berat Semu)</h3>
+        <p>Berat semu (apparent weight) adalah nilai pembacaan timbangan atau secara fisik merupakan <strong>Gaya Normal (\(N\))</strong> yang menekan kaki penumpang. <br>
+        Meninjau dengan Hukum II Newton (\(\Sigma F_y = m \cdot a\)):<br>
+        Gaya ke atas = Normal (\(N\)), Gaya ke bawah = Berat aslinya (\(w = mg\)).</p>
+
+        <h3>2. Bedah Pernyataan</h3>
+        <ul class="options-list">
+            <li class="correct">✅ <strong>Pernyataan 1: Saat lift bergerak naik dengan percepatan konstan, gaya normal lantai lift terhadap kaki menjadi lebih besar dari gaya berat aslinya.</strong> <br>
+            <strong>Status: BENAR.</strong> <br>
+            <em>Pembuktian Matematis:</em> Lift naik \(\implies\) akselerasi ke atas (+) \(\implies \Sigma F = m \cdot a \implies N - mg = ma \implies N = mg + ma\). Jadi, \(N > w\). Badan kita akan terasa lebih berat sesaat ketika lift mulai bergerak naik.</li>
+            
+            <li class="correct">✅ <strong>Pernyataan 2: Saat lift bergerak ke atas dengan kecepatan konstan, gaya normal lantai lift nilainya sama besar dengan gaya berat asli penumpang.</strong> <br>
+            <strong>Status: BENAR.</strong> <br>
+            <em>Pembuktian Matematis:</em> Kecepatan konstan \(\implies\) percepatan \(a = 0\). Berdasarkan Hukum I Newton: \(N - mg = 0 \implies N = mg\).</li>
+            
+            <li>❌ <strong>Pernyataan 3: Jika tali penyangga lift putus sehingga lift jatuh bebas, jarum timbangan akan menunjukkan angka berat yang lebih besar dari berat asli.</strong> <br>
+            <strong>Status: SALAH.</strong> <br>
+            <em>Pembuktian Matematis:</em> Jatuh bebas \(\implies\) percepatan \(a = -g\) (ke bawah). <br>
+            \(\Sigma F = m \cdot (-a) \implies mg - N = m \cdot g \implies N = mg - mg = 0\). <br>
+            Jarum timbangan akan menunjuk angka NOL, penumpang akan mengalami sensasi melayang tanpa bobot (<em>weightlessness</em>).</li>
+        </ul>
+        <div class="callout application">
+            <span class="callout-title">💡 Aplikasi Nyata</span>
+            Astronot di ISS (Stasiun Luar Angkasa Internasional) merasakan kondisi "tanpa bobot" (berat semu = 0) bukan karena tidak ada gravitasi di sana (gravitasi bumi di ketinggian ISS masih sekitar 90%), melainkan karena stasiun luar angkasa tersebut secara harfiah sedang "jatuh bebas" mengelilingi orbit bumi (Prinsip Pernyataan 3).
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

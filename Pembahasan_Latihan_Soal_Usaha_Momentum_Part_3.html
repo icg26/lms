@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pembahasan Fisika - Usaha dan Momentum (21-25) oleh Kahfi</title>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --primary-light: #e0e7ff;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #334155;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --misconception-bg: #fffbeb;
+            --misconception-border: #f59e0b;
+            --realworld-bg: #f0fdf4;
+            --realworld-border: #22c55e;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: linear-gradient(135deg, var(--primary), #3730a3);
+            color: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            margin: 0 0 10px 0;
+            font-size: 2.2em;
+        }
+
+        .header p {
+            margin: 0;
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            border: 1px solid var(--border-color);
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin-bottom: 15px;
+            letter-spacing: 0.5px;
+        }
+
+        h2 {
+            color: #1e293b;
+            font-size: 1.4em;
+            margin-top: 0;
+            border-bottom: 2px solid var(--primary-light);
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color: var(--primary);
+            font-size: 1.1em;
+            margin-top: 25px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .problem-statement {
+            font-size: 1.1em;
+            color: #0f172a;
+            font-weight: 500;
+            background: var(--bg-color);
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: white;
+        }
+
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 12px 15px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--primary-light);
+            color: var(--primary);
+            font-weight: 600;
+            width: 30%;
+        }
+
+        .callout {
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 5px solid;
+        }
+
+        .callout.misconception {
+            background-color: var(--misconception-bg);
+            border-color: var(--misconception-border);
+        }
+
+        .callout.misconception h4 {
+            color: #b45309;
+            margin: 0 0 8px 0;
+        }
+
+        .callout.realworld {
+            background-color: var(--realworld-bg);
+            border-color: var(--realworld-border);
+        }
+
+        .callout.realworld h4 {
+            color: #15803d;
+            margin: 0 0 8px 0;
+        }
+
+        .step {
+            margin-bottom: 15px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .step::before {
+            content: "•";
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 1.5em;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+
+        .math-block {
+            overflow-x: auto;
+            padding: 10px 0;
+        }
+        
+        .eval-table th { width: 70%; }
+        .eval-table td { width: 30%; font-weight: bold; text-align: center; }
+        .benar { color: #15803d; }
+        .salah { color: #dc2626; }
+        
+        @media (max-width: 600px) {
+            .card { padding: 20px; }
+            .header h1 { font-size: 1.8em; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>Pembahasan Latihan Usaha dan Momentum</h1>
+        <p>Bagian 3: Soal Nomor 21 - 25 (Oleh: Kahfi)</p>
+    </div>
+
+    <!-- SOAL 21 -->
+    <div class="card">
+        <span class="badge">Dinamika Lift & Daya</span>
+        <h2>Soal Nomor 21</h2>
+        <div class="problem-statement">
+            Sebuah motor listrik sedang menarik lift barang bermassa besar bergerak vertikal ke atas dengan kecepatan yang konstan (tetap). Analisis fisika terhadap gaya, daya, dan energi pada kondisi tersebut menunjukkan bahwa...
+        </div>
+
+        <h3>1. Analisis Fisika</h3>
+        <p>Kondisi kunci pada soal ini adalah <strong>kecepatan konstan</strong> (\(v = \text{tetap}\)). Berdasarkan Hukum I Newton, jika tidak ada perubahan kecepatan (\(a = 0\)), maka resultan gaya yang bekerja pada sistem harus sama dengan nol (\(\Sigma F = 0\)). Gaya ke atas oleh motor menyeimbangi gaya berat ke bawah.</p>
+        
+        <h3>2. Evaluasi Pernyataan</h3>
+        <ul>
+            <li>✅ <strong>Resultan gaya (netto) yang bekerja pada lift bernilai nol sesuai dengan Hukum I Newton.</strong> (BENAR, karena \(v\) konstan).</li>
+            <li>❌ <strong>Karena resultan gayanya nol, motor listrik tidak perlu mengeluarkan daya untuk mengangkat lift.</strong> (SALAH. Motor tetap harus menahan berat benda dengan gaya tariknya sebesar \(mg\), dan berpindah, sehingga usaha dan daya tetap ada).</li>
+            <li>✅ <strong>Energi kinetik lift tidak mengalami perubahan selama bergerak naik dengan kecepatan tetap.</strong> (BENAR. \(EK = \frac{1}{2}mv^2\), jika \(v\) konstan maka \(EK\) konstan).</li>
+            <li>✅ <strong>Daya (Power) yang dikeluarkan oleh mesin sebanding dengan perkalian antara berat lift dan kecepatannya (\(P = F \cdot v\)).</strong> (BENAR. Gaya tarik motor besarnya sama dengan berat lift \(F = w\)).</li>
+            <li>❌ <strong>Energi potensial gravitasi sistem semakin berkurang karena energi digunakan oleh mesin listrik.</strong> (SALAH. Bergerak ke atas berarti ketinggian \(h\) bertambah, sehingga EP gravitasi justru <strong>bertambah</strong>).</li>
+        </ul>
+    </div>
+
+    <!-- SOAL 22 -->
+    <div class="card">
+        <span class="badge">Konsep Usaha & Energi Mekanik</span>
+        <h2>Soal Nomor 22</h2>
+        <div class="problem-statement">
+            Evaluasi kebenaran dari pernyataan-pernyataan berikut ini mengenai konsep Usaha dan Energi Mekanik!
+        </div>
+
+        <h3>Evaluasi Detail</h3>
+        <table class="eval-table">
+            <tr>
+                <th>Pernyataan</th>
+                <th>Benar / Salah</th>
+            </tr>
+            <tr>
+                <td>Usaha bernilai nol jika gaya yang bekerja pada benda arahnya tegak lurus dengan arah perpindahan benda tersebut.</td>
+                <td class="benar">BENAR</td>
+            </tr>
+            <tr>
+                <td colspan="2" style="font-weight: normal; font-size: 0.9em;"><strong>Analisis:</strong> \(W = F \cdot s \cdot \cos(90^\circ)\). Karena \(\cos(90^\circ) = 0\), maka usaha bernilai nol.</td>
+            </tr>
+            <tr>
+                <td>Energi mekanik suatu benda yang meluncur pada bidang miring selalu konstan meskipun permukaannya sangat kasar.</td>
+                <td class="salah">SALAH</td>
+            </tr>
+            <tr>
+                <td colspan="2" style="font-weight: normal; font-size: 0.9em;"><strong>Analisis:</strong> Jika permukaan kasar, terdapat usaha oleh gaya non-konservatif (gesekan) yang membuang sebagian energi mekanik menjadi energi panas. EM tidak kekal.</td>
+            </tr>
+            <tr>
+                <td>Gaya pengereman yang bekerja pada mobil yang sedang melaju lurus melakukan usaha bernilai negatif karena berlawanan dengan perpindahan.</td>
+                <td class="benar">BENAR</td>
+            </tr>
+            <tr>
+                <td colspan="2" style="font-weight: normal; font-size: 0.9em;"><strong>Analisis:</strong> Sudut antara gaya rem dan arah gerak adalah \(180^\circ\). Karena \(\cos(180^\circ) = -1\), usahanya bernilai negatif, menyebabkan energi kinetik benda berkurang.</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- SOAL 23 -->
+    <div class="card">
+        <span class="badge">Momentum, Impuls, & Tumbukan</span>
+        <h2>Soal Nomor 23</h2>
+        <div class="problem-statement">
+            Evaluasi kebenaran dari pernyataan-pernyataan berikut terkait Momentum, Impuls, dan Tumbukan dalam aplikasinya!
+        </div>
+
+        <h3>Evaluasi Detail</h3>
+        <table class="eval-table">
+            <tr>
+                <th>Pernyataan</th>
+                <th>Benar / Salah</th>
+            </tr>
+            <tr>
+                <td>Pada tumbukan lenting sempurna antara dua kelereng, tidak ada energi kinetik sistem yang terbuang menjadi energi panas maupun bunyi.</td>
+                <td class="benar">BENAR</td>
+            </tr>
+            <tr>
+                <td colspan="2" style="font-weight: normal; font-size: 0.9em;"><strong>Analisis:</strong> Definisi utama tumbukan lenting sempurna (\(e=1\)) adalah berlakunya hukum kekekalan momentum <strong>dan</strong> hukum kekekalan energi kinetik.</td>
+            </tr>
+            <tr>
+                <td>Hukum kekekalan momentum gagal diterapkan jika dua mobil bertabrakan dan saling menempel pasca tabrakan (tumbukan tidak lenting sama sekali).</td>
+                <td class="salah">SALAH</td>
+            </tr>
+            <tr>
+                <td colspan="2" style="font-weight: normal; font-size: 0.9em;"><strong>Analisis:</strong> Hukum kekekalan momentum <strong>selalu berlaku</strong> pada setiap jenis tumbukan (lenting, sebagian, maupun tidak lenting) selama tidak ada gaya eksternal yang bekerja.</td>
+            </tr>
+            <tr>
+                <td>Bumper mobil didesain kaku agar waktu tabrakan lebih singkat, dengan tujuan utama mengecilkan gaya impulsif yang akan dirasakan penumpang.</td>
+                <td class="salah">SALAH</td>
+            </tr>
+            <tr>
+                <td colspan="2" style="font-weight: normal; font-size: 0.9em;"><strong>Analisis:</strong> Waktu yang singkat (\(\Delta t\) kecil) justru membuat Gaya Impulsif (\(F = \frac{I}{\Delta t}\)) menjadi <strong>sangat besar</strong>. Bumper didesain lentur/mudah penyok untuk memperpanjang waktu (\(\Delta t\)).</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- SOAL 24 -->
+    <div class="card">
+        <span class="badge">Teorema Impuls-Momentum</span>
+        <h2>Soal Nomor 24</h2>
+        <div class="problem-statement">
+            Sebuah bola sepak yang awalnya diam di titik penalti (massa 0,5 kg) tiba-tiba ditendang secara keras oleh striker sehingga mendapatkan impuls sebesar 10 Ns. Berapakah kelajuan bola tersebut melesat sesaat setelah ditendang? (dalam satuan m/s, tuliskan angkanya saja)
+        </div>
+
+        <h3>1. Identifikasi Masalah</h3>
+        <table>
+            <tr>
+                <th>Diketahui</th>
+                <td>Massa (\(m\)) = 0,5 kg<br>Kecepatan awal (\(v_1\)) = 0 m/s<br>Impuls (\(I\)) = 10 Ns</td>
+            </tr>
+            <tr>
+                <th>Ditanyakan</th>
+                <td>Kelajuan akhir (\(v_2\)) = ?</td>
+            </tr>
+        </table>
+
+        <h3>2. Langkah Penyelesaian Detail</h3>
+        <p>Berdasarkan teorema Impuls-Momentum, impuls sama dengan perubahan momentum:</p>
+        <div class="step">Gunakan persamaan:
+            <div class="math-block">$$ I = \Delta p $$</div>
+            <div class="math-block">$$ I = m \cdot (v_2 - v_1) $$</div>
+        </div>
+        <div class="step">Substitusikan nilai:
+            <div class="math-block">$$ 10 = 0,5 \cdot (v_2 - 0) $$</div>
+            <div class="math-block">$$ 10 = 0,5 \cdot v_2 $$</div>
+        </div>
+        <div class="step">Selesaikan untuk \(v_2\):
+            <div class="math-block">$$ v_2 = \frac{10}{0,5} = 20\text{ m/s} $$</div>
+        </div>
+        
+        <p><strong>Jawaban: 20</strong></p>
+    </div>
+
+    <!-- SOAL 25 -->
+    <div class="card">
+        <span class="badge">Hukum Kekekalan Energi Mekanik</span>
+        <h2>Soal Nomor 25</h2>
+        <div class="problem-statement">
+            Pada sebuah demonstrasi di kelas, guru melempar bola kasti bermassa 1 kg vertikal ke atas dengan kecepatan awal \(20\text{ m/s}\) dari atas permukaan tanah. Mengabaikan hambatan udara dan mengasumsikan \(g=10\text{ m/s}^2\), pada ketinggian berapa meter (m) energi kinetik bola kasti tersebut akan bernilai sama dengan energi potensialnya? (tuliskan angkanya saja)
+        </div>
+
+        <h3>1. Identifikasi Masalah</h3>
+        <table>
+            <tr>
+                <th>Diketahui</th>
+                <td>Massa (\(m\)) = 1 kg<br>Kecepatan awal (\(v_1\)) = 20 m/s<br>Ketinggian awal (\(h_1\)) = 0 m<br>Kondisi khusus: \(EK_2 = EP_2\)</td>
+            </tr>
+            <tr>
+                <th>Ditanyakan</th>
+                <td>Ketinggian (\(h_2\)) = ?</td>
+            </tr>
+        </table>
+
+        <h3>2. Langkah Penyelesaian Detail</h3>
+        <div class="step">Hitung Energi Mekanik total sistem di titik awal (tanah):
+            <div class="math-block">$$ EM = EP_1 + EK_1 $$</div>
+            <div class="math-block">$$ EM = mgh_1 + \frac{1}{2} m v_1^2 $$</div>
+            <div class="math-block">$$ EM = 0 + \frac{1}{2} \cdot 1 \cdot (20)^2 = \frac{1}{2} \cdot 400 = 200\text{ J} $$</div>
+        </div>
+        <div class="step">Gunakan Hukum Kekekalan Energi Mekanik di titik yang dicari:
+            <p>Pada ketinggian \(h_2\), total energi harus sama dengan 200 J.</p>
+            <div class="math-block">$$ EM = EP_2 + EK_2 $$</div>
+        </div>
+        <div class="step">Substitusikan syarat kondisi batas (\(EK_2 = EP_2\)):
+            <div class="math-block">$$ EM = EP_2 + EP_2 $$</div>
+            <div class="math-block">$$ EM = 2 \cdot EP_2 $$</div>
+            <div class="math-block">$$ 200 = 2 \cdot (m \cdot g \cdot h_2) $$</div>
+            <div class="math-block">$$ 100 = 1 \cdot 10 \cdot h_2 $$</div>
+            <div class="math-block">$$ h_2 = 10\text{ m} $$</div>
+        </div>
+        
+        <p><strong>Jawaban: 10</strong></p>
+
+        <div class="callout realworld">
+            <h4>💡 Cara Cepat (Fast-Track Method)</h4>
+            <p>Ketika EK = EP, ketinggian tersebut akan selalu berada tepat di <strong>setengah</strong> dari tinggi maksimum yang bisa dicapai benda. Hitung dulu tinggi maksimum: \(h_{\text{max}} = \frac{v_0^2}{2g} = \frac{400}{20} = 20\text{ m}\). Maka ketinggian saat EK=EP adalah \(\frac{20}{2} = 10\text{ m}\).</p>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

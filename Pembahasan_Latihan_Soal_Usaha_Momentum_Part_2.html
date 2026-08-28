@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pembahasan Fisika - Usaha dan Momentum (11-20) oleh Kahfi</title>
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$']]
+        }
+      };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --primary-light: #e0e7ff;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #334155;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --misconception-bg: #fffbeb;
+            --misconception-border: #f59e0b;
+            --realworld-bg: #f0fdf4;
+            --realworld-border: #22c55e;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: linear-gradient(135deg, var(--primary), #3730a3);
+            color: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            margin: 0 0 10px 0;
+            font-size: 2.2em;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            border: 1px solid var(--border-color);
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin-bottom: 15px;
+            letter-spacing: 0.5px;
+        }
+
+        h2 {
+            color: #1e293b;
+            font-size: 1.4em;
+            margin-top: 0;
+            border-bottom: 2px solid var(--primary-light);
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color: var(--primary);
+            font-size: 1.1em;
+            margin-top: 25px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .problem-statement {
+            font-size: 1.1em;
+            color: #0f172a;
+            font-weight: 500;
+            background: var(--bg-color);
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: white;
+        }
+
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 12px 15px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--primary-light);
+            color: var(--primary);
+            font-weight: 600;
+            width: 30%;
+        }
+
+        .callout {
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 5px solid;
+        }
+
+        .callout.misconception {
+            background-color: var(--misconception-bg);
+            border-color: var(--misconception-border);
+        }
+
+        .callout.misconception h4 {
+            color: #b45309;
+            margin: 0 0 8px 0;
+        }
+
+        .callout.realworld {
+            background-color: var(--realworld-bg);
+            border-color: var(--realworld-border);
+        }
+
+        .callout.realworld h4 {
+            color: #15803d;
+            margin: 0 0 8px 0;
+        }
+
+        .step {
+            margin-bottom: 15px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .step::before {
+            content: "•";
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 1.5em;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+
+        .math-block {
+            overflow-x: auto;
+            padding: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>Pembahasan Latihan Usaha dan Momentum</h1>
+        <p>Bagian 2: Soal Nomor 11 - 20 (Oleh: Kahfi)</p>
+    </div>
+
+    <!-- SOAL 11 -->
+    <div class="card">
+        <span class="badge">Tumbukan Tidak Lenting Sama Sekali</span>
+        <h2>Soal Nomor 11</h2>
+        <div class="problem-statement">
+            Dalam uji balistik pelindung anti peluru, sebuah proyektil bermassa 10 gram ditembakkan secara horizontal ke dalam balok kayu bermassa 990 gram yang diam di atas lintasan licin. Jika peluru bersarang utuh di dalam balok dan keduanya bergerak bersama dengan kecepatan $2\text{ m/s}$ sesaat setelah tumbukan, berapakah kecepatan peluru sesaat sebelum menumbuk balok?
+        </div>
+
+        <h3>1. Identifikasi Masalah</h3>
+        <table>
+            <tr>
+                <th>Diketahui</th>
+                <td>Massa peluru ($m_p$) = 10 g = 0,01 kg<br>Massa balok ($m_b$) = 990 g = 0,99 kg<br>Kecepatan balok awal ($v_b$) = 0 m/s<br>Kecepatan akhir sistem ($v'$) = 2 m/s</td>
+            </tr>
+            <tr>
+                <th>Ditanyakan</th>
+                <td>Kecepatan awal peluru ($v_p$) = ?</td>
+            </tr>
+        </table>
+
+        <h3>2. Konsep Fisika</h3>
+        <p>Kasus peluru bersarang adalah contoh <strong>Tumbukan Tidak Lenting Sama Sekali</strong> ($e=0$). Momentum sistem kekal, namun kecepatan kedua benda menjadi sama besar sesaat setelah bertumbukan.</p>
+
+        <h3>3. Langkah Penyelesaian</h3>
+        <div class="step">Terapkan Hukum Kekekalan Momentum:
+            <div class="math-block">$$m_p v_p + m_b v_b = (m_p + m_b) v'$$</div>
+        </div>
+        <div class="step">Substitusikan nilai yang diketahui:
+            <div class="math-block">$$0,01 \cdot v_p + 0 = (0,01 + 0,99) \cdot 2$$</div>
+            <div class="math-block">$$0,01 \cdot v_p = 1,00 \cdot 2$$</div>
+            <div class="math-block">$$v_p = \frac{2}{0,01} = 200\text{ m/s}$$</div>
+        </div>
+        <p><strong>Jawaban: C. 200 m/s</strong></p>
+    </div>
+
+    <!-- SOAL 12 -->
+    <div class="card">
+        <span class="badge">Tumbukan Lenting Sempurna</span>
+        <h2>Soal Nomor 12</h2>
+        <div class="problem-statement">
+            Bola A bermassa 2 kg melaju ke kanan dengan kecepatan $4\text{ m/s}$ dan menumbuk Bola B bermassa 2 kg yang sedang diam. Jika tumbukan dianggap lenting sempurna (koefisien restitusi $e=1$), maka kecepatan Bola A setelah tumbukan adalah...
+        </div>
+
+        <h3>1. Identifikasi Masalah</h3>
+        <table>
+            <tr>
+                <th>Diketahui</th>
+                <td>$m_A = 2\text{ kg}$, $v_A = 4\text{ m/s}$ (kanan)<br>$m_B = 2\text{ kg}$, $v_B = 0\text{ m/s}$<br>$e = 1$</td>
+            </tr>
+            <tr>
+                <th>Ditanyakan</th>
+                <td>Kecepatan akhir Bola A ($v_A'$) = ?</td>
+            </tr>
+        </table>
+
+        <h3>2. Langkah Penyelesaian</h3>
+        <p>Pada kasus khusus di mana <strong>dua benda memiliki massa yang identik</strong> ($m_A = m_B$) dan mengalami <strong>tumbukan lenting sempurna</strong> vertikal atau horizontal sentral ($e=1$), maka kecepatan kedua benda akan <strong>bertukar</strong> secara penuh pasca tumbukan.</p>
+        <div class="step">Kecepatan B menjadi kecepatan A:
+            <div class="math-block">$$v_A' = v_B = 0\text{ m/s}$$</div>
+        </div>
+        <div class="step">Kecepatan A menjadi kecepatan B:
+            <div class="math-block">$$v_B' = v_A = 4\text{ m/s}\text{ (ke kanan)}$$</div>
+        </div>
+        <p><strong>Jawaban: A. 0 m/s</strong></p>
+
+        <div class="callout misconception">
+            <h4>💡 Insight Analitis</h4>
+            <p>Membuktikan dengan rumus matematis panjang ($m_1 v_1 + m_2 v_2 = m_1 v_1' + m_2 v_2'$ dipadukan $v_2' - v_1' = -1(v_2 - v_1)$) akan memakan waktu. Memahami sifat pertukaran kecepatan pada massa identik adalah jalan pintas vital untuk ujian.</p>
+        </div>
+    </div>
+
+    <!-- SOAL 13 -->
+    <div class="card">
+        <span class="badge">Impuls & Gaya Rata-rata</span>
+        <h2>Soal Nomor 13</h2>
+        <div class="problem-statement">
+            Fitur airbag dirancang untuk mengembang dalam waktu milisekon saat terjadi benturan. Ditinjau dari hukum Fisika mengenai impuls dan momentum, alasan utama desain ini efektif mencegah cedera parah adalah...
+        </div>
+
+        <h3>1. Konsep Fisika</h3>
+        <p>Impuls yang diterima tubuh penumpang sama dengan perubahan momentumnya ($I = \Delta p$). Berdasarkan Teorema Impuls-Momentum, impuls merupakan hasil kali Gaya Rata-rata dan Selang Waktu:</p>
+        <div class="math-block">$$I = F \cdot \Delta t$$</div>
+        <div class="math-block">$$F = \frac{\Delta p}{\Delta t}$$</div>
+
+        <h3>2. Analisis Logika</h3>
+        <p>Saat kecelakaan, perubahan momentum tubuh ($\Delta p$) dari berkecepatan tinggi menjadi diam (0) adalah nilai yang <strong>tetap</strong>. Airbag berfungsi layaknya bantalan empuk yang <strong>memperlama waktu sentuh</strong> ($\Delta t$ membesar) tubuh terhadap dashboard mobil. Karena $\Delta t$ membesar, maka Gaya rata-rata ($F$) yang dirasakan organ tubuh menjadi jauh lebih kecil, sehingga menurunkan rasio fatalitas cedera.</p>
+        <p><strong>Jawaban: C. Memperpanjang waktu sentuh gaya sehingga gaya rata-rata berkurang</strong></p>
+    </div>
+
+    <!-- SOAL 14 -->
+    <div class="card">
+        <span class="badge">Vektor Momentum & Impuls</span>
+        <h2>Soal Nomor 14</h2>
+        <div class="problem-statement">
+            Bola bermassa 0,2 kg dipukul horizontal menabrak dinding dengan kecepatan $10\text{ m/s}$. Bola memantul kembali persis ke arah semula dengan kecepatan $8\text{ m/s}$. Besar impuls yang diberikan dinding adalah...
+        </div>
+
+        <h3>1. Identifikasi Masalah</h3>
+        <table>
+            <tr>
+                <th>Diketahui</th>
+                <td>Massa ($m$) = 0,2 kg<br>Kecepatan awal ($v_1$) = 10 m/s (ke kanan/positif)<br>Kecepatan akhir ($v_2$) = -8 m/s (memantul berlawanan arah, <strong>wajib negatif</strong>)</td>
+            </tr>
+            <tr>
+                <th>Ditanyakan</th>
+                <td>Besar impuls ($I$) = ?</td>
+            </tr>
+        </table>
+
+        <h3>2. Langkah Penyelesaian</h3>
+        <div class="step">Gunakan Teorema Impuls-Momentum:
+            <div class="math-block">$$I = \Delta p = m \cdot (v_2 - v_1)$$</div>
+        </div>
+        <div class="step">Substitusikan nilai vektor kecepatan:
+            <div class="math-block">$$I = 0,2 \cdot (-8 - 10)$$</div>
+            <div class="math-block">$$I = 0,2 \cdot (-18) = -3,6\text{ Ns}$$</div>
+        </div>
+        <p>Tanda negatif menunjukan arah impuls dinding berlawanan dengan gerak awal bola. Besarnya murni nilai absolutnya.</p>
+        <p><strong>Jawaban: D. 3,6 Ns</strong></p>
+
+        <div class="callout misconception">
+            <h4>⚠️ Miskonsepsi Umum</h4>
+            <p>Sangat banyak siswa terjebak dengan tidak memperhatikan tanda minus arah pantulan dan menghitungnya sebagai $(10 - 8) = 2\text{ m/s}$, sehingga menghasilkan impuls $0,4\text{ Ns}$. Ingat, momentum adalah besaran vektor!</p>
+        </div>
+    </div>
+
+    <!-- SOAL 15 -->
+    <div class="card">
+        <span class="badge">Teorema Impuls-Momentum</span>
+        <h2>Soal Nomor 15</h2>
+        <div class="problem-statement">
+            Atlet memukul bola 50 gram yang meluncur ke arahnya dengan kecepatan $20\text{ m/s}$. Bola memantul berlawanan arah dengan kecepatan $40\text{ m/s}$. Jika waktu interaksi 0,01 sekon, gaya rata-rata yang diberikan adalah...
+        </div>
+
+        <h3>1. Identifikasi Masalah</h3>
+        <table>
+            <tr>
+                <th>Diketahui</th>
+                <td>$m = 50\text{ g} = 0,05\text{ kg}$<br>$v_1 = -20\text{ m/s}$ (mendekat)<br>$v_2 = 40\text{ m/s}$ (memantul/menjauh)<br>$\Delta t = 0,01\text{ s}$</td>
+            </tr>
+            <tr>
+                <th>Ditanyakan</th>
+                <td>Gaya rata-rata ($F$) = ?</td>
+            </tr>
+        </table>
+
+        <h3>2. Langkah Penyelesaian</h3>
+        <div class="step">Persamakan Impuls dengan Perubahan Momentum:
+            <div class="math-block">$$F \cdot \Delta t = m \cdot (v_2 - v_1)$$</div>
+        </div>
+        <div class="step">Masukkan variabel dengan tanda vektor yang benar:
+            <div class="math-block">$$F \cdot 0,01 = 0,05 \cdot (40 - (-20))$$</div>
+            <div class="math-block">$$0,01 \cdot F = 0,05 \cdot (60)$$</div>
+            <div class="math-block">$$0,01 \cdot F = 3$$</div>
+            <div class="math-block">$$F = \frac{3}{0,01} = 300\text{ N}$$</div>
+        </div>
+        <p><strong>Jawaban: C. 300 N</strong></p>
+    </div>
+
+    <!-- SOAL 16 -->
+    <div class="card">
+        <span class="badge">Momentum Sistem Tertutup - Ledakan</span>
+        <h2>Soal Nomor 16</h2>
+        <div class="problem-statement">
+            Tabung kembang api yang awalnya diam meledak terbelah menjadi dua kepingan dengan rasio massa 2:3. Kepingan yang lebih ringan terlempar ke Timur dengan kelajuan 30 m/s. Kecepatan kepingan yang berat adalah...
+        </div>
+
+        <h3>1. Identifikasi Masalah</h3>
+        <table>
+            <tr>
+                <th>Diketahui</th>
+                <td>Kecepatan awal ($v_{\text{awal}}$) = 0 m/s (Sistem diam)<br>Massa 1 ($m_1$) = $2x$, Massa 2 ($m_2$) = $3x$<br>Kecepatan kepingan ringan ($v_1'$) = 30 m/s (Timur / Positif)</td>
+            </tr>
+            <tr>
+                <th>Ditanyakan</th>
+                <td>Kecepatan kepingan berat ($v_2'$) = ?</td>
+            </tr>
+        </table>
+
+        <h3>2. Langkah Penyelesaian</h3>
+        <div class="step">Gunakan Hukum Kekekalan Momentum:
+            <div class="math-block">$$p_{\text{awal}} = p_{\text{akhir}}$$</div>
+            <div class="math-block">$$0 = m_1 v_1' + m_2 v_2'$$</div>
+        </div>
+        <div class="step">Substitusikan rasio massa dan kecepatan:
+            <div class="math-block">$$0 = (2x \cdot 30) + (3x \cdot v_2')$$</div>
+            <div class="math-block">$$0 = 60x + 3x \cdot v_2'$$</div>
+            <div class="math-block">$$3x \cdot v_2' = -60x$$</div>
+            <div class="math-block">$$v_2' = -20\text{ m/s}$$</div>
+        </div>
+        <p>Nilai minus menunjukkan arah yang berlawanan dari Timur, yaitu ke Barat.</p>
+        <p><strong>Jawaban: C. 20 m/s ke Barat</strong></p>
+    </div>
+
+    <!-- SOAL 17 -->
+    <div class="card">
+        <span class="badge">Kalkulasi Impuls dari Grafik F-t</span>
+        <h2>Soal Nomor 17</h2>
+        <div class="problem-statement">
+            Grafik Gaya (F) terhadap Waktu (t) berbentuk trapesium. Gaya bernilai 0 lalu naik ke 10 N pada detik 1, bertahan konstan di 10 N hingga detik 3, lalu turun ke 0 pada detik 4. Impuls ini bekerja pada benda 2 kg yang diam. Kecepatannya menjadi...
+        </div>
+
+        <h3>1. Identifikasi Masalah</h3>
+        <table>
+            <tr>
+                <th>Diketahui</th>
+                <td>Bentuk Grafik: Trapesium<br>Alas bawah = dari $t=0$ ke $t=4 \rightarrow 4\text{ s}$<br>Alas atas = dari $t=1$ ke $t=3 \rightarrow 2\text{ s}$<br>Tinggi maksimum ($F$) = 10 N<br>$m = 2\text{ kg}$, $v_1 = 0$</td>
+            </tr>
+            <tr>
+                <th>Ditanyakan</th>
+                <td>Kecepatan akhir ($v_2$) = ?</td>
+            </tr>
+        </table>
+
+        <h3>2. Langkah Penyelesaian</h3>
+        <div class="step">Besar impuls adalah Luas Daerah di Bawah Kurva F-t:
+            <div class="math-block">$$I = \text{Luas Trapesium} = \frac{1}{2} \cdot (\text{alas bawah} + \text{alas atas}) \cdot \text{tinggi}$$</div>
+            <div class="math-block">$$I = \frac{1}{2} \cdot (4 + 2) \cdot 10 = \frac{1}{2} \cdot 6 \cdot 10 = 30\text{ Ns}$$</div>
+        </div>
+        <div class="step">Hubungkan Impuls dengan perubahan momentum:
+            <div class="math-block">$$I = \Delta p = m \cdot (v_2 - v_1)$$</div>
+            <div class="math-block">$$30 = 2 \cdot (v_2 - 0)$$</div>
+            <div class="math-block">$$v_2 = \frac{30}{2} = 15\text{ m/s}$$</div>
+        </div>
+        <p><strong>Jawaban: C. 15 m/s</strong></p>
+    </div>
+
+    <!-- SOAL 18 -->
+    <div class="card">
+        <span class="badge">Ayunan Balistik</span>
+        <h2>Soal Nomor 18</h2>
+        <div class="problem-statement">
+            Sebuah peluru 20 gram ditembakkan ke balok pendulum 1,98 kg yang diam. Peluru bersarang di balok dan berayun mencapai ketinggian 5 cm. Kelajuan awal peluru adalah... ($g=10\text{ m/s}^2$)
+        </div>
+
+        <h3>1. Identifikasi Masalah</h3>
+        <table>
+            <tr>
+                <th>Diketahui</th>
+                <td>$m_p = 20\text{ g} = 0,02\text{ kg}$<br>$m_b = 1,98\text{ kg}$, $v_b = 0$<br>$h = 5\text{ cm} = 0,05\text{ m}$</td>
+            </tr>
+            <tr>
+                <th>Ditanyakan</th>
+                <td>Kecepatan peluru awal ($v_p$) = ?</td>
+            </tr>
+        </table>
+
+        <h3>2. Langkah Penyelesaian</h3>
+        <div class="step">Tinjau fase Ayunan (Hukum Kekekalan Energi Mekanik) untuk mencari kecepatan gabungan ($v'$):
+            <div class="math-block">$$EK_{\text{awal-ayunan}} = EP_{\text{puncak}}$$</div>
+            <div class="math-block">$$\frac{1}{2} (m_p + m_b) (v')^2 = (m_p + m_b) g h$$</div>
+            <div class="math-block">$$v' = \sqrt{2gh} = \sqrt{2 \cdot 10 \cdot 0,05} = \sqrt{1} = 1\text{ m/s}$$</div>
+        </div>
+        <div class="step">Tinjau fase Tumbukan (Kekekalan Momentum):
+            <div class="math-block">$$m_p v_p = (m_p + m_b) v'$$</div>
+            <div class="math-block">$$0,02 \cdot v_p = (0,02 + 1,98) \cdot 1$$</div>
+            <div class="math-block">$$0,02 \cdot v_p = 2 \cdot 1$$</div>
+            <div class="math-block">$$v_p = \frac{2}{0,02} = 100\text{ m/s}$$</div>
+        </div>
+        <p><strong>Jawaban: C. 100 m/s</strong></p>
+    </div>
+
+    <!-- SOAL 19 -->
+    <div class="card">
+        <span class="badge">Usaha oleh Gaya Non-Konservatif</span>
+        <h2>Soal Nomor 19</h2>
+        <div class="problem-statement">
+            Pemain skateboard meluncur di half-pipe berbahan kayu. Karena ada gesekan, sistem tidak ideal. Manakah analisis terkait Usaha dan Energi Mekanik yang BENAR?
+        </div>
+
+        <h3>Analisis Fisika Mendalam</h3>
+        <p>Dalam kondisi kehidupan nyata di mana terdapat <strong>Gaya Gesekan</strong> (Gaya Non-Konservatif), Hukum Kekekalan Energi Mekanik $EM_{\text{awal}} = EM_{\text{akhir}}$ tidak lagi berlaku mutlak. Sebagian besar Energi Kinetik yang dihasilkan dari laju skateboard akan dikonversi (hilang dari sistem mekanik) menjadi energi panas (kalor) dan bunyi akibat gesekan roda dengan permukaan kayu. Karenanya, <strong>Energi Mekanik total skater akan terus berkurang</strong> seiring berjalannya waktu jika ia tidak memberikan usaha dorong tambahan (pumping).</p>
+
+        <p><strong>Jawaban: Pernyataan 1 (Energi mekanik total skater akan terus berkurang dan berubah menjadi energi panas akibat gesekan).</strong></p>
+    </div>
+
+    <!-- SOAL 20 -->
+    <div class="card">
+        <span class="badge">Aplikasi Konsep Impuls: Zona Benturan</span>
+        <h2>Soal Nomor 20</h2>
+        <div class="problem-statement">
+            Manakah pernyataan berikut yang TEPAT sesuai prinsip Fisika terkait fitur keamanan mobil (sabuk pengaman dan crumple zone)?
+        </div>
+
+        <h3>Analisis Konsep Keselamatan Kendaraan</h3>
+        <p>Insinyur merancang bodi mobil bagian depan atau belakang (Crumple Zone) sedemikian rupa agar mudah penyok. Secara mekanis, saat bagian tersebut meremuk teratur layaknya pegas yang ditekan, ia memakan waktu sepersekian detik lebih lama untuk berhenti dibandingkan jika bodi terbuat dari baja padat yang kaku. Selang waktu ($\Delta t$) yang bertambah panjang ini berefek krusial terhadap Gaya tabrakan rata-rata yang tersalurkan ke kabin penumpang. Berpedoman pada rumus Impuls, $F = \frac{\Delta p}{\Delta t}$, semakin lama durasi tumbukan, semakin teredam gaya hentakannya.</p>
+        
+        <p><strong>Jawaban: Pernyataan 3 (Zona benturan / crumple zone memperpanjang durasi waktu tumbukan, sehingga mengurangi gaya rata-rata tabrakan).</strong></p>
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pembahasan Fisika - Usaha dan Momentum oleh Kahfi</title>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --primary-light: #e0e7ff;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #334155;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --misconception-bg: #fffbeb;
+            --misconception-border: #f59e0b;
+            --realworld-bg: #f0fdf4;
+            --realworld-border: #22c55e;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: linear-gradient(135deg, var(--primary), #3730a3);
+            color: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            margin: 0 0 10px 0;
+            font-size: 2.2em;
+        }
+
+        .header p {
+            margin: 0;
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            border: 1px solid var(--border-color);
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin-bottom: 15px;
+            letter-spacing: 0.5px;
+        }
+
+        h2 {
+            color: #1e293b;
+            font-size: 1.4em;
+            margin-top: 0;
+            border-bottom: 2px solid var(--primary-light);
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color: var(--primary);
+            font-size: 1.1em;
+            margin-top: 25px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .problem-statement {
+            font-size: 1.1em;
+            color: #0f172a;
+            font-weight: 500;
+            background: var(--bg-color);
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: white;
+        }
+
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 12px 15px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--primary-light);
+            color: var(--primary);
+            font-weight: 600;
+            width: 30%;
+        }
+
+        .callout {
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 5px solid;
+        }
+
+        .callout.misconception {
+            background-color: var(--misconception-bg);
+            border-color: var(--misconception-border);
+        }
+
+        .callout.misconception h4 {
+            color: #b45309;
+            margin: 0 0 8px 0;
+        }
+
+        .callout.realworld {
+            background-color: var(--realworld-bg);
+            border-color: var(--realworld-border);
+        }
+
+        .callout.realworld h4 {
+            color: #15803d;
+            margin: 0 0 8px 0;
+        }
+
+        .step {
+            margin-bottom: 15px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .step::before {
+            content: "•";
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 1.5em;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+
+        .math-block {
+            overflow-x: auto;
+            padding: 10px 0;
+        }
+        
+        @media (max-width: 600px) {
+            .card {
+                padding: 20px;
+            }
+            .header h1 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>Pembahasan Latihan Usaha dan Momentum</h1>
+        <p>Oleh: Kahfi - Guru Fisika</p>
+    </div>
+
+    <!-- SOAL 1 -->
+    <div class="card">
+        <span class="badge">Usaha (Work)</span>
+        <h2>Soal Nomor 1</h2>
+        <div class="problem-statement">
+            Seorang petugas bandara harus memindahkan koper bermassa 20 kg ke area bagasi. Ia menarik koper tersebut dengan gaya \( F = 50 \) N menggunakan tali yang membentuk sudut \( 60^\circ \) terhadap bidang horizontal. Jika koper berpindah sejauh 10 meter di atas lantai licin, berapakah usaha yang dilakukan oleh petugas tersebut?<br><br>
+            A. 100 J<br>
+            B. 250 J<br>
+            C. 433 J<br>
+            D. 500 J<br>
+            E. 866 J
+        </div>
+
+        <h3>1. Identifikasi Masalah</h3>
+        <table>
+            <tr>
+                <th>Diketahui</th>
+                <td>Massa (\(m\)) = 20 kg<br>Gaya tarik (\(F\)) = 50 N<br>Sudut (\(\theta\)) = \( 60^\circ \)<br>Perpindahan (\(s\)) = 10 m<br>Permukaan licin (tanpa gaya gesek)</td>
+            </tr>
+            <tr>
+                <th>Ditanyakan</th>
+                <td>Usaha (\(W\)) = ?</td>
+            </tr>
+        </table>
+
+        <h3>2. Konsep Fisika & Landasan Teori</h3>
+        <p>Usaha (\(W\)) didefinisikan sebagai hasil kali antara komponen gaya yang searah dengan perpindahan benda dan besar perpindahannya. Secara matematis, dituliskan sebagai:</p>
+        <div class="math-block">$$ W = F \cdot s \cdot \cos(\theta) $$</div>
+
+        <h3>3. Langkah Penyelesaian Detail</h3>
+        <div class="step">Tentukan komponen gaya searah sumbu-x (bidang horizontal):
+            <div class="math-block">$$ F_x = F \cdot \cos(60^\circ) = 50 \cdot \frac{1}{2} = 25\text{ N} $$</div>
+        </div>
+        <div class="step">Hitung besarnya usaha:
+            <div class="math-block">$$ W = F_x \cdot s = 25 \cdot 10 = 250\text{ J} $$</div>
+        </div>
+        <p><strong>Jawaban: B. 250 J</strong></p>
+
+        <div class="callout misconception">
+            <h4>⚠️ Miskonsepsi Umum</h4>
+            <p>Siswa sering menggunakan seluruh gaya (\(50\text{ N}\)) tanpa memproyeksikannya, menghasilkan 500 J (Opsi D). Ingat, hanya komponen gaya yang sejajar dengan pergerakan yang berkontribusi pada Usaha mekanik.</p>
+        </div>
+    </div>
+
+    <!-- SOAL 2 -->
+    <div class="card">
+        <span class="badge">Teorema Usaha-Energi</span>
+        <h2>Soal Nomor 2</h2>
+        <div class="problem-statement">
+            Sebuah mobil otonom (tanpa awak) bermassa 1200 kg melaju di jalan tol dengan kecepatan \( 20\text{ m/s} \). Sensor mobil mendeteksi rintangan di depan, sehingga sistem secara otomatis mengaktifkan pengereman mendadak. Mobil berhasil berhenti setelah menempuh jarak 40 meter. Berdasarkan Teorema Usaha-Energi, besar gaya pengereman rata-rata yang bekerja pada mobil adalah...<br><br>
+            A. 6.000 N<br>
+            B. 12.000 N<br>
+            C. 24.000 N<br>
+            D. 48.000 N<br>
+            E. 50.000 N
+        </div>
+
+        <h3>1. Identifikasi Masalah</h3>
+        <table>
+            <tr>
+                <th>Diketahui</th>
+                <td>Massa (\(m\)) = 1200 kg<br>Kecepatan awal (\(v_0\)) = 20 m/s<br>Kecepatan akhir (\(v_t\)) = 0 m/s (berhenti)<br>Perpindahan (\(s\)) = 40 m</td>
+            </tr>
+            <tr>
+                <th>Ditanyakan</th>
+                <td>Gaya pengereman rata-rata (\(F\)) = ?</td>
+            </tr>
+        </table>
+
+        <h3>2. Konsep Fisika & Landasan Teori</h3>
+        <p>Teorema Usaha-Energi menyatakan bahwa usaha total yang dilakukan pada sebuah benda sama dengan perubahan energi kinetiknya (\(\Delta EK\)):</p>
+        <div class="math-block">$$ W_{\text{total}} = \Delta EK = EK_{\text{akhir}} - EK_{\text{awal}} $$</div>
+
+        <h3>3. Langkah Penyelesaian Detail</h3>
+        <div class="step">Tentukan Energi Kinetik awal dan akhir:
+            <div class="math-block">$$ EK_{\text{awal}} = \frac{1}{2} m v_0^2 = \frac{1}{2} (1200) (20)^2 = 600 \cdot 400 = 240.000\text{ J} $$</div>
+            <div class="math-block">$$ EK_{\text{akhir}} = 0\text{ J (karena mobil berhenti)} $$</div>
+        </div>
+        <div class="step">Terapkan Teorema Usaha-Energi:
+            <div class="math-block">$$ W = 0 - 240.000 = -240.000\text{ J} $$</div>
+        </div>
+        <div class="step">Hitung gaya pengereman. Usaha oleh gaya rem bernilai negatif karena berlawanan arah dengan gerak:
+            <div class="math-block">$$ W = -F \cdot s $$</div>
+            <div class="math-block">$$ -240.000 = -F \cdot 40 $$</div>
+            <div class="math-block">$$ F = \frac{240.000}{40} = 6.000\text{ N} $$</div>
+        </div>
+        <p><strong>Jawaban: A. 6.000 N</strong></p>
+
+        <div class="callout realworld">
+            <h4>🌍 Aplikasi Nyata</h4>
+            <p>Sistem pengereman ABS (Anti-lock Braking System) pada mobil otonom bekerja berdasarkan prinsip ini, mempertahankan gaya rem mendekati batas gaya gesek statis maksimal untuk meminimalkan jarak 40 meter tersebut, mencegah selip.</p>
+        </div>
+    </div>
+
+    <!-- SOAL 3 -->
+    <div class="card">
+        <span class="badge">Usaha oleh Gaya Netto</span>
+        <h2>Soal Nomor 3</h2>
+        <div class="problem-statement">
+            Dalam simulasi logistik darurat, Budi mendorong kotak pasokan medis bermassa 50 kg dengan gaya horizontal 200 N melewati lantai beton yang kasar. Koefisien gesekan kinetik antara kotak dan lantai adalah 0,2. Jika kotak berhasil didorong sejauh 5 meter (\(g=10\text{ m/s}^2\)), besar usaha total (netto) yang bekerja pada kotak tersebut adalah...<br><br>
+            A. 125 J<br>
+            B. 250 J<br>
+            C. 500 J<br>
+            D. 750 J<br>
+            E. 1.000 J
+        </div>
+
+        <h3>1. Identifikasi Masalah</h3>
+        <table>
+            <tr>
+                <th>Diketahui</th>
+                <td>Massa (\(m\)) = 50 kg, \(g = 10\text{ m/s}^2\)<br>Gaya dorong (\(F\)) = 200 N<br>Koefisien gesek kinetik (\(\mu_k\)) = 0,2<br>Perpindahan (\(s\)) = 5 m</td>
+            </tr>
+            <tr>
+                <th>Ditanyakan</th>
+                <td>Usaha total (Netto) (\(W_{\text{net}}\)) = ?</td>
+            </tr>
+        </table>
+
+        <h3>2. Langkah Penyelesaian Detail</h3>
+        <div class="step">Hitung Gaya Normal dan Gaya Gesek:
+            <div class="math-block">$$ N = m \cdot g = 50 \cdot 10 = 500\text{ N} $$</div>
+            <div class="math-block">$$ f_k = \mu_k \cdot N = 0,2 \cdot 500 = 100\text{ N} $$</div>
+        </div>
+        <div class="step">Hitung Resultan Gaya (Gaya Netto) pada sumbu x:
+            <div class="math-block">$$ \Sigma F = F_{\text{dorong}} - f_k = 200 - 100 = 100\text{ N} $$</div>
+        </div>
+        <div class="step">Hitung Usaha Total (Netto):
+            <div class="math-block">$$ W_{\text{net}} = \Sigma F \cdot s = 100 \cdot 5 = 500\text{ J} $$</div>
+        </div>
+        <p><strong>Jawaban: C. 500 J</strong></p>
+
+        <div class="callout misconception">
+            <h4>💡 Insight Analitis</h4>
+            <p>Usaha total juga dapat dihitung dari selisih usaha: Usaha gaya dorong (1000 J) dikurangi usaha oleh gaya gesek (500 J), hasilnya tetap sama, 500 J.</p>
+        </div>
+    </div>
+
+    <!-- SOAL 4 -->
+    <div class="card">
+        <span class="badge">Daya dan Efisiensi</span>
+        <h2>Soal Nomor 4</h2>
+        <div class="problem-statement">
+            Sebuah sistem irigasi pertanian menggunakan pompa air bertenaga surya. Pompa ini memiliki daya input 1.000 Watt dan digunakan untuk menaikkan 500 liter air ke menara penampung setinggi 10 meter. Jika efisiensi pompa tersebut hanya 50% dan massa jenis air \(1.000\text{ kg/m}^3\) (\(g=10\text{ m/s}^2\)), berapakah waktu operasional minimum yang dibutuhkan pompa untuk menyelesaikan tugasnya?<br><br>
+            A. 25 sekon<br>
+            B. 50 sekon<br>
+            C. 100 sekon<br>
+            D. 150 sekon<br>
+            E. 200 sekon
+        </div>
+
+        <h3>1. Identifikasi Masalah</h3>
+        <table>
+            <tr>
+                <th>Diketahui</th>
+                <td>\(P_{\text{in}} = 1000\text{ W}\), \(\eta = 50\%\) atau 0,5<br>Volume (\(V\)) = 500 L = \(0,5\text{ m}^3\)<br>\(h = 10\text{ m}\)<br>\(\rho_{\text{air}} = 1000\text{ kg/m}^3\)</td>
+            </tr>
+            <tr>
+                <th>Ditanyakan</th>
+                <td>Waktu (\(t\)) = ?</td>
+            </tr>
+        </table>
+
+        <h3>2. Langkah Penyelesaian Detail</h3>
+        <div class="step">Ubah volume menjadi massa air:
+            <div class="math-block">$$ m = \rho \cdot V = 1000 \cdot 0,5 = 500\text{ kg} $$</div>
+        </div>
+        <div class="step">Hitung Energi Potensial yang dibutuhkan:
+            <div class="math-block">$$ EP = m \cdot g \cdot h = 500 \cdot 10 \cdot 10 = 50.000\text{ J} $$</div>
+        </div>
+        <div class="step">Hitung Daya Output (daya yang benar-benar digunakan untuk memindahkan air):
+            <div class="math-block">$$ P_{\text{out}} = \eta \cdot P_{\text{in}} = 0,5 \cdot 1000 = 500\text{ W} $$</div>
+        </div>
+        <div class="step">Hitung waktu yang dibutuhkan:
+            <div class="math-block">$$ P_{\text{out}} = \frac{W}{t} = \frac{EP}{t} \implies t = \frac{50.000}{500} = 100\text{ sekon} $$</div>
+        </div>
+        <p><strong>Jawaban: C. 100 sekon</strong></p>
+    </div>
+
+    <!-- SOAL 5 -->
+    <div class="card">
+        <span class="badge">Grafik Gaya terhadap Perpindahan</span>
+        <h2>Soal Nomor 5</h2>
+        <div class="problem-statement">
+            Grafik antara gaya (F) searah sumbu-x terhadap perpindahan (x) yang bekerja pada sebuah wahana luncur salju bermassa 10 kg berbentuk segitiga siku-siku. Gaya berawal dari 10 N pada \(x=0\) dan turun linier hingga menjadi 0 N pada \(x=4\) meter. Jika wahana awalnya diam, energi kinetik wahana di titik \(x=4\) meter adalah...<br><br>
+            A. 10 J<br>
+            B. 20 J<br>
+            C. 30 J<br>
+            D. 40 J<br>
+            E. 50 J
+        </div>
+
+        <h3>1. Identifikasi Masalah</h3>
+        <table>
+            <tr>
+                <th>Diketahui</th>
+                <td>Grafik \(F-x\) berbentuk segitiga: Tinggi (\(F\)) = 10 N, Alas (\(x\)) = 4 m<br>Massa (\(m\)) = 10 kg, \(v_0 = 0\)</td>
+            </tr>
+            <tr>
+                <th>Ditanyakan</th>
+                <td>Energi Kinetik akhir (\(EK\)) = ?</td>
+            </tr>
+        </table>
+
+        <h3>2. Konsep Fisika</h3>
+        <p>Usaha yang dilakukan oleh gaya variabel sama dengan <strong>luas daerah di bawah kurva</strong> grafik Gaya (\(F\)) terhadap perpindahan (\(x\)). Sesuai teorema Usaha-Energi, nilai usaha ini akan sama dengan perubahan Energi Kinetik.</p>
+
+        <h3>3. Langkah Penyelesaian Detail</h3>
+        <div class="step">Hitung Luas grafik (Usaha):
+            <div class="math-block">$$ W = \text{Luas Segitiga} = \frac{1}{2} \cdot \text{alas} \cdot \text{tinggi} $$</div>
+            <div class="math-block">$$ W = \frac{1}{2} \cdot 4\text{ m} \cdot 10\text{ N} = 20\text{ J} $$</div>
+        </div>
+        <div class="step">Gunakan Teorema Usaha-Energi:
+            <div class="math-block">$$ W = \Delta EK \implies 20\text{ J} = EK_{\text{akhir}} - 0 $$</div>
+            <div class="math-block">$$ EK_{\text{akhir}} = 20\text{ J} $$</div>
+        </div>
+        <p><strong>Jawaban: B. 20 J</strong></p>
+    </div>
+
+    <!-- SOAL 6 -->
+    <div class="card">
+        <span class="badge">Hukum Kekekalan Energi Mekanik</span>
+        <h2>Soal Nomor 6</h2>
+        <div class="problem-statement">
+            Dalam desain sebuah roller coaster baru, insinyur merancang kereta (tanpa mesin penggerak) untuk meluncur bebas dari puncak lintasan A setinggi 45 meter dari tanah, dengan asumsi gaya gesek dan hambatan udara diabaikan. Berapakah kecepatan kereta saat melewati titik B yang berada pada ketinggian 25 meter dari tanah? (\(g=10\text{ m/s}^2\))<br><br>
+            A. 10 m/s<br>
+            B. 15 m/s<br>
+            C. 20 m/s<br>
+            D. 25 m/s<br>
+            E. 30 m/s
+        </div>
+
+        <h3>1. Identifikasi Masalah</h3>
+        <table>
+            <tr>
+                <th>Diketahui</th>
+                <td>\(h_A = 45\text{ m}\), \(v_A = 0\text{ m/s}\) (meluncur bebas)<br>\(h_B = 25\text{ m}\)<br>Gaya non-konservatif = 0</td>
+            </tr>
+            <tr>
+                <th>Ditanyakan</th>
+                <td>Kecepatan di B (\(v_B\)) = ?</td>
+            </tr>
+        </table>
+
+        <h3>2. Langkah Penyelesaian Detail</h3>
+        <div class="step">Terapkan Hukum Kekekalan Energi Mekanik:
+            <div class="math-block">$$ EM_A = EM_B $$</div>
+            <div class="math-block">$$ EP_A + EK_A = EP_B + EK_B $$</div>
+            <div class="math-block">$$ m \cdot g \cdot h_A + 0 = m \cdot g \cdot h_B + \frac{1}{2} m v_B^2 $$</div>
+        </div>
+        <div class="step">Coret massa (\(m\)) dari kedua ruas karena massa tidak mempengaruhi jatuh bebas:
+            <div class="math-block">$$ g(h_A - h_B) = \frac{1}{2} v_B^2 $$</div>
+        </div>
+        <div class="step">Substitusikan nilai yang diketahui:
+            <div class="math-block">$$ 10 \cdot (45 - 25) = \frac{1}{2} v_B^2 $$</div>
+            <div class="math-block">$$ 10 \cdot 20 = \frac{1}{2} v_B^2 \implies 200 = \frac{1}{2} v_B^2 $$</div>
+            <div class="math-block">$$ v_B^2 = 400 \implies v_B = \sqrt{400} = 20\text{ m/s} $$</div>
+        </div>
+        <p><strong>Jawaban: C. 20 m/s</strong></p>
+    </div>
+
+    <!-- SOAL 7 -->
+    <div class="card">
+        <span class="badge">Energi Mekanik - Jatuh Bebas</span>
+        <h2>Soal Nomor 7</h2>
+        <div class="problem-statement">
+            Sistem pendaratan darurat sebuah drone pengantar barang mengalami kegagalan fungsi sehingga drone bermassa 2 kg tersebut jatuh bebas dari ketinggian 20 meter di atas tanah. Energi kinetik drone saat berada tepat pada ketinggian 5 meter dari tanah adalah... (\(g=10\text{ m/s}^2\))<br><br>
+            A. 100 J<br>
+            B. 150 J<br>
+            C. 200 J<br>
+            D. 300 J<br>
+            E. 400 J
+        </div>
+
+        <h3>1. Identifikasi Masalah</h3>
+        <table>
+            <tr>
+                <th>Diketahui</th>
+                <td>Massa (\(m\)) = 2 kg<br>\(h_{\text{awal}} = 20\text{ m}\)<br>\(h_{\text{akhir}} = 5\text{ m}\)<br>\(v_{\text{awal}} = 0\)</td>
+            </tr>
+            <tr>
+                <th>Ditanyakan</th>
+                <td>\(EK_{\text{akhir}}\) = ?</td>
+            </tr>
+        </table>
+
+        <h3>2. Langkah Penyelesaian Detail</h3>
+        <div class="step">Gunakan kekekalan energi mekanik:
+            <div class="math-block">$$ EP_{\text{awal}} + EK_{\text{awal}} = EP_{\text{akhir}} + EK_{\text{akhir}} $$</div>
+            <div class="math-block">$$ mgh_{\text{awal}} + 0 = mgh_{\text{akhir}} + EK_{\text{akhir}} $$</div>
+        </div>
+        <div class="step">Modifikasi persamaan:
+            <div class="math-block">$$ EK_{\text{akhir}} = mg(h_{\text{awal}} - h_{\text{akhir}}) $$</div>
+        </div>
+        <div class="step">Substitusi:
+            <div class="math-block">$$ EK_{\text{akhir}} = 2 \cdot 10 \cdot (20 - 5) = 20 \cdot 15 = 300\text{ J} $$</div>
+        </div>
+        <p><strong>Jawaban: D. 300 J</strong></p>
+        
+        <div class="callout realworld">
+            <h4>🚀 Cara Cepat Analisa</h4>
+            <p>Energi kinetik yang diperoleh murni berasal dari Energi Potensial yang "hilang" (ketinggian yang di tempuh). Drone jatuh sejauh 15 m. Maka, \( EK = mg(\Delta h) = 2 \cdot 10 \cdot 15 = 300\text{ J}\).</p>
+        </div>
+    </div>
+
+    <!-- SOAL 8 -->
+    <div class="card">
+        <span class="badge">Energi Potensial Pegas</span>
+        <h2>Soal Nomor 8</h2>
+        <div class="problem-statement">
+            Seorang atlet panahan menarik busurnya sejauh 40 cm sebelum melepaskan anak panah bermassa 50 gram. Jika sistem busur tersebut dianggap sebagai pegas ideal dengan konstanta gaya \(500\text{ N/m}\), kecepatan anak panah saat baru saja meninggalkan busur adalah...<br><br>
+            A. 10 m/s<br>
+            B. 20 m/s<br>
+            C. 30 m/s<br>
+            D. 40 m/s<br>
+            E. 50 m/s
+        </div>
+
+        <h3>1. Identifikasi Masalah</h3>
+        <table>
+            <tr>
+                <th>Diketahui</th>
+                <td>Simpangan (\(x\)) = 40 cm = 0,4 m<br>Massa (\(m\)) = 50 gram = 0,05 kg<br>Konstanta (\(k\)) = 500 N/m</td>
+            </tr>
+            <tr>
+                <th>Ditanyakan</th>
+                <td>Kecepatan maksimum (\(v\)) = ?</td>
+            </tr>
+        </table>
+
+        <h3>2. Langkah Penyelesaian Detail</h3>
+        <div class="step">Seluruh energi potensial pegas berubah menjadi energi kinetik anak panah saat dilepaskan:
+            <div class="math-block">$$ EP_{\text{pegas}} = EK $$</div>
+            <div class="math-block">$$ \frac{1}{2} k x^2 = \frac{1}{2} m v^2 $$</div>
+        </div>
+        <div class="step">Sederhanakan dengan membuang \(\frac{1}{2}\) dan substitusi nilai:
+            <div class="math-block">$$ 500 \cdot (0,4)^2 = 0,05 \cdot v^2 $$</div>
+            <div class="math-block">$$ 500 \cdot 0,16 = 0,05 \cdot v^2 $$</div>
+            <div class="math-block">$$ 80 = 0,05 \cdot v^2 \implies v^2 = \frac{80}{0,05} = 1600 $$</div>
+            <div class="math-block">$$ v = \sqrt{1600} = 40\text{ m/s} $$</div>
+        </div>
+        <p><strong>Jawaban: D. 40 m/s</strong></p>
+    </div>
+
+    <!-- SOAL 9 -->
+    <div class="card">
+        <span class="badge">Momentum Linier</span>
+        <h2>Soal Nomor 9</h2>
+        <div class="problem-statement">
+            Dalam investigasi batas aman lalu lintas, dua kendaraan melaju di jalur lurus. Kendaraan A (massa 1.000 kg) dan Kendaraan B (massa 4.000 kg) melaju dengan kecepatan awal yang sama. Jika sopir Kendaraan A ingin memiliki momentum yang setara dengan momentum Kendaraan B, maka Kendaraan A harus melaju dengan kecepatan sebesar...<br><br>
+            A. 2 kali kecepatan B<br>
+            B. 4 kali kecepatan B<br>
+            C. 1/2 kali kecepatan B<br>
+            D. 1/4 kali kecepatan B<br>
+            E. sama dengan kecepatan B
+        </div>
+
+        <h3>1. Identifikasi Masalah</h3>
+        <table>
+            <tr>
+                <th>Diketahui</th>
+                <td>\(m_A = 1000\text{ kg}\), \(m_B = 4000\text{ kg}\)</td>
+            </tr>
+            <tr>
+                <th>Syarat</th>
+                <td>Momentum A = Momentum B (\(p_A = p_B\))</td>
+            </tr>
+            <tr>
+                <th>Ditanyakan</th>
+                <td>Relasi \(v_A\) terhadap \(v_B\)</td>
+            </tr>
+        </table>
+
+        <h3>2. Langkah Penyelesaian Detail</h3>
+        <div class="step">Tuliskan persamaan momentum:
+            <div class="math-block">$$ p_A = p_B $$</div>
+            <div class="math-block">$$ m_A \cdot v_A = m_B \cdot v_B $$</div>
+        </div>
+        <div class="step">Substitusikan massa:
+            <div class="math-block">$$ 1000 \cdot v_A = 4000 \cdot v_B $$</div>
+            <div class="math-block">$$ v_A = \frac{4000}{1000} v_B \implies v_A = 4 \cdot v_B $$</div>
+        </div>
+        <p><strong>Jawaban: B. 4 kali kecepatan B</strong></p>
+    </div>
+
+    <!-- SOAL 10 -->
+    <div class="card">
+        <span class="badge">Hukum Kekekalan Momentum</span>
+        <h2>Soal Nomor 10</h2>
+        <div class="problem-statement">
+            Saat memperbaiki satelit di ruang hampa yang terisolasi gravitasi, seorang astronot (massa 80 kg) mendapati dirinya terpisah dari pesawat. Menggunakan prinsip kekekalan momentum, ia melempar tabung gas sisa seberat 5 kg dengan kecepatan \(16\text{ m/s}\) menjauhi arah pesawat. Kecepatan mundur (recoil) yang dialami astronot menuju pesawat adalah...<br><br>
+            A. 0,5 m/s<br>
+            B. 1,0 m/s<br>
+            C. 1,5 m/s<br>
+            D. 2,0 m/s<br>
+            E. 2,5 m/s
+        </div>
+
+        <h3>1. Identifikasi Masalah</h3>
+        <table>
+            <tr>
+                <th>Diketahui</th>
+                <td>Massa astronot (\(m_A\)) = 80 kg<br>Massa tabung (\(m_T\)) = 5 kg<br>Kecepatan awal sistem = 0 m/s (karena diam relatif)<br>Kecepatan tabung akhir (\(v'_T\)) = 16 m/s</td>
+            </tr>
+            <tr>
+                <th>Ditanyakan</th>
+                <td>Kecepatan astronot akhir (\(v'_A\)) = ?</td>
+            </tr>
+        </table>
+
+        <h3>2. Konsep Fisika</h3>
+        <p>Karena tidak ada gaya luar (ruang hampa isolasi gravitasi), momentum total sistem kekal. Momentum awal sebelum dilempar adalah Nol.</p>
+
+        <h3>3. Langkah Penyelesaian Detail</h3>
+        <div class="step">Gunakan Hukum Kekekalan Momentum:
+            <div class="math-block">$$ p_{\text{awal}} = p_{\text{akhir}} $$</div>
+            <div class="math-block">$$ 0 = m_A \cdot v'_A + m_T \cdot v'_T $$</div>
+        </div>
+        <div class="step">Substitusikan nilai:
+            <div class="math-block">$$ 0 = 80 \cdot v'_A + 5 \cdot 16 $$</div>
+            <div class="math-block">$$ 0 = 80 \cdot v'_A + 80 $$</div>
+            <div class="math-block">$$ 80 \cdot v'_A = -80 \implies v'_A = -1,0\text{ m/s} $$</div>
+        </div>
+        <p>Tanda minus mengindikasikan arah yang berlawanan (recoil). Kecepatannya adalah 1,0 m/s.</p>
+        <p><strong>Jawaban: B. 1,0 m/s</strong></p>
+    </div>
+
+</div>
+
+</body>
+</html>

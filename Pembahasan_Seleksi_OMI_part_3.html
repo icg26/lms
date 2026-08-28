@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pembahasan Fisika OMI 2026 (21-30) - Oleh Kahfi</title>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        :root {
+            --primary: #4338ca;
+            --primary-light: #e0e7ff;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #334155;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --misc-bg: #fffbeb;
+            --misc-border: #f59e0b;
+            --real-bg: #f0fdf4;
+            --real-border: #22c55e;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .sidebar {
+            width: 260px;
+            background-color: var(--card-bg);
+            border-right: 1px solid var(--border-color);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            overflow-y: auto;
+            box-shadow: var(--shadow);
+            z-index: 10;
+        }
+
+        .sidebar h2 {
+            font-size: 1.1em;
+            color: var(--primary);
+            margin-top: 0;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .nav-btn {
+            padding: 12px 15px;
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: left;
+            font-weight: 600;
+            color: var(--text-main);
+            transition: all 0.2s;
+        }
+
+        .nav-btn:hover { background: var(--primary-light); color: var(--primary); }
+        .nav-btn.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+        
+        .print-btn {
+            margin-top: auto;
+            background: var(--real-bg);
+            border-color: var(--real-border);
+            color: #166534;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .print-btn:hover { background: #dcfce7; }
+
+        .content {
+            flex: 1;
+            padding: 30px;
+            overflow-y: auto;
+            scroll-behavior: smooth;
+        }
+
+        .page { display: none; max-width: 850px; margin: 0 auto; animation: fadeIn 0.3s ease-out; }
+        .page.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        .badge {
+            display: inline-block;
+            padding: 6px 14px;
+            background: var(--primary-light);
+            color: var(--primary);
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        h2.title { margin-top: 0; color: #1e293b; font-size: 1.6em; }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .card h3 {
+            color: var(--primary);
+            margin-top: 0;
+            font-size: 1.15em;
+            border-bottom: 2px solid var(--primary-light);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        .problem-text { font-style: italic; color: var(--text-muted); border-left: 3px solid var(--border-color); padding-left: 15px; }
+
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        th, td { border: 1px solid var(--border-color); padding: 12px; text-align: left; vertical-align: top; }
+        th { background: var(--bg-color); font-weight: 600; width: 50%; }
+
+        .math-block {
+            background: var(--bg-color);
+            padding: 15px;
+            border-left: 4px solid var(--primary);
+            border-radius: 4px;
+            margin: 15px 0;
+            overflow-x: auto;
+        }
+
+        .callout { padding: 16px; border-left: 4px solid; border-radius: 0 8px 8px 0; margin: 20px 0; }
+        .callout.misc { background: var(--misc-bg); border-color: var(--misc-border); }
+        .callout.real { background: var(--real-bg); border-color: var(--real-border); }
+        .callout h4 { margin: 0 0 8px 0; font-size: 1em; display: flex; align-items: center; gap: 8px;}
+
+        @media (max-width: 768px) {
+            body { flex-direction: column; }
+            .sidebar { width: 100%; border-right: none; border-bottom: 1px solid var(--border-color); flex-direction: row; flex-wrap: nowrap; overflow-x: auto; height: auto; padding: 10px; z-index: 100; box-sizing: border-box;}
+            .sidebar h2 { display: none; }
+            .nav-btn { flex: 0 0 auto; white-space: nowrap; font-size: 0.9em; padding: 8px 12px;}
+            .print-btn { margin-top: 0; }
+            .content { padding: 15px; }
+        }
+
+        @media print {
+            .sidebar { display: none; }
+            .content { padding: 0; overflow: visible; }
+            .page { display: block !important; margin-bottom: 40px; page-break-after: always; }
+            .card { box-shadow: none; border: 1px solid #000; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <h2>Navigasi Soal</h2>
+        <button id="btn21" class="nav-btn active" onclick="showTab(21)">Soal 21</button>
+        <button id="btn22" class="nav-btn" onclick="showTab(22)">Soal 22</button>
+        <button id="btn23" class="nav-btn" onclick="showTab(23)">Soal 23</button>
+        <button id="btn24" class="nav-btn" onclick="showTab(24)">Soal 24</button>
+        <button id="btn25" class="nav-btn" onclick="showTab(25)">Soal 25</button>
+        <button id="btn26" class="nav-btn" onclick="showTab(26)">Soal 26</button>
+        <button id="btn27" class="nav-btn" onclick="showTab(27)">Soal 27</button>
+        <button id="btn28" class="nav-btn" onclick="showTab(28)">Soal 28</button>
+        <button id="btn29" class="nav-btn" onclick="showTab(29)">Soal 29</button>
+        <button id="btn30" class="nav-btn" onclick="showTab(30)">Soal 30</button>
+        <button class="nav-btn print-btn" onclick="window.print()">🖨️ Cetak Pembahasan</button>
+    </div>
+
+    <div class="content">
+
+        <!-- ================= SOAL 21 ================= -->
+        <div id="q21" class="page active">
+            <span class="badge">Dinamika Rotasi & Kerangka Non-Inersia</span>
+            <h2 class="title">Silinder Pejal dalam Truk yang Dipercepat</h2>
+            
+            <div class="card">
+                <p class="problem-text">"Silinder pejal homogen (M, R) di bidang miring $37^\circ$ menghadap ke belakang truk. Truk dipercepat maju $5 \text{ m/s}^2$. Berapa percepatan linear silinder relatif terhadap bidang miring?"</p>
+                <table>
+                    <tr><th>Parameter</th><th>Nilai</th></tr>
+                    <tr><td>Kemiringan ($\theta$)</td><td>$37^\circ$ ($\sin=0.6, \cos=0.8$)</td></tr>
+                    <tr><td>Percepatan Truk ($a_{truk}$)</td><td>$5 \text{ m/s}^2$ (Maju)</td></tr>
+                    <tr><td>Momen Inersia Silinder ($I$)</td><td>$\frac{1}{2} M R^2$</td></tr>
+                </table>
+            </div>
+
+            <div class="card">
+                <h3>🔍 1. Analisis Vektor Gaya</h3>
+                <p>Karena kita meninjau dari kerangka bidang miring di dalam truk, kita harus memasukkan **Gaya Fiktif** yang arahnya berlawanan dengan gerak truk. Truk maju ke depan, maka gaya fiktif mendorong ke belakang (searah turunan bidang miring).</p>
+                <ul>
+                    <li>Komponen percepatan gravitasi sejajar bidang (ke bawah): $g \sin \theta$</li>
+                    <li>Komponen percepatan fiktif sejajar bidang (juga ke bawah, karena miring menghadap belakang): $a_{truk} \cos \theta$</li>
+                </ul>
+                <div class="math-block">
+                    Percepatan penyebab total luncuran: $a_{penggerak} = g \sin 37^\circ + a_{truk} \cos 37^\circ$
+                    $$ a_{penggerak} = 10(0.6) + 5(0.8) = 6 + 4 = 10 \text{ m/s}^2 $$
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>📝 2. Perhitungan Percepatan Menggelinding</h3>
+                <p>Untuk benda yang menggelinding murni, sebagian energi/gaya terpakai untuk memutar benda. Rumus cepat percepatan relatif benda menggelinding:</p>
+                <div class="math-block">
+                    $$ a = \frac{\Sigma F_{sejajar}}{M + \frac{I}{R^2}} = \frac{M \cdot a_{penggerak}}{M + \frac{1}{2}M} $$
+                    $$ a = \frac{a_{penggerak}}{1 + 0.5} = \frac{10}{1.5} = \frac{20}{3} \approx 6.67 \text{ m/s}^2 $$
+                </div>
+                <p><strong>Jawaban: C. 6,67 $\text{m/s}^2$</strong></p>
+            </div>
+            
+            <div class="card">
+                <h3>🔬 3. Bedah Miskonsepsi</h3>
+                <div class="callout misc">
+                    <h4>⚠️ Arah Gaya Fiktif</h4>
+                    Banyak siswa hanya menjumlahkan $g \sin \theta$ dan gaya fiktif murni. Ingat, hanya komponen vektor yang **sejajar bidang miring** yang menjadi penyebab benda meluncur!
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= SOAL 22 ================= -->
+        <div id="q22" class="page">
+            <span class="badge">Hukum Gravitasi Newton</span>
+            <h2 class="title">Perbandingan Kelajuan Orbit Planet</h2>
+            
+            <div class="card">
+                <p class="problem-text">"Planet A berjarak R dan Planet B berjarak 4R dari sebuah bintang. Berapakah perbandingan kecepatan linear (kelajuan orbit) Planet A terhadap Planet B?"</p>
+            </div>
+
+            <div class="card">
+                <h3>🔍 1. Konsep Kelajuan Orbit Melingkar</h3>
+                <p>Kecepatan orbit suatu satelit/planet dipertahankan oleh gaya gravitasi yang bertindak sebagai gaya sentripetal.</p>
+                <div class="math-block">
+                    $$ F_g = F_s \Rightarrow G \frac{M m}{r^2} = m \frac{v^2}{r} \Rightarrow v = \sqrt{\frac{GM}{r}} $$
+                </div>
+                <p>Dari persamaan ini, kelajuan orbit berbanding terbalik dengan akar kuadrat jarak orbitnya: $v \propto \frac{1}{\sqrt{r}}$</p>
+            </div>
+
+            <div class="card">
+                <h3>📝 2. Perhitungan Perbandingan</h3>
+                <div class="math-block">
+                    $$ \frac{v_A}{v_B} = \sqrt{\frac{R_B}{R_A}} = \sqrt{\frac{4R}{R}} = \sqrt{4} = 2 $$
+                </div>
+                <p>Jadi, perbandingannya adalah 2 : 1.</p>
+                <p><strong>Jawaban: C. 2:1</strong></p>
+            </div>
+        </div>
+
+        <!-- ================= SOAL 23 ================= -->
+        <div id="q23" class="page">
+            <span class="badge">Mekanika Fluida & Hukum Newton</span>
+            <h2 class="title">Fisika Terbang pada Burung Elang</h2>
+            
+            <div class="card">
+                <p class="problem-text">"Burung elang 2 kg melayang terbang horizontal konstan. Analisis 5 pernyataan aerodinamika."</p>
+            </div>
+
+            <div class="card">
+                <h3>🔍 Evaluasi Pernyataan:</h3>
+                
+                <p><strong>1. Gaya angkat akibat perbedaan kecepatan udara (Benar)</strong><br>
+                Sesuai prinsip Bernoulli, udara di atas sayap lebih cepat (tekanan rendah), udara di bawah lebih lambat (tekanan tinggi), menghasilkan gaya angkat (Lift).</p>
+                
+                <p><strong>2. Hukum III Newton saat mengepak (Benar)</strong><br>
+                Sayap mendorong udara ke bawah (Aksi), udara mendorong burung ke atas (Reaksi).</p>
+                
+                <p><strong>3. Resultan gaya vertikal nol (Benar)</strong><br>
+                Karena terbang horizontal konstan, tidak ada percepatan ke atas/bawah. Gaya angkat ($F_A$) harus persis sama dengan berat ($W = mg = 2 \times 10 = 20\text{ N}$).</p>
+                
+                <p><strong>4. Usaha gravitasi bernilai positif (Salah)</strong><br>
+                Burung terbang *mendatar* (sudut $90^\circ$ terhadap arah gravitasi). $W = F \cdot s \cdot \cos 90^\circ = 0$. Usaha gravitasi adalah nol, bukan membesar.</p>
+                
+                <p><strong>5. Gaya hambat (drag) searah kecepatan (Salah)</strong><br>
+                Gaya hambat atau gesekan fluida SELALU berlawanan arah dengan arah gerak vektor kecepatan.</p>
+
+                <p><strong>Kesimpulan: Pernyataan 1, 2, dan 3 adalah BENAR.</strong></p>
+            </div>
+        </div>
+
+        <!-- ================= SOAL 24 ================= -->
+        <div id="q24" class="page">
+            <span class="badge">Energi & Daya Listrik</span>
+            <h2 class="title">Analisis Efisiensi Listrik Keluarga Pak Budi</h2>
+            
+            <div class="card">
+                <h3>🔍 1. Perhitungan Konsumsi Energi Harian</h3>
+                <p>Energi listrik dihitung dalam kilowatt-hour (kWh). Rumus: $E = P(\text{kW}) \times t(\text{jam})$.</p>
+                
+                <strong>Sebelum Penghematan:</strong>
+                <ul>
+                    <li>AC: $0.8 \text{ kW} \times 10\text{ jam} = 8.0 \text{ kWh}$</li>
+                    <li>Kulkas: $0.2 \text{ kW} \times 24\text{ jam} = 4.8 \text{ kWh}$</li>
+                    <li>TV: $0.1 \text{ kW} \times 6\text{ jam} = 0.6 \text{ kWh}$</li>
+                    <li>Lampu: $0.1 \text{ kW} \times 12\text{ jam} = 1.2 \text{ kWh}$</li>
+                </ul>
+                <p>Total Harian = $14.6\text{ kWh}$. Total Bulanan (30 hari) = $438\text{ kWh}$.</p>
+
+                <strong>Setelah Penghematan:</strong>
+                <ul>
+                    <li>AC: kurang 2 jam $\rightarrow$ $0.8 \text{ kW} \times 8\text{ jam} = 6.4 \text{ kWh}$</li>
+                    <li>Kulkas: Tetap $4.8 \text{ kWh}$</li>
+                    <li>TV: dikurangi mjd 4 jam $\rightarrow$ $0.1 \text{ kW} \times 4\text{ jam} = 0.4 \text{ kWh}$</li>
+                    <li>Lampu: dikurangi mjd 10 jam $\rightarrow$ $0.1 \text{ kW} \times 10\text{ jam} = 1.0 \text{ kWh}$</li>
+                </ul>
+                <p>Total Harian Baru = $12.6\text{ kWh}$. Total Bulanan (30 hari) = $378\text{ kWh}$.</p>
+            </div>
+
+            <div class="card">
+                <h3>📝 2. Evaluasi Pernyataan</h3>
+                <p><strong>1. Konsumsi sebelum penghematan 438 kWh. (BENAR)</strong></p>
+                <p><strong>2. Kulkas penyumbang terbesar. (SALAH)</strong> AC menyumbang 8 kWh/hari, jauh melampaui kulkas (4.8 kWh/hari) meskipun kulkas menyala 24 jam.</p>
+                <p><strong>3. Penghematan Rp 90.000. (BENAR)</strong><br>
+                Selisih energi = $438 - 378 = 60 \text{ kWh}$. Tagihan hemat = $60 \times 1500 = \text{Rp } 90.000$.</p>
+                <p><strong>4. AC saja hemat 48 kWh sebulan. (BENAR)</strong><br>
+                Hemat 2 jam/hari = $1.6 \text{ kWh/hari} \times 30 = 48 \text{ kWh/bulan}$.</p>
+                <p><strong>5. Penurunan lebih dari 25%. (SALAH)</strong><br>
+                Persentase = $(60 / 438) \times 100\% \approx 13.7\%$, jauh di bawah 25%.</p>
+                <p><strong>Kesimpulan: Pernyataan 1, 3, dan 4 BENAR.</strong></p>
+            </div>
+        </div>
+
+        <!-- ================= SOAL 25 ================= -->
+        <div id="q25" class="page">
+            <span class="badge">Rangkaian Listrik Arus Searah (DC)</span>
+            <h2 class="title">BMS Stasiun Pengisian Daya (Analisis Node)</h2>
+            
+            <div class="card">
+                <p class="problem-text">"Topologi 4 cabang paralel dengan 2 simpul utama. Tentukan arus di cabang 3 (Beban $R_2 = 4\Omega$)."</p>
+            </div>
+
+            <div class="card">
+                <h3>🔍 1. Pemodelan dengan Hukum Kirchhoff Arus (Node Analysis)</h3>
+                <p>Misalkan tegangan di simpul bawah adalah referensi (0 Volt). Maka kita mencari tegangan di simpul atas, sebut saja $V$. Asumsikan semua arus keluar dari simpul atas: $\Sigma I = 0$.</p>
+                
+                <div class="math-block">
+                    Cabang 1: $I_1 = \frac{V - E_1}{r_1} = \frac{V - 12}{2}$<br>
+                    Cabang 2: $I_2 = \frac{V - 0}{R_1} = \frac{V}{2}$<br>
+                    Cabang 3: $I_3 = \frac{V - 0}{R_2} = \frac{V}{4}$<br>
+                    Cabang 4: $I_4 = \frac{V - E_2}{r_2} = \frac{V - 24}{4}$
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>📝 2. Penyelesaian Persamaan Simpul</h3>
+                <div class="math-block">
+                    $$ \frac{V - 12}{2} + \frac{V}{2} + \frac{V}{4} + \frac{V - 24}{4} = 0 $$
+                </div>
+                <p>Kalikan seluruh ruas dengan KPK penyebut, yaitu 4:</p>
+                <div class="math-block">
+                    $$ 2(V - 12) + 2(V) + 1(V) + 1(V - 24) = 0 $$
+                    $$ 2V - 24 + 2V + V + V - 24 = 0 $$
+                    $$ 6V - 48 = 0 \Rightarrow 6V = 48 \Rightarrow V = 8 \text{ Volt} $$
+                </div>
+                <p>Tegangan di simpul atas adalah 8 Volt. Kuat arus di cabang 3 ($R_2 = 4\Omega$) adalah:</p>
+                <div class="math-block">
+                    $$ I_3 = \frac{V}{4} = \frac{8}{4} = 2.0 \text{ Ampere} $$
+                </div>
+                <p><strong>Jawaban: B. 2,0 A</strong></p>
+            </div>
+            
+            <div class="card">
+                <h3>🔬 3. Bedah Cepat</h3>
+                <div class="callout real">
+                    <h4>💡 Mengapa Node Analysis?</h4>
+                    Jika menggunakan Hukum Kirchhoff II (Looping) biasa, Anda butuh memecahkan 3 persamaan matriks linear yang menguras waktu. Metode Node (Simpul) memecahkannya hanya dalam 1 baris persamaan!
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= SOAL 26 ================= -->
+        <div id="q26" class="page">
+            <span class="badge">Fluida Statis (Hukum Archimedes)</span>
+            <h2 class="title">Pelampung Pemantau Kualitas Laut</h2>
+            
+            <div class="card">
+                <p class="problem-text">"Volume total 5 $m^3$. Tepat 20% volume di atas air. Massa jenis laut 1030 kg/m³. Berapakah massa pelampung?"</p>
+            </div>
+
+            <div class="card">
+                <h3>🔍 1. Hukum Archimedes</h3>
+                <p>Benda yang terapung seimbang memiliki Gaya Berat yang persis tertahan oleh Gaya Apung (Bouyancy).</p>
+                <div class="math-block">
+                    $$ W = F_A \Rightarrow m \cdot g = \rho_{air} \cdot g \cdot V_{tercelup} $$
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>📝 2. Perhitungan Massa</h3>
+                <p>Volume tercelup adalah sisanya, yaitu 80% dari volume total.</p>
+                <div class="math-block">
+                    $$ V_{tercelup} = 0.8 \times 5 \text{ m}^3 = 4 \text{ m}^3 $$
+                </div>
+                <p>Karena gravitasi ($g$) bisa dicoret dari kedua sisi rumus awal:</p>
+                <div class="math-block">
+                    $$ m = \rho_{air} \cdot V_{tercelup} = 1030 \times 4 = 4120 \text{ kg} $$
+                </div>
+                <p><strong>Jawaban Isian Singkat: 4120 kg</strong></p>
+            </div>
+        </div>
+
+        <!-- ================= SOAL 27 ================= -->
+        <div id="q27" class="page">
+            <span class="badge">Fluida Dinamis</span>
+            <h2 class="title">Gaya Aerodinamis Angin pada Atap</h2>
+            
+            <div class="card">
+                <p class="problem-text">"Angin $v_{luar} = 30\text{ m/s}$. Atap dalam diam ($v_{dalam} = 0$). Luas atap 50 m², $\rho_{udara} = 1.2\text{ kg/m}^3$."</p>
+            </div>
+
+            <div class="card">
+                <h3>🔍 Evaluasi Pernyataan Sesuai Hukum Bernoulli:</h3>
+                
+                <p><strong>1. Tekanan luar atap lebih rendah (Benar)</strong><br>
+                Prinsip utama Bernoulli: Di mana kecepatan fluida tinggi, tekanannya turun (rendah). Di dalam rumah angin diam sehingga tekanan tinggi.</p>
+                
+                <p><strong>2. Selisih tekanan adalah 1.080 Pa (Salah)</strong></p>
+                <div class="math-block">
+                    $\Delta P = \frac{1}{2} \rho (v_{luar}^2 - v_{dalam}^2) $<br>
+                    $\Delta P = \frac{1}{2} (1.2) (30^2 - 0) = 0.6 \times 900 = 540 \text{ Pa}$<br>
+                    *(Pernyataan menyebut 1080 Pa, yang merupakan hasil perhitungan tanpa faktor "setengah")*
+                </div>
+                
+                <p><strong>3. Gaya angkat aerodinamis 27.000 N (Benar)</strong></p>
+                <div class="math-block">
+                    $F = \Delta P \times A = 540 \text{ Pa} \times 50 \text{ m}^2 = 27.000 \text{ N}$
+                </div>
+                
+                <p><strong>Kesimpulan: Pernyataan 1 dan 3 BENAR.</strong></p>
+            </div>
+        </div>
+
+        <!-- ================= SOAL 28 ================= -->
+        <div id="q28" class="page">
+            <span class="badge">Analisis Dimensi</span>
+            <h2 class="title">Konstanta Gas Nyata Van der Waals</h2>
+            
+            <div class="card">
+                <p class="problem-text">"Dari persamaan $(P + \frac{a}{V^2})(V - b) = nRT$, apa dimensi konstanta $a$?"</p>
+            </div>
+
+            <div class="card">
+                <h3>🔍 Prinsip Homogenitas Dimensi</h3>
+                <p>Dalam fisika, besaran hanya bisa dijumlahkan atau dikurangkan jika memiliki <strong>satuan dan dimensi yang persis sama</strong>. Oleh karena itu, dimensi term $\frac{a}{V^2}$ mutlak harus sama dengan dimensi Tekanan ($P$).</p>
+            </div>
+
+            <div class="card">
+                <h3>📝 Langkah Penyelesaian</h3>
+                <p>1. Dimensi Tekanan ($P = F / A$):</p>
+                <div class="math-block">
+                    $[F] = [M][L][T]^{-2}$ dan $[A] = [L]^2$<br>
+                    $[P] = \frac{[M][L][T]^{-2}}{[L]^2} = [M][L]^{-1}[T]^{-2}$
+                </div>
+                <p>2. Dimensi Volume Kuadrat ($V^2$):</p>
+                <div class="math-block">
+                    $[V] = [L]^3 \Rightarrow [V^2] = [L]^6$
+                </div>
+                <p>3. Dimensi Konstanta $a$:</p>
+                <div class="math-block">
+                    $[a] = [P] \times [V^2] = ([M][L]^{-1}[T]^{-2}) \times [L]^6 = [M][L]^5[T]^{-2}$
+                </div>
+                <p><strong>Jawaban: A. $[M][L]^5[T]^{-2}$</strong></p>
+            </div>
+        </div>
+
+        <!-- ================= SOAL 29 ================= -->
+        <div id="q29" class="page">
+            <span class="badge">Dinamika Partikel</span>
+            <h2 class="title">Tegangan Kawat Baja Lift Ekspres</h2>
+            
+            <div class="card">
+                <p class="problem-text">"Kabin lift 800 kg + penumpang 700 kg, percepatan maksimum ke atas $3\text{ m/s}^2$. Tegangan minimum kawat baja?"</p>
+            </div>
+
+            <div class="card">
+                <h3>🔍 Analisis Hukum II Newton</h3>
+                <p>Massa total sistem: $m_{tot} = 800 + 700 = 1500 \text{ kg}$.<br>
+                Saat lift bergerak ke atas, kawat penarik ($T$) harus melawan dua hal: Gaya berat ($W$) ke bawah, dan gaya inersia dari percepatan angkat ($m \cdot a$).</p>
+            </div>
+
+            <div class="card">
+                <h3>📝 Perhitungan</h3>
+                <div class="math-block">
+                    $$ \Sigma F_y = m \cdot a $$
+                    $$ T - W = m \cdot a \Rightarrow T = m \cdot g + m \cdot a = m(g + a) $$
+                    $$ T = 1500(10 + 3) = 1500 \times 13 = 19.500 \text{ N} $$
+                </div>
+                <p><strong>Jawaban: D. 19.500 N</strong></p>
+            </div>
+        </div>
+
+        <!-- ================= SOAL 30 ================= -->
+        <div id="q30" class="page">
+            <span class="badge">Keseimbangan Statis (Benda Tegar)</span>
+            <h2 class="title">Mizan Papan Reklame & Lampu Sorot</h2>
+            
+            <div class="card">
+                <p class="problem-text">"Papan homogen 200 N panjang 4 m, ditahan tali di A (kiri) dan B (kanan). Lampu 50 N berjarak 1 m dari A."</p>
+            </div>
+
+            <div class="card">
+                <h3>🔍 Pemodelan Sistem</h3>
+                <ul>
+                    <li>Panjang total $L = 4\text{ m}$. Titik A di $x=0$, titik B di $x=4$.</li>
+                    <li>Titik berat papan ($W_p = 200\text{ N}$) jatuh tepat di tengah: $x = 2\text{ m}$.</li>
+                    <li>Posisi beban lampu ($W_L = 50\text{ N}$) ada di $x = 1\text{ m}$.</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>📝 Evaluasi Pernyataan (Torsi)</h3>
+                
+                <p>Pilih titik B ($x=4$) sebagai poros untuk mencari tegangan di A ($T_A$):</p>
+                <div class="math-block">
+                    $\Sigma \tau_B = 0$<br>
+                    $T_A \cdot (4) = W_p \cdot (2) + W_L \cdot (3)$<br>
+                    $4 \cdot T_A = (200 \times 2) + (50 \times 3) = 400 + 150 = 550$<br>
+                    $T_A = \frac{550}{4} = 137.5 \text{ N}$
+                </div>
+                
+                <p>Cari $T_B$ menggunakan gaya vertikal ( $\Sigma F_y = 0$ ):</p>
+                <div class="math-block">
+                    $T_A + T_B = W_p + W_L \Rightarrow 137.5 + T_B = 250 \Rightarrow T_B = 112.5 \text{ N}$
+                </div>
+
+                <p><strong>Pernyataan 1: Tegangan A menanggung beban lebih besar. (BENAR)</strong><br>
+                Karena lampu lebih dekat ke A (137.5 N > 112.5 N).</p>
+
+                <p><strong>Pernyataan 2: Besar tegangan A adalah 112,5 N. (SALAH)</strong><br>
+                Tegangan penahan A adalah 137.5 N. Yang 112.5 N adalah tegangan tali B.</p>
+
+                <p><strong>Pernyataan 3: Jika lampu digeser ke tengah (2m), tegangan A dan B sama. (BENAR)</strong><br>
+                Jika sistem 100% simetris (papan di tengah, lampu di tengah), beban ditanggung rata 50/50 oleh tali kiri dan kanan.</p>
+                
+                <p><strong>Kesimpulan: Pernyataan 1 dan 3 BENAR.</strong></p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Script Navigasi -->
+    <script>
+        function showTab(num) {
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            document.querySelectorAll('.nav-btn:not(.print-btn)').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            document.getElementById('q' + num).classList.add('active');
+            document.getElementById('btn' + num).classList.add('active');
+            
+            document.querySelector('.content').scrollTo(0, 0);
+            window.scrollTo(0, 0);
+        }
+    </script>
+</body>
+</html>

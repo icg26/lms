@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pembahasan Fisika OMI 2026 - Oleh Kahfi</title>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --primary-light: #e0e7ff;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #334155;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --misc-bg: #fffbeb;
+            --misc-border: #f59e0b;
+            --real-bg: #f0fdf4;
+            --real-border: #22c55e;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .sidebar {
+            width: 260px;
+            background-color: var(--card-bg);
+            border-right: 1px solid var(--border-color);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            overflow-y: auto;
+            box-shadow: var(--shadow);
+            z-index: 10;
+        }
+
+        .sidebar h2 {
+            font-size: 1.1em;
+            color: var(--primary);
+            margin-top: 0;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .nav-btn {
+            padding: 12px 15px;
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: left;
+            font-weight: 600;
+            color: var(--text-main);
+            transition: all 0.2s;
+        }
+
+        .nav-btn:hover { background: var(--primary-light); color: var(--primary); }
+        .nav-btn.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+        
+        .print-btn {
+            margin-top: auto;
+            background: var(--real-bg);
+            border-color: var(--real-border);
+            color: #166534;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .print-btn:hover { background: #dcfce7; }
+
+        .content {
+            flex: 1;
+            padding: 30px;
+            overflow-y: auto;
+            scroll-behavior: smooth;
+        }
+
+        .page { display: none; max-width: 850px; margin: 0 auto; animation: fadeIn 0.3s ease-out; }
+        .page.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        .badge {
+            display: inline-block;
+            padding: 6px 14px;
+            background: var(--primary-light);
+            color: var(--primary);
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        h2.title { margin-top: 0; color: #1e293b; font-size: 1.6em; }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .card h3 {
+            color: var(--primary);
+            margin-top: 0;
+            font-size: 1.15em;
+            border-bottom: 2px solid var(--primary-light);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .problem-text { font-style: italic; color: var(--text-muted); border-left: 3px solid var(--border-color); padding-left: 15px; }
+
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        th, td { border: 1px solid var(--border-color); padding: 12px; text-align: left; vertical-align: top; }
+        th { background: var(--bg-color); font-weight: 600; width: 50%; }
+
+        .math-block {
+            background: var(--bg-color);
+            padding: 15px;
+            border-left: 4px solid var(--primary);
+            border-radius: 4px;
+            margin: 15px 0;
+            overflow-x: auto;
+        }
+
+        .callout { padding: 16px; border-left: 4px solid; border-radius: 0 8px 8px 0; margin: 20px 0; }
+        .callout.misc { background: var(--misc-bg); border-color: var(--misc-border); }
+        .callout.real { background: var(--real-bg); border-color: var(--real-border); }
+        .callout h4 { margin: 0 0 8px 0; font-size: 1em; display: flex; align-items: center; gap: 8px; }
+
+        @media (max-width: 768px) {
+            body { flex-direction: column; }
+            .sidebar { width: 100%; border-right: none; border-bottom: 1px solid var(--border-color); flex-direction: row; flex-wrap: nowrap; overflow-x: auto; height: auto; padding: 10px; z-index: 100; box-sizing: border-box;}
+            .sidebar h2 { display: none; }
+            .nav-btn { flex: 0 0 auto; white-space: nowrap; font-size: 0.9em; padding: 8px 12px;}
+            .print-btn { margin-top: 0; }
+            .content { padding: 15px; }
+        }
+
+        @media print {
+            .sidebar { display: none; }
+            .content { padding: 0; overflow: visible; }
+            .page { display: block !important; margin-bottom: 40px; page-break-after: always; }
+            .card { box-shadow: none; border: 1px solid #000; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <h2>Navigasi Soal</h2>
+        <button id="btn1" class="nav-btn active" onclick="showTab(1)">Soal 1</button>
+        <button id="btn2" class="nav-btn" onclick="showTab(2)">Soal 2</button>
+        <button id="btn3" class="nav-btn" onclick="showTab(3)">Soal 3</button>
+        <button id="btn4" class="nav-btn" onclick="showTab(4)">Soal 4</button>
+        <button id="btn5" class="nav-btn" onclick="showTab(5)">Soal 5</button>
+        <button id="btn6" class="nav-btn" onclick="showTab(6)">Soal 6</button>
+        <button id="btn7" class="nav-btn" onclick="showTab(7)">Soal 7</button>
+        <button id="btn8" class="nav-btn" onclick="showTab(8)">Soal 8</button>
+        <button id="btn9" class="nav-btn" onclick="showTab(9)">Soal 9</button>
+        <button id="btn10" class="nav-btn" onclick="showTab(10)">Soal 10</button>
+        <button class="nav-btn print-btn" onclick="window.print()">🖨️ Cetak Pembahasan</button>
+    </div>
+
+    <div class="content">
+        
+        <div id="q1" class="page active">
+            <span class="badge">Kinematika Gerak Lurus 1D</span>
+            <h2 class="title">Analisis Perjalanan Bus Jemaah Haji</h2>
+            
+            <div class="card">
+                <p class="problem-text">"Bus jemaah haji mengangkut rombongan dari Makkah menuju Mina sejauh 4 km. Berangkat diam, akselerasi $2\text{ m/s}^2$ (10 s), lalu konstan, lalu direm $4\text{ m/s}^2$ hingga berhenti. Berapa total waktu?"</p>
+            </div>
+
+            <div class="card">
+                <h3>🔍 1. Identifikasi Masalah</h3>
+                <table>
+                    <tr><th>Diketahui</th><th>Ditanyakan</th></tr>
+                    <tr>
+                        <td>
+                            • Jarak Total ($s_{tot}$) = $4\text{ km} = 4000\text{ m}$<br>
+                            • <strong>Fase 1 (Naik):</strong> $v_0 = 0, a_1 = 2\text{ m/s}^2, t_1 = 10\text{ s}$<br>
+                            • <strong>Fase 2 (Konstan):</strong> $v = \text{konstan}, a_2 = 0$<br>
+                            • <strong>Fase 3 (Turun):</strong> $a_3 = -4\text{ m/s}^2, v_t = 0$
+                        </td>
+                        <td>Total waktu perjalanan ($t_{tot} = t_1 + t_2 + t_3$)?</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="card">
+                <h3>💡 2. Konsep Fisika & Landasan Teori</h3>
+                <p>Gerak ini merupakan kombinasi dari <strong>GLBB (Gerak Lurus Berubah Beraturan)</strong> dan <strong>GLB (Gerak Lurus Beraturan)</strong>. Total jarak lintasan adalah jumlahan luas di bawah kurva grafik Kecepatan terhadap Waktu (Grafik $v-t$).</p>
+            </div>
+
+            <div class="card">
+                <h3>📝 3. Langkah Penyelesaian</h3>
+                <p><strong>Langkah 1: Analisis Fase 1 (Dipercepat)</strong></p>
+                <p>Hitung kecepatan puncak dan jarak tempuh fase pertama:</p>
+                <div class="math-block">
+                    $$ v_{maks} = v_0 + a_1 t_1 = 0 + (2)(10) = 20 \text{ m/s} $$
+                    $$ s_1 = v_0 t_1 + \frac{1}{2} a_1 t_1^2 = 0 + \frac{1}{2}(2)(10)^2 = 100 \text{ m} $$
+                </div>
+
+                <p><strong>Langkah 2: Analisis Fase 3 (Diperlambat)</strong></p>
+                <p>Bus direm dari $20\text{ m/s}$ hingga berhenti ($0\text{ m/s}$). Waktu dan jarak tempuh:</p>
+                <div class="math-block">
+                    $$ v_t = v_{maks} + a_3 t_3 \Rightarrow 0 = 20 + (-4)t_3 \Rightarrow t_3 = 5 \text{ s} $$
+                    $$ s_3 = \frac{v_t^2 - v_{maks}^2}{2 a_3} = \frac{0 - 20^2}{2(-4)} = \frac{-400}{-8} = 50 \text{ m} $$
+                </div>
+
+                <p><strong>Langkah 3: Analisis Fase 2 (GLB)</strong></p>
+                <p>Jarak tersisa dilalui dengan kecepatan konstan $20\text{ m/s}$.</p>
+                <div class="math-block">
+                    $$ s_2 = s_{tot} - (s_1 + s_3) = 4000 - (100 + 50) = 3850 \text{ m} $$
+                    $$ t_2 = \frac{s_2}{v_{maks}} = \frac{3850}{20} = 192.5 \text{ s} $$
+                </div>
+
+                <p><strong>Langkah 4: Waktu Total</strong></p>
+                <div class="math-block">
+                    $$ t_{tot} = t_1 + t_2 + t_3 = 10 + 192.5 + 5 = 207.5 \text{ s} $$
+                </div>
+                <p><strong>Jawaban: C. 207,5 s</strong></p>
+            </div>
+
+            <div class="card">
+                <h3>🔬 4. Verifikasi & Bedah Mendalam</h3>
+                <div class="callout misc">
+                    <h4>⚠️ Miskonsepsi Umum</h4>
+                    Siswa sering salah menghitung waktu pada fase GLB dengan menggunakan jarak total 4000 m ($t = 4000/20 = 200$ s). Padahal, 4000 m adalah jarak total, bukan jarak GLB saja. Ingat selalu hukum superposisi jarak: $s_{tot} = s_1 + s_2 + s_3$.
+                </div>
+            </div>
+        </div>
+
+        <div id="q2" class="page">
+            <span class="badge">Gerak Parabola (Proyektil)</span>
+            <h2 class="title">Lintasan Batu saat Melontar Jumrah</h2>
+            
+            <div class="card">
+                <p class="problem-text">"Kerikil dilempar dengan sudut elevasi $37^\circ$ dari ketinggian 1,2 m. $v_0 = 10\text{ m/s}$. Dinding target berada 8 m di depan. Ketinggian mengenai dinding?"</p>
+            </div>
+
+            <div class="card">
+                <h3>🔍 1. Identifikasi Masalah</h3>
+                <table>
+                    <tr><th>Diketahui</th><th>Ditanyakan</th></tr>
+                    <tr>
+                        <td>
+                            • $v_0 = 10\text{ m/s}$, $\theta = 37^\circ$ ($\sin=0.6, \cos=0.8$)<br>
+                            • Ketinggian awal ($h_0$) = $1.2\text{ m}$<br>
+                            • Jarak mendatar dinding ($x$) = $8\text{ m}$<br>
+                            • $g = 10\text{ m/s}^2$
+                        </td>
+                        <td>Ketinggian tumbukan kerikil di dinding ($h_{total}$) diukur dari tanah?</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="card">
+                <h3>💡 2. Konsep Fisika & Landasan Teori</h3>
+                <p>Gerak parabola memisahkan dua sumbu independen: sumbu X yang tidak memiliki percepatan (GLB) dan sumbu Y yang dipengaruhi percepatan gravitasi bumi ke bawah (GLBB).</p>
+            </div>
+
+            <div class="card">
+                <h3>📝 3. Langkah Penyelesaian</h3>
+                <p><strong>Langkah 1: Dekomposisi Vektor Kecepatan Awal</strong></p>
+                <div class="math-block">
+                    $$ v_{0x} = v_0 \cos 37^\circ = 10 \times 0.8 = 8 \text{ m/s} $$
+                    $$ v_{0y} = v_0 \sin 37^\circ = 10 \times 0.6 = 6 \text{ m/s} $$
+                </div>
+
+                <p><strong>Langkah 2: Cari Waktu ke Dinding (Sumbu X)</strong></p>
+                <div class="math-block">
+                    $$ x = v_{0x} \cdot t \Rightarrow 8 = 8 \cdot t \Rightarrow t = 1 \text{ s} $$
+                </div>
+
+                <p><strong>Langkah 3: Hitung Perubahan Ketinggian (Sumbu Y)</strong></p>
+                <div class="math-block">
+                    $$ \Delta y = v_{0y} t - \frac{1}{2} g t^2 $$
+                    $$ \Delta y = (6)(1) - \frac{1}{2}(10)(1)^2 = 6 - 5 = 1 \text{ m} $$
+                </div>
+
+                <p><strong>Langkah 4: Tinggi Total dari Tanah</strong></p>
+                <div class="math-block">
+                    $$ h_{tot} = h_0 + \Delta y = 1.2 \text{ m} + 1.0 \text{ m} = 2.2 \text{ m} $$
+                </div>
+                <p><strong>Jawaban: C. 2,2 m</strong></p>
+            </div>
+
+            <div class="card">
+                <h3>🔬 4. Verifikasi & Bedah Mendalam</h3>
+                <div class="callout real">
+                    <h4>🚀 Cara Cepat (Fast-Track)</h4>
+                    Gunakan <em>Persamaan Lintasan Parabola</em> tanpa harus mencari waktu $t$:
+                    $$ y = x \tan \theta - \frac{g x^2}{2 v_0^2 \cos^2 \theta} $$
+                    $$ y = 8(\frac{3}{4}) - \frac{10(64)}{2(100)(0.64)} = 6 - \frac{640}{128} = 6 - 5 = 1 \text{ m} $$
+                    Tambahkan $h_0 = 1.2$, didapat $2.2\text{ m}$. Cepat dan elegan!
+                </div>
+            </div>
+        </div>
+
+        <div id="q3" class="page">
+            <span class="badge">Kinematika 2D</span>
+            <h2 class="title">Gerak Jatuh Bebas Horizontal dari Drone</h2>
+            
+            <div class="card">
+                <p class="problem-text">"Drone terbang mendatar konstan 15 m/s, tinggi 45 m, menjatuhkan komponen. Manakah pernyataan yang BENAR?"</p>
+            </div>
+
+            <div class="card">
+                <h3>🔍 1. Identifikasi Masalah</h3>
+                <table>
+                    <tr><th>Diketahui</th><th>Ditanyakan</th></tr>
+                    <tr>
+                        <td>
+                            • $v_{0x} = 15\text{ m/s}$ (kecepatan awal drone mendatar)<br>
+                            • $v_{0y} = 0\text{ m/s}$ (benda dilepas, tidak dilempar vertikal)<br>
+                            • $h = 45\text{ m}$<br>
+                            • $g = 10\text{ m/s}^2$
+                        </td>
+                        <td>Menganalisis 5 pernyataan mana saja yang bernilai BENAR.</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="card">
+                <h3>💡 2. Langkah Penyelesaian & Analisis Opsi</h3>
+                
+                <p><strong>Analisis Opsi 1: Waktu tempuh (Benar)</strong></p>
+                <div class="math-block">
+                    Gerak vertikal adalah jatuh bebas: $h = \frac{1}{2}gt^2 \Rightarrow 45 = 5t^2 \Rightarrow t^2 = 9 \Rightarrow t = 3 \text{ s}.$
+                </div>
+
+                <p><strong>Analisis Opsi 2: Jarak Mendatar (Benar)</strong></p>
+                <div class="math-block">
+                    $$ X = v_{0x} \cdot t = 15 \times 3 = 45 \text{ m}. $$
+                </div>
+
+                <p><strong>Analisis Opsi 3: Kecepatan Vertikal Saat Menyentuh Tanah (Benar)</strong></p>
+                <div class="math-block">
+                    $$ v_y = v_{0y} + gt = 0 + 10(3) = 30 \text{ m/s}. $$
+                </div>
+
+                <p><strong>Analisis Opsi 4: Kecepatan Total (Salah)</strong></p>
+                <div class="math-block">
+                    Kecepatan total adalah resultan vektor: 
+                    $$ v = \sqrt{v_x^2 + v_y^2} = \sqrt{15^2 + 30^2} = \sqrt{225 + 900} = \sqrt{1125} = 15\sqrt{5} \text{ m/s} \approx 33.5 \text{ m/s} \neq 45\text{ m/s}. $$
+                </div>
+
+                <p><strong>Analisis Opsi 5: Percepatan Total (Salah)</strong></p>
+                <div class="math-block">
+                    Walaupun gerak awal mendatar, percepatan benda yang melayang 100% didikte oleh gravitasi. Sehingga $a_{tot} = g = 10 \text{ m/s}^2$ ke bawah, <strong>bukan nol</strong>.
+                </div>
+                
+                <p><strong>Kesimpulan:</strong> Pernyataan yang benar adalah kotak 1, 2, dan 3.</p>
+            </div>
+
+            <div class="card">
+                <h3>🔬 3. Verifikasi & Bedah Mendalam</h3>
+                <div class="callout misc">
+                    <h4>⚠️ Kesalahan Vektor</h4>
+                    Miskonsepsi terbesar adalah menjumlahkan kecepatan secara aljabar linier ($15 + 30 = 45\text{ m/s}$). Fisika mensyaratkan sumbu X tegak lurus sumbu Y, sehingga harus menggunakan Teorema Pythagoras untuk resultan!
+                </div>
+            </div>
+        </div>
+
+        <div id="q4" class="page">
+            <span class="badge">Dinamika Gerak Melingkar</span>
+            <h2 class="title">Gaya Sentripetal pada Tawaf</h2>
+            
+            <div class="card">
+                <p class="problem-text">"Jemaah 70 kg, radius 15 m, lantai memiliki $\mu_s = 0,24$. Kelajuan linier maksimum agar tidak tergelincir?"</p>
+            </div>
+
+            <div class="card">
+                <h3>🔍 1. Identifikasi Masalah & Teori</h3>
+                <p>Agar jemaah bisa berbelok di lintasan melingkar tanpa terpeleset keluar, harus ada gaya sentripetal yang menarik pusat massa ke dalam lingkaran. Satu-satunya agen gaya horizontal di sini adalah <strong>Gaya Gesek Statis Maksimum</strong> antara lantai dan alas kaki.</p>
+                <div class="math-block">
+                    Syarat tidak tergelincir: $ f_{s(maks)} = F_{sentripetal} $
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>📝 2. Langkah Penyelesaian</h3>
+                <div class="math-block">
+                    $$ \mu_s \cdot N = m \cdot \frac{v^2}{R} $$
+                </div>
+                <p>Karena lantai mendatar rata, Gaya Normal ($N$) sama dengan berat ($m \cdot g$):</p>
+                <div class="math-block">
+                    $$ \mu_s \cdot m \cdot g = m \cdot \frac{v^2}{R} $$
+                </div>
+                <p>Massa $m$ saling meniadakan di kedua ruas (membuktikan kelajuan maksimal tidak bergantung pada bobot jemaah):</p>
+                <div class="math-block">
+                    $$ v_{maks} = \sqrt{\mu_s \cdot g \cdot R} $$
+                    $$ v_{maks} = \sqrt{0.24 \cdot 10 \cdot 15} = \sqrt{36} = 6 \text{ m/s} $$
+                </div>
+                <p><strong>Jawaban: D. $6\text{ m/s}$</strong></p>
+            </div>
+        </div>
+
+        <div id="q5" class="page">
+            <span class="badge">Hukum Newton (Kerangka Non-Inersia)</span>
+            <h2 class="title">Berat Semu Jemaah di dalam Lift</h2>
+            
+            <div class="card">
+                <p class="problem-text">"Jemaah 80 kg naik lift yang dipercepat $2\text{ m/s}^2$ ke atas. Rasio berat semu saat dipercepat dengan berat aslinya?"</p>
+            </div>
+
+            <div class="card">
+                <h3>🔍 1. Konsep Gaya Fiktif & Hukum II Newton</h3>
+                <p>Saat lift dipercepat ke <strong>atas</strong>, lantai lift mendesak kaki jemaah dengan gaya lebih kuat untuk melawan inersia jemaah. Kita sebut tekanan kaki ke lantai ini sebagai "Berat Semu" ($N$).</p>
+            </div>
+
+            <div class="card">
+                <h3>📝 2. Langkah Penyelesaian</h3>
+                <p>Terapkan Hukum II Newton pada pengamat inersial ($\Sigma F = m a$):</p>
+                <div class="math-block">
+                    $$ N - W_{asli} = m \cdot a $$
+                    $$ N = W_{asli} + m \cdot a = m \cdot g + m \cdot a = m(g+a) $$
+                </div>
+                <p>Hitung Rasio $\frac{Berat\ Semu}{Berat\ Asli}$:</p>
+                <div class="math-block">
+                    $$ \text{Rasio} = \frac{N}{W_{asli}} = \frac{m(g+a)}{mg} = \frac{g+a}{g} $$
+                    $$ \text{Rasio} = \frac{10 + 2}{10} = \frac{12}{10} = 1.2 $$
+                </div>
+                <p><strong>Jawaban: C. 1,2</strong></p>
+            </div>
+            
+            <div class="card">
+                <h3>🔬 3. Verifikasi & Bedah Mendalam</h3>
+                <div class="callout real">
+                    <h4>🌍 Aplikasi Nyata</h4>
+                    Ini adalah alasan persis mengapa perut/kaki Anda terasa "tertekan ke bawah" saat lift mulai melesat naik, dan terasa melayang sesaat ketika lift direm saat sampai di lantai tujuan!
+                </div>
+            </div>
+        </div>
+
+        <div id="q6" class="page">
+            <span class="badge">Dinamika (Kerangka Non-Inersia)</span>
+            <h2 class="title">Bandul Tasbih di Kereta Cepat Haramain</h2>
+            
+            <div class="card">
+                <p class="problem-text">"Tasbih digantung di kereta yang berakselerasi $a$ mendatar. Analisis kebenaran 3 pernyataan!"</p>
+            </div>
+
+            <div class="card">
+                <h3>🔍 1. Analisis Fisika</h3>
+                <p>Sistem ini merupakan manifestasi klasik dari <em>Prinsip D'Alembert</em>. Dalam kerangka kereta yang dipercepat (non-inersial) ke depan, seluruh objek di dalam kereta "merasakan" gaya fiktif ($F_f = -m\cdot a$) yang arahnya ke belakang.</p>
+            </div>
+
+            <div class="card">
+                <h3>📝 2. Evaluasi Pernyataan</h3>
+                <p><strong>Pernyataan 1: Menyimpang ke arah belakang (Benar)</strong><br>
+                Gaya fiktif $ma$ bekerja ke belakang searah dengan vektor $-a$, menyebabkan tasbih terseret ke belakang.</p>
+                
+                <p><strong>Pernyataan 2: Sudut simpangan bergantung massa (Salah)</strong></p>
+                <div class="math-block">
+                    Kesetimbangan fiktif: <br>
+                    $\Sigma F_x = 0 \Rightarrow T \sin\theta = ma$<br>
+                    $\Sigma F_y = 0 \Rightarrow T \cos\theta = mg$<br>
+                    Bagi kedua persamaan: $\tan\theta = \frac{ma}{mg} = \frac{a}{g}$. (Massa coret habis! Sudut independen thd massa).
+                </div>
+
+                <p><strong>Pernyataan 3: Tegangan tali bertambah (Benar)</strong></p>
+                <div class="math-block">
+                    Dari pengkuadratan persamaan di atas: $T = \sqrt{(ma)^2 + (mg)^2}$.<br>
+                    Ini secara definitif lebih besar dibandingkan tegangan statis ($T=mg$) saat diam.
+                </div>
+            </div>
+        </div>
+
+        <div id="q7" class="page">
+            <span class="badge">Kinematika (Sumbu Termodifikasi)</span>
+            <h2 class="title">Lontaran Logistik di Bidang Miring</h2>
+            
+            <div class="card">
+                <p class="problem-text">"Lereng miring $30^\circ$ dari horizontal. Pelontar disetel $60^\circ$ elevasi dari horizontal, $v_0=20\text{ m/s}$. Gesekan abai. Manakah pernyataan yang BENAR?"</p>
+            </div>
+
+            <div class="card">
+                <h3>🔍 1. Transformasi Sistem Koordinat</h3>
+                <p>Daripada menggunakan X, Y horizontal vertikal, kita memutar sumbu: X' sejajar lereng, Y' tegak lurus lereng.<br>
+                • Sudut miring lereng: $\alpha = 30^\circ$<br>
+                • Sudut lemparan total = $60^\circ \rightarrow$ Sudut lemparan thd lereng $\theta = 60^\circ - 30^\circ = 30^\circ$.<br>
+                • Percepatan Termodifikasi: $g_{x'} = g \sin 30^\circ = 5 \text{ m/s}^2$ (turun lereng). $g_{y'} = g \cos 30^\circ = 5\sqrt{3} \text{ m/s}^2$.</p>
+            </div>
+
+            <div class="card">
+                <h3>📝 2. Evaluasi Pernyataan Step-by-Step</h3>
+                
+                <p><strong>1. Waktu Tempuh Melayang (Benar)</strong></p>
+                <div class="math-block">
+                    $v_{0y'} = 20 \sin 30^\circ = 10\text{ m/s}$.<br>
+                    Waktu tempuh $T = \frac{2 v_{0y'}}{g_{y'}} = \frac{2(10)}{5\sqrt{3}} = \frac{4}{\sqrt{3}} = \frac{4}{3}\sqrt{3}\text{ s}.$
+                </div>
+
+                <p><strong>2. Jarak Terjauh Miring (Benar)</strong></p>
+                <div class="math-block">
+                    $v_{0x'} = 20 \cos 30^\circ = 10\sqrt{3}\text{ m/s}$.<br>
+                    $R = v_{0x'} \cdot T - \frac{1}{2}g_{x'} T^2$<br>
+                    $R = 10\sqrt{3} \cdot (\frac{4}{\sqrt{3}}) - \frac{1}{2}(5)(\frac{16}{3}) = 40 - \frac{40}{3} = \frac{80}{3}\text{ m}.$
+                </div>
+
+                <p><strong>3. Tinggi Maksimum Tegak Lurus Permukaan (Salah)</strong></p>
+                <div class="math-block">
+                    $H = \frac{v_{0y'}^2}{2 g_{y'}} = \frac{100}{2(5\sqrt{3})} = \frac{10}{\sqrt{3}} \approx 5.77\text{ m}$. (Bukan 5 m).
+                </div>
+
+                <p><strong>4. Komponen Percepatan Sejajar Lereng Nol (Salah)</strong><br>
+                Jelas salah, percepatan sejajar lereng adalah komponen dari gravitasi yaitu $g \sin 30^\circ = 5\text{ m/s}^2$.</p>
+                
+                <p><strong>5. Sudut Peluncuran Awal Relatif thd Lereng (Benar)</strong><br>
+                $60^\circ - 30^\circ = 30^\circ$.</p>
+                <p><strong>Kesimpulan: Pernyataan 1, 2, 5 Benar.</strong></p>
+            </div>
+        </div>
+
+        <div id="q8" class="page">
+            <span class="badge">Usaha & Energi</span>
+            <h2 class="title">Daya Pompa Tenaga Surya</h2>
+            
+            <div class="card">
+                <p class="problem-text">"Air ditarik dari kedalaman 15 m ke tangki 5 m di atas tanah. Volume 1200 liter per 10 menit. Efisiensi 80%. Daya listrik rata-rata (input)?"</p>
+            </div>
+
+            <div class="card">
+                <h3>🔍 1. Identifikasi Masalah</h3>
+                <table>
+                    <tr><th>Diketahui</th><th>Ditanyakan</th></tr>
+                    <tr>
+                        <td>
+                            • Ketinggian total angkat $h = 15\text{ m} (\text{bawah}) + 5\text{ m} (\text{atas}) = 20\text{ m}$<br>
+                            • Massa air $m = \rho \cdot V = 1000 \cdot (1200 \times 10^{-3}) = 1200\text{ kg}$<br>
+                            • Waktu $t = 10\text{ menit} = 600\text{ s}$<br>
+                            • Efisiensi $\eta = 80\% = 0.8$
+                        </td>
+                        <td>Daya Listrik Input dari Panel ($P_{in}$)?</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="card">
+                <h3>📝 2. Langkah Penyelesaian</h3>
+                <p><strong>Langkah 1: Hitung Daya Keluaran Mekanis ($P_{out}$)</strong></p>
+                <p>Daya keluaran adalah energi potensial gravitasi (kerja alat) dibagi waktu:</p>
+                <div class="math-block">
+                    $$ P_{out} = \frac{W}{t} = \frac{mgh}{t} $$
+                    $$ P_{out} = \frac{1200 \cdot 10 \cdot 20}{600} = \frac{240000}{600} = 400 \text{ Watt} $$
+                </div>
+
+                <p><strong>Langkah 2: Hitung Daya Input Menggunakan Efisiensi</strong></p>
+                <div class="math-block">
+                    $$ \eta = \frac{P_{out}}{P_{in}} \Rightarrow P_{in} = \frac{P_{out}}{\eta} $$
+                    $$ P_{in} = \frac{400}{0.8} = 500 \text{ Watt} $$
+                </div>
+                <p><strong>Jawaban: C. 500 W</strong></p>
+            </div>
+            
+            <div class="card">
+                <h3>🔬 3. Verifikasi & Bedah Mendalam</h3>
+                <div class="callout misc">
+                    <h4>⚠️ Miskonsepsi</h4>
+                    Banyak siswa terbalik mengalikan daya Output dengan efisiensi. Ingat intuisi dasarnya: Energi awal (listrik/input) PASTI selalu lebih besar dari pada energi akhir (mekanik/output) karena ada rugi-rugi panas (Hukum Termodinamika II).
+                </div>
+            </div>
+        </div>
+
+        <div id="q9" class="page">
+            <span class="badge">Momentum & Impuls</span>
+            <h2 class="title">Uji Kalibrasi Peredam Kejut Helm</h2>
+            
+            <div class="card">
+                <p class="problem-text">"Kepala boneka 4 kg menabrak dinding kelajuan 15 m/s lenting sebagian (e=0,2). Waktu kontak 0,02 s. Gaya impulsif rata-rata?"</p>
+            </div>
+
+            <div class="card">
+                <h3>🔍 1. Konsep Teorema Impuls-Momentum</h3>
+                <p>Gaya impulsif mendadak terjadi karena perubahan drastis momentum saat tumbukan. Arah pantulan memiliki tanda berlawanan dengan arah datang!</p>
+            </div>
+
+            <div class="card">
+                <h3>📝 2. Langkah Penyelesaian</h3>
+                <p><strong>Langkah 1: Hitung Kecepatan Pantul</strong></p>
+                <p>Anggap datang ke dinding positif ($v_1 = +15$). Pantulan harus negatif:</p>
+                <div class="math-block">
+                    $$ v_1' = -e \cdot v_1 = -0.2 \times 15 = -3 \text{ m/s} $$
+                </div>
+
+                <p><strong>Langkah 2: Hitung Perubahan Momentum ($\Delta p$)</strong></p>
+                <div class="math-block">
+                    $$ \Delta p = m (v_1' - v_1) = 4 (-3 - 15) = 4 (-18) = -72 \text{ Ns} $$
+                </div>
+
+                <p><strong>Langkah 3: Hitung Gaya Impulsif ($F$)</strong></p>
+                <div class="math-block">
+                    $$ I = F \cdot \Delta t \Rightarrow F = \frac{\Delta p}{\Delta t} $$
+                    $$ F = \frac{-72}{0.02} = -3600 \text{ N} $$
+                </div>
+                <p>Besar (magnitudo) gaya adalah nilai mutlaknya, yaitu <strong>3600 N</strong>.</p>
+            </div>
+        </div>
+
+        <div id="q10" class="page">
+            <span class="badge">Getaran Harmonis</span>
+            <h2 class="title">Peredam Resonansi (Tuned Mass Damper)</h2>
+            
+            <div class="card">
+                <p class="problem-text">"Sistem TMD bandul matematis, dirancang agar frekuensi alami $f = 0.25\text{ Hz}$. Jika $g=\pi^2\text{ m/s}^2$, panjang tali $L$?"</p>
+            </div>
+
+            <div class="card">
+                <h3>🔍 1. Konsep Resonansi Menara</h3>
+                <p>Untuk menetralkan getaran gempa, frekuensi bandul raksasa (TMD) di atas menara harus dikalibrasi presisi dengan frekuensi alami bangunannya menggunakan persamaan Bandul Matematis.</p>
+            </div>
+
+            <div class="card">
+                <h3>📝 2. Langkah Penyelesaian</h3>
+                <div class="math-block">
+                    Frekuensi bandul: $$ f = \frac{1}{2\pi} \sqrt{\frac{g}{L}} $$
+                </div>
+                <p>Substitusikan nilai $f = 0.25 = \frac{1}{4}$ dan $g = \pi^2$:</p>
+                <div class="math-block">
+                    $$ \frac{1}{4} = \frac{1}{2\pi} \sqrt{\frac{\pi^2}{L}} $$
+                    Akar dari $\pi^2$ bisa ditarik keluar:
+                    $$ \frac{1}{4} = \frac{1}{2\pi} \frac{\pi}{\sqrt{L}} $$
+                    $\pi$ saling coret:
+                    $$ \frac{1}{4} = \frac{1}{2\sqrt{L}} $$
+                    Kali silang:
+                    $$ 2\sqrt{L} = 4 \Rightarrow \sqrt{L} = 2 \Rightarrow L = 2^2 = 4 \text{ m} $$
+                </div>
+                <p><strong>Jawaban: B. 4 m</strong></p>
+            </div>
+
+            <div class="card">
+                <h3>🔬 3. Verifikasi & Bedah Mendalam</h3>
+                <div class="callout real">
+                    <h4>🌍 Aplikasi Nyata (Taipei 101)</h4>
+                    Konsep murni teoritis dari soal ini adalah persis sistem teknologi yang dipakai pada gedung Taipei 101 di Taiwan, di mana bandul emas raksasa digantung agar frekuensi ayunannya meredam ayunan badai topan dan gempa. Massa bandul tidak masuk hitungan frekuensi fisika murni!
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function showTab(num) {
+            // Sembunyikan semua halaman
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            // Hapus status aktif dari semua tombol sidebar
+            document.querySelectorAll('.nav-btn:not(.print-btn)').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Tampilkan halaman & tombol yg diminta
+            document.getElementById('q' + num).classList.add('active');
+            document.getElementById('btn' + num).classList.add('active');
+            
+            // Scroll layar kembali ke atas
+            document.querySelector('.content').scrollTo(0, 0);
+            window.scrollTo(0, 0);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pembahasan Fisika OMI 2026 (11-20) - Oleh Kahfi</title>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        :root {
+            --primary: #0284c7;
+            --primary-light: #e0f2fe;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #334155;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --misc-bg: #fffbeb;
+            --misc-border: #f59e0b;
+            --real-bg: #f0fdf4;
+            --real-border: #22c55e;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .sidebar {
+            width: 260px;
+            background-color: var(--card-bg);
+            border-right: 1px solid var(--border-color);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            overflow-y: auto;
+            box-shadow: var(--shadow);
+            z-index: 10;
+        }
+
+        .sidebar h2 {
+            font-size: 1.1em;
+            color: var(--primary);
+            margin-top: 0;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .nav-btn {
+            padding: 12px 15px;
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: left;
+            font-weight: 600;
+            color: var(--text-main);
+            transition: all 0.2s;
+        }
+
+        .nav-btn:hover { background: var(--primary-light); color: var(--primary); }
+        .nav-btn.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+        
+        .print-btn {
+            margin-top: auto;
+            background: var(--real-bg);
+            border-color: var(--real-border);
+            color: #166534;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .print-btn:hover { background: #dcfce7; }
+
+        .content {
+            flex: 1;
+            padding: 30px;
+            overflow-y: auto;
+            scroll-behavior: smooth;
+        }
+
+        .page { display: none; max-width: 850px; margin: 0 auto; animation: fadeIn 0.3s ease-out; }
+        .page.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        .badge {
+            display: inline-block;
+            padding: 6px 14px;
+            background: var(--primary-light);
+            color: var(--primary);
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        h2.title { margin-top: 0; color: #1e293b; font-size: 1.6em; }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .card h3 {
+            color: var(--primary);
+            margin-top: 0;
+            font-size: 1.15em;
+            border-bottom: 2px solid var(--primary-light);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        .problem-text { font-style: italic; color: var(--text-muted); border-left: 3px solid var(--border-color); padding-left: 15px; }
+
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        th, td { border: 1px solid var(--border-color); padding: 12px; text-align: left; vertical-align: top; }
+        th { background: var(--bg-color); font-weight: 600; width: 50%; }
+
+        .math-block {
+            background: var(--bg-color);
+            padding: 15px;
+            border-left: 4px solid var(--primary);
+            border-radius: 4px;
+            margin: 15px 0;
+            overflow-x: auto;
+        }
+
+        .callout { padding: 16px; border-left: 4px solid; border-radius: 0 8px 8px 0; margin: 20px 0; }
+        .callout.misc { background: var(--misc-bg); border-color: var(--misc-border); }
+        .callout.real { background: var(--real-bg); border-color: var(--real-border); }
+        .callout h4 { margin: 0 0 8px 0; font-size: 1em; }
+
+        @media (max-width: 768px) {
+            body { flex-direction: column; }
+            .sidebar { width: 100%; border-right: none; border-bottom: 1px solid var(--border-color); flex-direction: row; flex-wrap: nowrap; overflow-x: auto; height: auto; padding: 10px; z-index: 100; box-sizing: border-box;}
+            .sidebar h2 { display: none; }
+            .nav-btn { flex: 0 0 auto; white-space: nowrap; font-size: 0.9em; padding: 8px 12px;}
+            .print-btn { margin-top: 0; }
+            .content { padding: 15px; }
+        }
+
+        @media print {
+            .sidebar { display: none; }
+            .content { padding: 0; overflow: visible; }
+            .page { display: block !important; margin-bottom: 40px; page-break-after: always; }
+            .card { box-shadow: none; border: 1px solid #000; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <h2>Navigasi Soal</h2>
+        <button id="btn11" class="nav-btn active" onclick="showTab(11)">Soal 11</button>
+        <button id="btn12" class="nav-btn" onclick="showTab(12)">Soal 12</button>
+        <button id="btn13" class="nav-btn" onclick="showTab(13)">Soal 13</button>
+        <button id="btn14" class="nav-btn" onclick="showTab(14)">Soal 14</button>
+        <button id="btn15" class="nav-btn" onclick="showTab(15)">Soal 15</button>
+        <button id="btn16" class="nav-btn" onclick="showTab(16)">Soal 16</button>
+        <button id="btn17" class="nav-btn" onclick="showTab(17)">Soal 17</button>
+        <button id="btn18" class="nav-btn" onclick="showTab(18)">Soal 18</button>
+        <button id="btn19" class="nav-btn" onclick="showTab(19)">Soal 19</button>
+        <button id="btn20" class="nav-btn" onclick="showTab(20)">Soal 20</button>
+        <button class="nav-btn print-btn" onclick="window.print()">🖨️ Cetak</button>
+    </div>
+
+    <div class="content">
+
+        <!-- ================= SOAL 11 ================= -->
+        <div id="q11" class="page active">
+            <span class="badge">Dinamika Rotasi</span>
+            <h2 class="title">Sistem Otomasi Pintu Masjid</h2>
+            
+            <div class="card">
+                <p class="problem-text">"Pintu bermassa 120 kg dengan lebar 2 m didorong aktuator gaya 90 N di ujungnya. Momen inersia $I=\frac{1}{3}ML^2$. Berapakah percepatan sudut awal pintu?"</p>
+                <table>
+                    <tr><th>Besaran</th><th>Nilai</th></tr>
+                    <tr><td>Massa pintu ($M$)</td><td>120 kg</td></tr>
+                    <tr><td>Lebar pintu / Jarak gaya ($L$)</td><td>2 m</td></tr>
+                    <tr><td>Gaya dorong ($F$)</td><td>90 N (tegak lurus)</td></tr>
+                </table>
+            </div>
+
+            <div class="card">
+                <h3>Analisis & Langkah Penyelesaian</h3>
+                <p>Kita terapkan Hukum II Newton untuk gerak rotasi: $\Sigma \tau = I \cdot \alpha$.</p>
+                
+                <p><strong>1. Hitung Momen Torsi ($\tau$)</strong></p>
+                <div class="math-block">
+                    $$ \tau = F \cdot L = 90 \cdot 2 = 180 \text{ Nm} $$
+                </div>
+                
+                <p><strong>2. Hitung Momen Inersia ($I$)</strong></p>
+                <div class="math-block">
+                    $$ I = \frac{1}{3} M L^2 = \frac{1}{3} (120) (2^2) = 40 \cdot 4 = 160 \text{ kg m}^2 $$
+                </div>
+
+                <p><strong>3. Hitung Percepatan Sudut ($\alpha$)</strong></p>
+                <div class="math-block">
+                    $$ \alpha = \frac{\tau}{I} = \frac{180}{160} = \frac{9}{8} = 1.125 \text{ rad/s}^2 $$
+                </div>
+                
+                <p><strong>Hasil Akhir: B. $1,125\text{ rad/s}^2$</strong></p>
+            </div>
+        </div>
+
+        <!-- ================= SOAL 12 ================= -->
+        <div id="q12" class="page">
+            <span class="badge">Kesetimbangan Benda Tegar</span>
+            <h2 class="title">Papan Perancah (Scaffolding)</h2>
+            
+            <div class="card">
+                <p class="problem-text">"Papan 6m (20kg) ditopang di A (ujung kiri) dan B (1m dari kanan). Orang ke-1 (60kg) 2m dari A. Orang ke-2 (50kg) bergeser dari B."</p>
+            </div>
+
+            <div class="card">
+                <h3>Pemodelan Sistem Statis</h3>
+                <ul>
+                    <li>Titik $x=0$ di A. Titik $x=6$ di ujung kanan. Titik B di $x=5$.</li>
+                    <li>Gaya berat papan $W_p = 200\text{ N}$ bekerja di pusat massa ($x=3$).</li>
+                    <li>Orang 1: $W_1 = 600\text{ N}$ di $x=2$.</li>
+                    <li>Orang 2: $W_2 = 500\text{ N}$ di posisi $x_2$.</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>Evaluasi Pernyataan</h3>
+                
+                <p><strong>Pernyataan 1: Jika orang kedua di ujung kanan ($x=6$), sistem masih seimbang.</strong></p>
+                <div class="math-block">
+                    Syarat belum terguling: Torsi penahan di B ($x=5$) lebih besar dari torsi pengguling.<br>
+                    $\tau_{\text{tahan}} = W_p(5-3) + W_1(5-2) = 200(2) + 600(3) = 400 + 1800 = 2200 \text{ Nm}$.<br>
+                    $\tau_{\text{guling}} = W_2(6-5) = 500(1) = 500 \text{ Nm}$.<br>
+                    Karena $2200 > 500$, papan tidak terguling. <strong>(BENAR)</strong>
+                </div>
+
+                <p><strong>Pernyataan 2: Saat orang kedua di atas penyangga B, reaksi B lebih kecil dari A.</strong></p>
+                <div class="math-block">
+                    Total beban = $200+600+500 = 1300\text{ N}$.<br>
+                    Hitung torsi terhadap A ($\Sigma \tau_A = 0$):<br>
+                    $N_B(5) = W_p(3) + W_1(2) + W_2(5) = 200(3) + 600(2) + 500(5) = 600 + 1200 + 2500 = 4300$<br>
+                    $N_B = 860\text{ N}$. Maka $N_A = 1300 - 860 = 440\text{ N}$.<br>
+                    Kenyataannya $N_B > N_A$. <strong>(SALAH)</strong>
+                </div>
+
+                <p><strong>Pernyataan 3: Semakin orang kedua menjauhi B ke kanan, $N_A$ semakin berkurang.</strong></p>
+                <div class="math-block">
+                    Jika dihitung torsi terhadap B ($\Sigma \tau_B = 0$):<br>
+                    $N_A(5) = 2200 - W_2(x_2 - 5)$.<br>
+                    Jika $x_2$ bertambah (bergeser ke kanan), bagian pengurangan membesar, sehingga nilai $N_A$ pasti mengecil. <strong>(BENAR)</strong>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= SOAL 13 ================= -->
+        <div id="q13" class="page">
+            <span class="badge">Kinematika Vektor / Gerak Relatif</span>
+            <h2 class="title">Kecepatan Arus Laut Relatif terhadap Bumi</h2>
+
+            <div class="card">
+                <h3>Analisis Vektor</h3>
+                <p>Persamaan gerak relatif: $\vec{v}_{kapal-bumi} = \vec{v}_{kapal-air} + \vec{v}_{air-bumi}$</p>
+                <ul>
+                    <li>$\vec{v}_{kapal-air}$ = $8\text{ m/s}$ tepat ke Utara ($8\hat{j}$).</li>
+                    <li>$\vec{v}_{kapal-bumi}$ = $10\text{ m/s}$ pada arah $53^\circ$ dari Timur menuju Utara.<br>
+                        Vektornya: $\vec{v} = 10(\cos 53^\circ \hat{i} + \sin 53^\circ \hat{j}) = 10(0.6\hat{i} + 0.8\hat{j}) = 6\hat{i} + 8\hat{j}$.
+                    </li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>Langkah Penyelesaian</h3>
+                <div class="math-block">
+                    $$ 6\hat{i} + 8\hat{j} = 8\hat{j} + \vec{v}_{air-bumi} $$
+                    $$ \vec{v}_{air-bumi} = 6\hat{i} $$
+                </div>
+                <p>Nilai $6\hat{i}$ berarti arus memiliki kecepatan $6\text{ m/s}$ murni ke arah sumbu-X positif (Timur).</p>
+                <p><strong>Hasil Akhir: A. $6\text{ m/s}$ ke arah Timur</strong></p>
+            </div>
+        </div>
+
+        <!-- ================= SOAL 14 ================= -->
+        <div id="q14" class="page">
+            <span class="badge">Gerak Harmonik Sederhana</span>
+            <h2 class="title">Osilasi Bandul dalam Kerangka Dipercepat</h2>
+
+            <div class="card">
+                <h3>Konsep Gravitasi Efektif ($g'$)</h3>
+                <p>Dalam truk yang berakselerasi ($a = 7.5\text{ m/s}^2$) secara horizontal, resultan percepatan yang dirasakan bandul tidak lagi murni $g$, melainkan perpaduan vektor $g$ dan percepatan fiktif $a$.</p>
+                <div class="math-block">
+                    $$ g' = \sqrt{g^2 + a^2} = \sqrt{10^2 + 7.5^2} = \sqrt{100 + 56.25} = \sqrt{156.25} = 12.5 \text{ m/s}^2 $$
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Perhitungan Periode Baru</h3>
+                <p>Masukkan $g'$ ke dalam rumus periode ayunan matematis ($L = 0.5\text{ m}$):</p>
+                <div class="math-block">
+                    $$ T = 2\pi \sqrt{\frac{L}{g'}} = 2\pi \sqrt{\frac{0.5}{12.5}} = 2\pi \sqrt{\frac{1}{25}} = 2\pi \left(\frac{1}{5}\right) = 0.4\pi \text{ s} $$
+                </div>
+                <p>Karena bentuk akhir diminta $k\pi$ sekon, maka nilai konstanta $k$ adalah <strong>0,4</strong>.</p>
+            </div>
+        </div>
+
+        <!-- ================= SOAL 15 ================= -->
+        <div id="q15" class="page">
+            <span class="badge">Fisika Optik</span>
+            <h2 class="title">Desain Teropong Bintang dari Komponen Mikroskop</h2>
+
+            <div class="card">
+                <h3>Tahap 1: Ekstraksi Data Lensa dari Mikroskop</h3>
+                <p>Fokus objektif $f_{ob} = 10\text{ mm} = 1\text{ cm}$. Benda diletakkan pada $s = 1.1\text{ cm}$.</p>
+                <div class="math-block">
+                    Jarak bayangan objektif ($s'$):<br>
+                    $\frac{1}{s'} = \frac{1}{f} - \frac{1}{s} = \frac{1}{1} - \frac{1}{1.1} = \frac{0.1}{1.1} = \frac{1}{11} \Rightarrow s' = 11\text{ cm}$.<br>
+                    Perbesaran objektif ($M_{ob}$) $= \frac{s'}{s} = \frac{11}{1.1} = 10\times$.
+                </div>
+                <p>Karena total perbesaran mikroskop $50\times$ tanpa akomodasi ($s_n=25$):</p>
+                <div class="math-block">
+                    $M_{tot} = M_{ob} \times M_{ok} \Rightarrow 50 = 10 \times M_{ok} \Rightarrow M_{ok} = 5\times$.<br>
+                    $M_{ok} = \frac{s_n}{f_{ok}} \Rightarrow 5 = \frac{25}{f_{ok}} \Rightarrow f_{ok} = 5\text{ cm}$.
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Tahap 2: Merakit Teropong Bintang</h3>
+                <p>Lensa okuler yang digunakan memiliki fokus $f_{ok} = 5\text{ cm}$. Teropong menghasilkan perbesaran $20\times$ tanpa akomodasi.</p>
+                <div class="math-block">
+                    $M_{teropong} = \frac{f_{ob\_baru}}{f_{ok}} \Rightarrow 20 = \frac{f_{ob\_baru}}{5} \Rightarrow f_{ob\_baru} = 100\text{ cm}$.<br>
+                    Panjang tabung ($d$) tanpa akomodasi $= f_{ob\_baru} + f_{ok} = 100 + 5 = 105\text{ cm}$.
+                </div>
+                <p><strong>Hasil Akhir: C. 105 cm</strong></p>
+            </div>
+        </div>
+
+        <!-- ================= SOAL 16 ================= -->
+        <div id="q16" class="page">
+            <span class="badge">Fisika Optik</span>
+            <h2 class="title">Kacamata Bifokal untuk Presbiopi</h2>
+
+            <div class="card">
+                <h3>Analisis Kondisi Mata</h3>
+                <ul>
+                    <li>Titik dekat mundur ($PP = 50\text{ cm}$) $\rightarrow$ Rabun dekat (butuh lensa konvergen/positif di bagian bawah).</li>
+                    <li>Titik jauh terbatas ($PR = 200\text{ cm}$) $\rightarrow$ Rabun jauh (butuh lensa divergen/negatif di bagian atas).</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>Evaluasi Pernyataan</h3>
+                <p><strong>1. Bagian atas menggunakan lensa divergen -0,5 Dioptri.</strong></p>
+                <div class="math-block">
+                    Kekuatan lensa jauh: $P = -\frac{100}{PR} = -\frac{100}{200} = -0.5 \text{ D}$. <strong>(BENAR)</strong>
+                </div>
+
+                <p><strong>2. Bagian bawah memiliki jarak fokus +50 cm agar baca di 25 cm.</strong></p>
+                <div class="math-block">
+                    $P = \frac{100}{25} - \frac{100}{PP} = 4 - \frac{100}{50} = +2 \text{ D}$.<br>
+                    $f = \frac{100}{P} = \frac{100}{2} = +50 \text{ cm}$. <strong>(BENAR)</strong>
+                </div>
+
+                <p><strong>3. Rabun jauh disebabkan lensa terlalu pipih.</strong><br>
+                <strong>(SALAH)</strong>. Rabun jauh (miopia) biasanya karena bola mata terlalu panjang atau kornea terlalu cembung, bayangan jatuh <em>di depan</em> retina, bukan di belakang.</p>
+
+                <p><strong>4. Lensa negatif membentuk bayangan maya di punctum remotum.</strong><br>
+                <strong>(BENAR)</strong>. Prinsip dasar kacamata rabun jauh adalah menarik objek di tak terhingga ($s=\infty$) agar bayangannya maya ($s'$) jatuh tepat di batas penglihatan pasien ($PR$).</p>
+            </div>
+        </div>
+
+        <!-- ================= SOAL 17 ================= -->
+        <div id="q17" class="page">
+            <span class="badge">Gelombang Bunyi</span>
+            <h2 class="title">Efek Doppler Kereta Api</h2>
+
+            <div class="card">
+                <h3>Perhitungan Frekuensi yang Didengar</h3>
+                <p>Pengamat (petugas) diam ($v_p = 0$). Kedua sumber bergerak mendekati pengamat ($v_s$ bernilai negatif di penyebut).</p>
+                <div class="math-block">
+                    KA Argo ($v_s = 25\text{ m/s}$):<br>
+                    $f_{Argo} = \frac{v}{v - v_s} f_s = \frac{340}{340 - 25} (630) = \frac{340}{315} (630) = 340 \times 2 = 680 \text{ Hz}$. <strong>(Pernyataan 1 BENAR)</strong>
+                </div>
+                <div class="math-block">
+                    KA Bima ($v_s = 40\text{ m/s}$):<br>
+                    $f_{Bima} = \frac{v}{v - v_s} f_s = \frac{340}{340 - 40} (630) = \frac{340}{300} (630) = \frac{34}{30} (630) = 34 \times 21 = 714 \text{ Hz}$.
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Evaluasi Lanjutan</h3>
+                <p><strong>Frekuensi Pelayangan (Beats):</strong></p>
+                <div class="math-block">
+                    $f_{beat} = |f_{Bima} - f_{Argo}| = 714 - 680 = 34 \text{ Hz}$.<br>
+                    Pernyataan menyebutkan 20 Hz, berarti <strong>(SALAH)</strong>.
+                </div>
+                <p><strong>Saat Kereta Menjauh:</strong><br>
+                Ketika menjauh, sumber bunyi bergerak meninggalkan pengamat, efek Doppler mengakibatkan frekuensi terdengar pasti lebih rendah dari frekuensi asli. <strong>(BENAR)</strong></p>
+            </div>
+        </div>
+
+        <!-- ================= SOAL 18 ================= -->
+        <div id="q18" class="page">
+            <span class="badge">Suhu & Kalor</span>
+            <h2 class="title">Konduksi Lapis Logam</h2>
+
+            <div class="card">
+                <h3>Prinsip Keadaan Tunak (Steady State)</h3>
+                <p>Laju aliran kalor (H) yang melewati masing-masing logam adalah sama: $H_A = H_B = H_C$.</p>
+                <div class="math-block">
+                    $\frac{k_A \cdot A \cdot \Delta T_A}{d} = \frac{k_B \cdot A \cdot \Delta T_B}{d} = \frac{k_C \cdot A \cdot \Delta T_C}{d}$<br>
+                    $2k (100 - T_{AB}) = k (T_{AB} - T_{BC}) = 2k (T_{BC} - 20)$
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Langkah Penyelesaian</h3>
+                <p>Dari persamaan ujung ($H_A = H_C$):</p>
+                <div class="math-block">
+                    $2k (100 - T_{AB}) = 2k (T_{BC} - 20)$<br>
+                    $100 - T_{AB} = T_{BC} - 20 \Rightarrow T_{BC} = 120 - T_{AB}$
+                </div>
+                <p>Substitusikan $T_{BC}$ ke persamaan ($H_A = H_B$):</p>
+                <div class="math-block">
+                    $2 (100 - T_{AB}) = 1 (T_{AB} - (120 - T_{AB}))$<br>
+                    $200 - 2 T_{AB} = 2 T_{AB} - 120$<br>
+                    $320 = 4 T_{AB} \Rightarrow T_{AB} = 80^\circ \text{C}$
+                </div>
+                <p><strong>Hasil Akhir: D. $80^\circ\text{C}$</strong></p>
+            </div>
+        </div>
+
+        <!-- ================= SOAL 19 ================= -->
+        <div id="q19" class="page">
+            <span class="badge">Usaha dan Energi</span>
+            <h2 class="title">Lintasan Luncur Balok Uji</h2>
+
+            <div class="card">
+                <h3>Teorema Usaha-Energi Total</h3>
+                <p>Karena balok berawal dari keadaan diam dan berakhir diam, total perubahan energi kinetiknya adalah nol. Seluruh usaha positif dari gravitasi akan dihabiskan oleh usaha negatif dari gaya gesekan.</p>
+                <div class="math-block">
+                    $$ \Sigma W = W_{gravitasi} + W_{gesek\_miring} + W_{gesek\_datar} = 0 $$
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Langkah Penyelesaian</h3>
+                <p>Panjang bidang miring ($s$): $s = \frac{h}{\sin 37^\circ} = \frac{3}{0.6} = 5\text{ m}$.</p>
+                <div class="math-block">
+                    $W_{gravitasi} = mgh = 2 \cdot 10 \cdot 3 = 60\text{ J}$.<br>
+                    $W_{gesek\_miring} = -f_k \cdot s = -(\mu_k \cdot mg \cos 37^\circ) \cdot s = -(0.25 \cdot 20 \cdot 0.8) \cdot 5 = -20\text{ J}$.<br>
+                    $W_{gesek\_datar} = -f_k \cdot x = -(\mu_k \cdot mg) \cdot x = -(0.25 \cdot 20) \cdot x = -5x\text{ J}$.
+                </div>
+                <p>Masukkan ke total usaha:</p>
+                <div class="math-block">
+                    $60 - 20 - 5x = 0 \Rightarrow 5x = 40 \Rightarrow x = 8\text{ m}$.
+                </div>
+                <p><strong>Hasil Akhir: C. 8 m</strong></p>
+            </div>
+        </div>
+
+        <!-- ================= SOAL 20 ================= -->
+        <div id="q20" class="page">
+            <span class="badge">Termodinamika</span>
+            <h2 class="title">Mesin Pendingin AC Inverter</h2>
+
+            <div class="card">
+                <h3>Analisis Koefisien Performansi (KP)</h3>
+                <p>Pertama, hitung suhu absolut: $T_C = 27^\circ\text{C} = 300\text{ K}$ dan $T_H = 47^\circ\text{C} = 320\text{ K}$.</p>
+                <div class="math-block">
+                    $KP_{\text{Carnot}} = \frac{T_C}{T_H - T_C} = \frac{300}{320 - 300} = \frac{300}{20} = 15$.
+                </div>
+                <p>Sistem aktual hanya memiliki 40% kinerja maksimum:</p>
+                <div class="math-block">
+                    $KP_{\text{aktual}} = 0.4 \times 15 = 6$.
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Perhitungan Daya Kompresor</h3>
+                <p>Daya input (usaha kompresor per detik) terkait dengan kalor yang dipindahkan ($Q_c = 18\text{ kW}$):</p>
+                <div class="math-block">
+                    $KP = \frac{Q_c}{W_{in}} \Rightarrow 6 = \frac{18\text{ kW}}{W_{in}}$<br>
+                    $W_{in} = \frac{18}{6} = 3\text{ kW}$.
+                </div>
+                <p><strong>Hasil Akhir: C. 3,0 kW</strong></p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Script Navigasi -->
+    <script>
+        function showTab(num) {
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            document.querySelectorAll('.nav-btn:not(.print-btn)').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            document.getElementById('q' + num).classList.add('active');
+            document.getElementById('btn' + num).classList.add('active');
+            
+            document.querySelector('.content').scrollTo(0, 0);
+            window.scrollTo(0, 0);
+        }
+    </script>
+</body>
+</html>
